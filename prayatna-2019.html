@@ -26,7 +26,8 @@
         color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
       }
       .margin {
-        margin-top: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
       }
       .mdc-tab__text-label, .mdc-tab__ripple, .mdc-tab-indicator{
         --mdc-theme-primary: white;
@@ -63,9 +64,6 @@
       #mdc-image-list__label{
         width: 100%;
       }
-      .margin {
-        margin-top: 2rem;
-      }
       .center90 {
         margin-left: auto;
         margin-right: auto;
@@ -93,7 +91,7 @@
         <div class="mdc-layout-grid__cell ">
             <h1 class="mdc-typography--headline2"><center>Sponsored By</center></h1>
         </div>
-        <ul class="mdc-layout-grid__inner mdc-image-list">
+        <ul class="mdc-layout-grid__inner mdc-image-list margin">
           <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
             <img class="mdc-image-list__image" src="1280px-LIC_Logo.svg.png">
           </li>
@@ -188,7 +186,7 @@
       }
       var Panel = {
         view: function(vnode) {
-          return m('div', {class: 'mdc-layout-grid__inner', role: 'tabpanel'}, vnode.attrs.child);
+          return m('div', {class: 'mdc-layout-grid__inner margin', role: 'tabpanel'}, vnode.attrs.child);
         }
       }
       var eventTabs = [
@@ -280,7 +278,7 @@
               child: m(TabBar, {tabs: eventTabs, id: 'eventTabBar'}),
               span: 4,
             }),
-            m('div', {class: 'margin'}, m(Panel, {child: panelContent[currentPanel]})),
+            m('div', m(Panel, {child: panelContent[currentPanel]})),
           );
         }
       }
@@ -294,7 +292,7 @@
       <div class="mdc-layout-grid__cell">
           <h1 class="mdc-typography--headline2"><center>Contact Us</center></h1>
       </div>
-      <ul class="mdc-layout-grid__inner mdc-image-list" >
+      <ul class="mdc-layout-grid__inner mdc-image-list margin" >
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
