@@ -122,6 +122,7 @@
             currentPage = page;
             drawer.open = false;
         }
+        var ripples = []
         var NavItem = {
             view: function(vnode) {
                 return m('a', {
@@ -132,6 +133,9 @@
                     },
                     vnode.attrs.child
                 );
+            },
+            oncreate: function(vnode) {
+                ripples.push(new mdc.ripple.MDCRipple(vnode.dom));
             }
         }
         var nav = m('nav', {class: 'mdc-list'}, [
@@ -232,7 +236,6 @@
             'mega-event': m('p', 'mega-event'),
             'connexions': m('p', 'connexions'),
         }
-        var ripples = []
         var registrationFab = {
             view: function() {
                 return m('button', {class: 'mdc-fab app-fab--absolute'},
