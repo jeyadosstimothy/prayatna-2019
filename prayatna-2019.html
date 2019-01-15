@@ -182,7 +182,7 @@
       }
       var Cell = {
         view: function(vnode) {
-          return m('div', {class: 'mdc-layout-grid__cell mdc-layout-grid__cell--span-' + (vnode.attrs.span?vnode.attrs.span:3)}, vnode.attrs.child);
+          return m('div', {class: 'mdc-layout-grid__cell mdc-layout-grid__cell--span-' + (vnode.attrs.span?vnode.attrs.span:'3-desktop')}, vnode.attrs.child);
         }
       }
       var Panel = {
@@ -210,6 +210,14 @@
             subtitle: 'Ernst & Young',
             secondary: 'Security in Computers',
             id: 'cyber-security',
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'Artificial Intelligence',
+            subtitle: 'Microsoft',
+            secondary: 'Machine Learning',
+            id: 'artificial-intelligence',
           })
         }),
         m(Cell, {
@@ -294,49 +302,49 @@
           <h1 class="mdc-typography--headline2"><center>Contact Us</center></h1>
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin" >
-        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2 mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
           </div>
         </li>
-        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item" >
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2 mdc-image-list__item" >
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
           </div>
         </li>
-        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2 mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
           </div>
         </li>
-        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2 mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
           </div>
         </li>
-        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2 mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Secratary<br>+91 92768547867<br>email@gmail.com</center></span>
           </div>
         </li>
-        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2 mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Event Organizer<br>+91 92768547867<br>emailid@gmail.com</center></span>
           </div>
         </li>
-        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2 mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Workshop Organizer<br>+91 92768547867<br>email@gmail.com</center></span>
           </div>
         </li>
-        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2 mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Accomodation & Hospitality<br>+91 92768547867<br>gnaighdryfl@gmail.com</center></span>
@@ -344,10 +352,10 @@
         </li>
       </ul>
       <div class="mdc-layout-grid__inner margin">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 center90">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop center90">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.369112328477!2d80.13758015030977!3d12.948216590826457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fac595c29ff%3A0xb76082ae18b51418!2sMadras+Institute+Of+Technology%2C+Anna+University!5e0!3m2!1sen!2sin!4v1547558861807" width="600" height="600" frameborder="0" id="map" class="center90"></iframe>
         </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 center90">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop center90">
           <p class="mdc-typography--body2" text-align="right">Department of Computer Technology,
             <br>Madras Institute of Technology,
             <br>MIT Road, Radha Nagar,
