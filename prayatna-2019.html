@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Prayatna</title>
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
+  <style type="text/css">
+      .mdc-card__media {
+        background-image: url('placeholder.jpg');
+      }
+      .mdc-card__primary, .mdc-card__secondary {
+        padding: 1rem;
+      }
+      .mdc-card__secondary {
+        padding: 0 1rem 8px;
+      }
+      .mdc-card__title, .mdc-card__subtitle {
+        margin: 0;
+      }
+      .mdc-card__subtitle, .mdc-card__secondary {
+        color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
+      }
+      .margin {
+        margin-top: 2rem;
+      }
+      .mdc-tab__text-label, .mdc-tab__ripple, .mdc-tab-indicator{
+        --mdc-theme-primary: white;
+        --mdc-theme-on-surface: white;
+      }
+      .mdc-card__title{
+        color:black;
+      }
+      .section-dark{
+        background-color: black;
+        color: white;
+      }
+      body {
+        margin: 0;
+      }
+      #map {
+        height: 100%;
+        min-height: 300px;
+        background-color: grey;
+      }
+      footer p {
+        color: #5f6368;
+      }
+      a, a:hover, a:active, a:visited {
+        color: black;
+      }
+      #mdc-image-list__image{
+        width:150px;
+        height:150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #mdc-image-list__label{
+        width: 100%;
+      }
+      .margin {
+        margin-top: 2rem;
+      }
+      .center90 {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+      }
+      footer {
+        background-color: #f1f3f4;
+        margin-top: 2rem;
+      }
+  </style>
+
+
+</head>
+
+<body class="mdc-typography">
+  <section>
+    <div>
+      <div class="mdc-layout-grid ">
+        <div class="mdc-layout-grid__cell">
+          <h1 class="mdc-typography--headline2"><center>About Us</center></h1>
+        </div>
+        <div class="mdc-layout-grid__cell">
+          <p class="mdc-typography--body1" align="justify">  The Association of Computer Technologists takes great pride in conducting PRAYATNA, our annual national level inter-college technical festival. PRAYATNA, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. In a nutshell, PRAYATNA is a platform that churns out technical and creative ideas from upcoming engineers by assessing their aptitude in coding, design, entrepreneurial skills and other multi-faceted concepts with special workshops with the help of experts from the industry enhance the participant's knowledge and creative potentials.</p>
+        </div>
+        <div class="mdc-layout-grid__cell ">
+            <h1 class="mdc-typography--headline2"><center>Sponsored By</center></h1>
+        </div>
+        <ul class="mdc-layout-grid__inner mdc-image-list">
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+            <img class="mdc-image-list__image" src="1280px-LIC_Logo.svg.png">
+          </li>
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+            <img class="mdc-image-list__image" src="facebook_2015_logo_detail.png">
+          </li>
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+            <img class="mdc-image-list__image" src="images.png">
+          </li>
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+            <img class="mdc-image-list__image" src="imagesg.png">
+          </li>
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+            <img class="mdc-image-list__image" src="index.png">
+          </li>
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+            <img class="mdc-image-list__image" src="indexa.jpeg">
+          </li>
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+            <img class="mdc-image-list__image" src="indexu.png">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="section-dark">
+    <div class="workshops-events-section"></div>
+    <script type="text/javascript">
+      var Tab = {
+        view: function(vnode) {
+          return m('button', {
+              class: 'mdc-tab' + (vnode.attrs.active?' mdc-tab--active':''),
+              role: 'tab',
+              'aria-selected': (vnode.attrs.active?'true':'false'),
+              tabindex: 0,
+              onclick: vnode.attrs.onclick
+            },
+            [
+              m('span', {class: 'mdc-tab__content'},
+                m('span', {class: 'mdc-tab__text-label'}, vnode.attrs.text),
+              ),
+              m('span', {class: 'mdc-tab-indicator' + (vnode.attrs.active?' mdc-tab-indicator--active':'')},
+                m('span', {class: 'mdc-tab-indicator__content mdc-tab-indicator__content--underline'}),
+              ),
+              m('span', {class: 'mdc-tab__ripple'}),
+            ]
+          );
+        }
+      }
+      var tabBars = {};
+      var TabBar = {
+        view: function(vnode) {
+          return m('nav', {class: 'mdc-tab-bar', role: 'tablist', id: vnode.attrs.id},
+            m('div', {class: 'mdc-tab-scroller'},
+              m('div', {class: 'mdc-tab-scroller__scroll-area'},
+                m('div', {class: 'mdc-tab-scroller__scroll-content'}, vnode.attrs.tabs)
+              )
+            )
+          );
+        },
+        oncreate: function(vnode) {
+          tabBars[vnode.dom.id] = new mdc.tabBar.MDCTabBar(vnode.dom);
+        }
+      }
+      var ripples = []
+      var CardPrimaryAction = {
+        view: function(vnode) {
+          return m('div', {class: 'mdc-card__primary-action', tabindex:"0", onclick: function() {window.location.href = "workshops_events_full.html?id="+vnode.attrs.id;}},
+            m('div', {class: 'mdc-card__media mdc-card__media--16-9'}),
+            m('div', {class: 'mdc-card__primary'},
+              m('h2', {class: 'mdc-card__title mdc-typography--headline6'}, vnode.attrs.title),
+              m('h3', {class: 'mdc-card__subtitle mdc-typography--subtitle2'}, vnode.attrs.subtitle)
+            ),
+            m('div', {class: 'mdc-card__secondary mdc-typography--body2'}, vnode.attrs.secondary)
+          );
+        },
+        oncreate: function(vnode) {
+          ripples.push(new mdc.ripple.MDCRipple(vnode.dom));
+        }
+      }
+      var Card = {
+        view: function(vnode) {
+          return m('div', {class: 'mdc-card mdc-elevation--z4'},
+            m(CardPrimaryAction, {title: vnode.attrs.title, subtitle: vnode.attrs.subtitle, secondary: vnode.attrs.secondary, id: vnode.attrs.id})
+          );
+        }
+      }
+      var Cell = {
+        view: function(vnode) {
+          return m('div', {class: 'mdc-layout-grid__cell mdc-layout-grid__cell--span-' + (vnode.attrs.span?vnode.attrs.span:3)}, vnode.attrs.child);
+        }
+      }
+      var Panel = {
+        view: function(vnode) {
+          return m('div', {class: 'mdc-layout-grid__inner', role: 'tabpanel'}, vnode.attrs.child);
+        }
+      }
+      var eventTabs = [
+        m(Tab, {active: true, text: 'Technical', onclick: function(){currentPanel = 'techEvents'}}),
+        m(Tab, {active: false, text: 'Non Technical', onclick: function(){currentPanel = 'nonTechEvents'}}),
+        m(Tab, {active: false, text: 'Online', onclick: function(){currentPanel = 'onlineEvents'}}),
+      ]
+      var workshops = [
+        m(Cell, {
+          child: m(Card, {
+            title: 'Flutter',
+            subtitle: 'Geeky Ants',
+            secondary: 'Build beautiful apps with Flutter!',
+            id: 'flutter',
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'Cyber Security',
+            subtitle: 'Ernst & Young',
+            secondary: 'Security in Computers',
+            id: 'cyber-security',
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'Artificial Intelligence',
+            subtitle: 'Microsoft',
+            secondary: 'Machine Learning',
+            id: 'artificial-intelligence',
+          })
+        }),
+      ]
+      var techEvents = [
+        m(Cell, {
+          child: m(Card, {
+            title: 'OSPC',
+            subtitle: 'OnSite Programming Contest',
+            id: 'ospc',
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'Paper Presentation',
+            subtitle: 'Present a Paper',
+            id: 'paper-presentation',
+          })
+        }),
+      ]
+      var nonTechEvents = [
+        m(Cell, {
+          child: m(Card, {
+            title: 'Mega Event',
+            subtitle: 'A oneliner about this event',
+            id: 'mega-event',
+          })
+        }),
+      ]
+
+      var onlineEvents = [
+        m(Cell, {
+          child: m(Card, {
+            title: 'Connexions',
+            subtitle: 'A oneliner about this event',
+            id: 'connexions',
+          })
+        }),
+      ]
+      var currentPanel = 'techEvents';
+
+      var panelContent = {
+        'techEvents': techEvents,
+        'nonTechEvents': nonTechEvents,
+        'onlineEvents': onlineEvents
+      }
+      var workshopEventPanel = {
+        view: function() {
+          return m('div', {class: 'mdc-layout-grid'},
+            m(Cell, {
+              child: m('h1', {class: 'mdc-typography--headline2'}, 'Workshops'),
+              span: 4,
+            }),
+            m(Panel, {child: workshops}),
+            m(Cell, {
+              child: m('h1', {class: 'mdc-typography--headline2'}, 'Events'),
+              span: 4,
+            }),
+            m(Cell, {
+              child: m(TabBar, {tabs: eventTabs, id: 'eventTabBar'}),
+              span: 4,
+            }),
+            m('div', {class: 'margin'}, m(Panel, {child: panelContent[currentPanel]})),
+          );
+        }
+      }
+      m.mount(document.querySelector('.workshops-events-section'), workshopEventPanel, {child: panelContent[currentPanel]});
+
+
+    </script>
+  </section>
+  <section>
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__cell">
+          <h1 class="mdc-typography--headline2"><center>Contact Us</center></h1>
+      </div>
+      <ul class="mdc-layout-grid__inner mdc-image-list" >
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+          </div>
+        </li>
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item" >
+          <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+          </div>
+        </li>
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+          </div>
+        </li>
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+          </div>
+        </li>
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Secratary<br>+91 92768547867<br>email@gmail.com</center></span>
+          </div>
+        </li>
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Event Organizer<br>+91 92768547867<br>emailid@gmail.com</center></span>
+          </div>
+        </li>
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Workshop Organizer<br>+91 92768547867<br>email@gmail.com</center></span>
+          </div>
+        </li>
+        <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-image-list__item">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="1-1.jpg" id="mdc-image-list__image">
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Accomodation & Hospitality<br>+91 92768547867<br>gnaighdryfl@gmail.com</center></span>
+          </div>
+        </li>
+      </ul>
+      <div class="mdc-layout-grid__inner margin">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+          <div id="map" class="center90"></div>
+          <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5Y_e3JbIC1F1-CbM0t2jrZjsybkDwaqw&callback=initMap">
+          </script>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 center90">
+          <p class="mdc-typography--body2" text-align="right">Department of Computer Technology,
+            <br>Madras Institute of Technology,
+            <br>MIT Road, Radha Nagar,
+            <br>Chromepet, Chennai,
+            <br>Tamil Nadu - 600044
+          </p>
+
+          <h1 class="mdc-typography--headline5">Drop us a query</h1>
+
+          <form>
+            <div class="mdc-text-field mdc-text-field--fullwidth">
+              <input class="mdc-text-field__input" type="text" name="email" placeholder="Email Address" aria-label="Full-Width Text Field" />
+              <div class="mdc-line-ripple"></div>
+            </div>
+            <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" style="margin-top: 1rem">
+              <textarea id="textarea" class="mdc-text-field__input" rows="4"></textarea>
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="textarea" class="mdc-floating-label">Query</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+            </div>
+            <div style="margin-top: 1rem;">
+              <button class="mdc-button" type="submit" style="display: block; margin-left: auto;">
+                <span class="mdc-button__label">Submit</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <section style="position: relative;">
+          <img src="1-1.jpg" style="width: 75px; height: 75px; margin: 1rem;" />
+          <div style="display: inline-block;position: absolute;vertical-align: middle;height: 100%;">
+            <p class="mdc-typography--body2" style="display: block;margin-top: 1rem">Prayatna 2019<br>
+              Association of Computer Technologists<br>
+              Connect with us!<br>
+              <a href="https://www.facebook.com" style="text-decoration:none;">Facebook</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+              <a href="https://www.instagram.com" style="text-decoration:none;">Instagram</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+              <a href="https://www.whatsapp.com" style="text-decoration:none;">Whatsapp</a>
+            </p>
+          </div>
+      </section>
+    </footer>
+
+
+    <script type="text/javascript">
+      var tfs = document.querySelectorAll('.mdc-text-field');
+      var mdTfs = []
+      for (var i = tfs.length - 1; i >= 0; i--) {
+        mdTfs.push(new mdc.textField.MDCTextField(tfs[i]));
+      }
+    </script>
+  </section>
+</body>
+</html>
+
+
+
+
+

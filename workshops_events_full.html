@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prayatna</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
+    <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
+    <style type="text/css">
+        body {
+          display: flex;
+          height: 100vh;
+          margin: 0;
+        }
+        p {
+            text-align: justify;
+        }
+        .main-content {
+            width: 100%;
+        }
+
+        .center {
+          display: block;
+          margin: auto;
+          width: 60%;
+        }
+        .mdc-drawer .mdc-list {
+            padding-top: 0;
+        }
+        .mdc-drawer .mdc-list-item__text {
+            padding: 2px 16px 2px 32px;
+        }
+        .mdc-drawer .mdc-list-item {
+            border-radius: 0px;
+            margin: 0;
+            padding: 0;
+            color: rgba(0,0,0,.8);
+            cursor: pointer;
+        }
+        .mdc-drawer .mdc-list-group__subheader {
+            padding: 0 16px 8px 16px;
+            font-size: 1rem;
+        }
+        .mdc-drawer__header {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+        .app-fab--absolute {
+          position: fixed;
+          bottom: 1rem;
+          right: 1rem;
+        }
+
+        @media(min-width: 1024px) {
+           .app-fab--absolute {
+            bottom: 1.5rem;
+            right: 1.5rem;
+          }
+        }
+    </style>
+
+</head>
+<body>
+    <div id='root' class='mdc-typography'></div>
+    <script type="text/javascript">
+        function parseURLParams(url) {
+            var queryStart = url.indexOf("?") + 1,
+                queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+                query = url.slice(queryStart, queryEnd - 1),
+                pairs = query.replace(/\+/g, " ").split("&"),
+                parms = {}, i, n, v, nv;
+
+            if (query === url || query === "") return;
+
+            for (i = 0; i < pairs.length; i++) {
+                nv = pairs[i].split("=", 2);
+                n = decodeURIComponent(nv[0]);
+                v = decodeURIComponent(nv[1]);
+
+                if (!parms.hasOwnProperty(n)) parms[n] = [];
+                parms[n].push(nv.length === 2 ? v : null);
+            }
+            return parms;
+        }
+    </script>
+    <script type='text/javascript'>
+        var root = document.getElementById('root');
+        var getPageToShow = function() {
+            var params = parseURLParams(window.location.href);
+            return params.id
+        }
+        var topAppBar;
+        var appBar = {
+            view: function() {
+                return m('header', {class: 'mdc-top-app-bar mdc-elevation--z4', id: 'app-bar'},
+                        m('div', {class: 'mdc-top-app-bar__row'},
+                            m('section', {class: 'mdc-top-app-bar__section mdc-top-app-bar__section--align-start'}, [
+                                m('a', {class: 'material-icons mdc-top-app-bar__navigation-icon', tabindex: '0'}, 'menu'),
+                                m('span', {class: 'mdc-top-app-bar__title'}, 'Workshops and Events')
+                            ]),
+                        )
+                    );
+            },
+            oncreate: function(vnode) {
+                topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(vnode.dom);
+                topAppBar.listen('MDCTopAppBar:nav', () => {
+                  drawer.open = true;
+                });
+            }
+        }
+        var currentPage = getPageToShow();
+        var switchPage = function(page) {
+            currentPage = page;
+            drawer.open = false;
+        }
+        var NavItem = {
+            view: function(vnode) {
+                return m('a', {
+                        class: 'mdc-list-item' + ((currentPage == vnode.attrs.id)?' mdc-list-item--activated':''),
+                        onclick: function() {switchPage(vnode.attrs.id); },
+                        'aria-selected': 'true',
+                        tabindex: '0'
+                    },
+                    vnode.attrs.child
+                );
+            }
+        }
+        var nav = m('nav', {class: 'mdc-list'}, [
+                    m('a', {class: 'mdc-list-item', href: 'prayatna-2019.html', 'aria-selected': 'true', tabindex: '0'}, [
+                        m('h3', {class: 'mdc-list-group__subheader'}, 'Home')
+                    ]),
+                    m('h3', {class: 'mdc-list-group__subheader'}, 'Workshops'),
+                    m(NavItem, {
+                        id: 'flutter',
+                        child: m('span', {class: 'mdc-list-item__text'}, 'Flutter')
+                    }),
+                    m(NavItem, {
+                        id: 'cyber-security',
+                        child: m('span', {class: 'mdc-list-item__text'}, 'Cyber Security')
+                    }),
+                    m(NavItem, {
+                        id: 'artificial-intelligence',
+                        child: m('span', {class: 'mdc-list-item__text'}, 'Artificial Intelligence')
+                    }),
+                    m('h3', {class: 'mdc-list-group__subheader'}, 'Technical Events'),
+                    m(NavItem, {
+                        id: 'ospc',
+                        child: m('span', {class: 'mdc-list-item__text'}, 'OSPC')
+                    }),
+                    m(NavItem, {
+                        id: 'paper-presentation',
+                        child: m('span', {class: 'mdc-list-item__text'}, 'Paper Presentation')
+                    }),
+                    m('h3', {class: 'mdc-list-group__subheader'}, 'Non Technical Events'),
+                    m(NavItem, {
+                        id: 'mega-event',
+                        child: m('span', {class: 'mdc-list-item__text'}, 'Mega Event')
+                    }),
+                    m('h3', {class: 'mdc-list-group__subheader'}, 'Online Events'),
+                    m(NavItem, {
+                        id: 'connexions',
+                        child: m('span', {class: 'mdc-list-item__text'}, 'Connexions')
+                    }),
+                ]);
+
+        var drawer;
+        var appDrawer = {
+            view: function() {
+                return m('aside', {class: 'mdc-drawer mdc-drawer--modal'}, [
+                        m('div', {class: 'mdc-drawer__header', style: 'position:relative'}, [
+                            m('img', {src: '1-1.jpg', style: 'width: 50px; height: 50px;'}),
+                            m('h3', {class: 'mdc-drawer__title', style: 'display: inline-block;position: absolute;margin-left: 1rem'}, "Prayatna '19")
+                        ]),
+                        m('div', {class: 'mdc-drawer__content'},
+                            nav
+                        )
+                    ]);
+            },
+            oncreate: function(vnode) {
+                drawer = mdc.drawer.MDCDrawer.attachTo(vnode.dom);
+            }
+        }
+        var contents = {
+            'flutter': m('div', [
+                m('h1', {class: 'mdc-typography--headline2'}, 'Flutter Workshop'),
+                m('p', {class: 'mdc-typography--body1'},
+                    `Flutter allows you to build beautiful native apps on iOS and Android from a single codebase. Delight your users with Flutter's built-in beautiful Material Design and Cupertino (iOS-flavor) widgets, rich motion APIs, smooth natural scrolling, and platform awareness. Flutter's widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android. Flutter's hot reload helps you quickly and easily experiment, build UIs, add features, and fix bugs faster. Experience sub-second reload times, without losing state, on emulators, simulators, and hardware for iOS and Android.`),
+                m('h1', {class: 'mdc-typography--headline6'}, 'Time and Date: 9am - 5pm on March 8'),
+                m('h1', {class: 'mdc-typography--headline6'}, 'Registration Amount: Rs. 599'),
+                m('h1', {class: 'mdc-typography--headline4'}, 'Objectives'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'Learn about Material Design Components'),
+                    m('li', 'Learn about Dart and Flutter widgets'),
+                    m('li', 'Build a sample app'),
+                    m('li', 'Explore Dart packages for Flutter'),
+                ),
+                m('h1', {class: 'mdc-typography--headline4'}, 'Speakers'),
+                m('h1', {class: 'mdc-typography--headline5'}, 'Ruchika Gupta, Geeky Ants'),
+                m('p', {class: 'mdc-typography--body1'},
+                    `Flutter allows you to build beautiful native apps on iOS and Android from a single codebase. Delight your users with Flutter's built-in beautiful Material Design and Cupertino (iOS-flavor) widgets, rich motion APIs, smooth natural scrolling, and platform awareness. Flutter's widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android. Flutter's hot reload helps you quickly and easily experiment, build UIs, add features, and fix bugs faster. Experience sub-second reload times, without losing state, on emulators, simulators, and hardware for iOS and Android.`),
+                m('h1', {class: 'mdc-typography--headline4'}, 'Note'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'Participants have to bring their own laptop'),
+                    m('li', 'Registration is provided on first come first serve basis'),
+                    m('li', 'For any queries, contact Praveen Siva: 9876543210')
+                ),
+            ]),
+            'cyber-security': m('p', 'cyber-security'),
+            'artificial-intelligence': m('p', 'artificial-intelligence'),
+            'ospc': m('div', [
+                m('h1', {class: 'mdc-typography--headline2'}, 'OSPC'),
+                m('p', {class: 'mdc-typography--body1'},
+                    `Flutter allows you to build beautiful native apps on iOS and Android from a single codebase. Delight your users with Flutter's built-in beautiful Material Design and Cupertino (iOS-flavor) widgets, rich motion APIs, smooth natural scrolling, and platform awareness. Flutter's widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android. Flutter's hot reload helps you quickly and easily experiment, build UIs, add features, and fix bugs faster. Experience sub-second reload times, without losing state, on emulators, simulators, and hardware for iOS and Android.`),
+                m('h1', {class: 'mdc-typography--headline6'}, 'Time and Date: 9am - 5pm on March 8'),
+                m('h1', {class: 'mdc-typography--headline6'}, 'Prizes: Rs. 1000 for winners, Rs. 750 for runners'),
+                m('h1', {class: 'mdc-typography--headline4'}, 'Note'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'Participants must register to participate in the event'),
+                    m('li', 'For any queries, contact Praveen Siva: 9876543210')
+                ),
+            ]),
+            'paper-presentation': m('p', 'paper-presentation'),
+            'mega-event': m('p', 'mega-event'),
+            'connexions': m('p', 'connexions'),
+        }
+        var ripples = []
+        var registrationFab = {
+            view: function() {
+                return m('button', {class: 'mdc-fab app-fab--absolute'},
+                    m('span', {class: 'mdc-fab__icon material-icons'}, 'person_add'),
+                );
+            },
+            oncreate: function(vnode) {
+                ripples.push(new mdc.ripple.MDCRipple(vnode.dom))
+            }
+        }
+        var Home = {
+            view: function() {
+                return m('div', [
+                    m(appDrawer),
+                    m('div.mdc-drawer-scrim'),
+                    m('div', {class: 'drawer-frame-app-content'},
+                        m(appBar),
+                        m('div', {class: 'mdc-top-app-bar--fixed-adjust'}),
+                        m('main', {class: 'main-content', id: 'main-content'}, [
+                            m('div.center', contents[currentPage])
+                        ]),
+                        m(registrationFab)
+                    )
+                ]);
+            }
+        };
+
+        m.mount(root, Home);
+
+    </script>
+</body>
+</html>
