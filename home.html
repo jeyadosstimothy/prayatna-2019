@@ -216,7 +216,7 @@
       var ripples = []
       var CardPrimaryAction = {
         view: function(vnode) {
-          return m('div', {class: 'mdc-card__primary-action', tabindex:"0", onclick: function() {window.location.href = "workshops_events_full.html?id="+vnode.attrs.id;}},
+          return m('div', {class: 'mdc-card__primary-action', tabindex:"0", onclick: function() {window.location.href = "details.html?id="+vnode.attrs.id;}},
             m('div', {class: 'mdc-card__media mdc-card__media--16-9'}),
             m('div', {class: 'mdc-card__primary'},
               m('h2', {class: 'mdc-card__title mdc-typography--headline6'}, vnode.attrs.title),
