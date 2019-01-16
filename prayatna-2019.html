@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
   <style type="text/css">
       .mdc-card__media {
         background-image: url('placeholder.jpg');
@@ -40,6 +45,16 @@
         background-color: #212121;
         color: white;
       }
+      .section-full {
+        min-height: 100vh;
+      }
+      .img-social {
+        width: 2rem;
+        height: 2rem;
+        max-width: 100%;
+        margin: 1%;
+      }
+
       body {
         margin: 0;
       }
@@ -80,6 +95,47 @@
 </head>
 
 <body class="mdc-typography">
+  <section class="section-dark section-full mdc-layout-grid" style="display: flex; align-items: center">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
+        <img style="max-width:100%;" src="pLogo.png">
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--align-middle">
+        <h1 class="mdc-typography--headline3" align="center" >Ignite. Inspire. Innovate.</h1>
+        <div class="slider">
+          <h1 class="mdc-typography--headline4" align="center">March 8 & 9</h1>
+          <h1 class="mdc-typography--headline4" align="center"><span id="days"></span> days to go!</h1>
+        </div>
+      </div>
+    </div>
+
+    <div style = "position:absolute; right:1vw; bottom:0; width:10rem">
+      <p align = "right">
+        <a href = "FB LINK" style = "outline:none"> <img src = "facebook.png" class="img-social" /></a>
+        <a href = "INSTAGRAM LINK" style = "outline:none"> <img src = "instagram.png" class="img-social" /></a>
+        <a href = "TWITTER LINK" style = "outline:none"> <img src = "twitter.png" class="img-social" /></a>
+      </p>
+    </div>
+    <script>
+      var getRemainingDays = function() {
+        var date1 = new Date();
+        var date2 = new Date("3/8/2019");
+        var diff =  date2.getTime()-date1.getTime();
+        return Math.ceil(diff/86400000);
+      }
+      document.querySelector('#days').innerHTML = getRemainingDays()
+      $('.slider').slick({
+        vertical: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+      });
+    </script>
+  </section>
   <section>
     <div>
       <div class="mdc-layout-grid ">
