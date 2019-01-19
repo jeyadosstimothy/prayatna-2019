@@ -4,9 +4,7 @@
   <title>Prayatna</title>
   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
 
@@ -14,94 +12,18 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>
-  <style type="text/css">
-      .mdc-card__media {
-        background-image: url('res/card_placeholder.jpg');
-      }
-      .mdc-card__primary, .mdc-card__secondary {
-        padding: 1rem;
-      }
-      .mdc-card__secondary {
-        padding: 0 1rem 8px;
-      }
-      .mdc-card__title, .mdc-card__subtitle {
-        margin: 0;
-      }
-      .mdc-card__subtitle, .mdc-card__secondary {
-        color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
-      }
-      .margin {
-        margin-top: 3rem;
-        margin-bottom: 5rem;
-      }
-      .mdc-tab__text-label, .mdc-tab__ripple, .mdc-tab-indicator{
-        --mdc-theme-primary: white;
-        --mdc-theme-on-surface: white;
-      }
-      .mdc-card__title{
-        color:black;
-      }
-      .section-dark{
-        background-color: #212121;
-        color: white;
-      }
-      .section-full {
-        min-height: 100vh;
-      }
-      .img-social {
-        width: 2rem;
-        height: 2rem;
-        max-width: 100%;
-        margin: 1%;
-      }
 
-      body {
-        margin: 0;
-      }
-      #map {
-        height: 100%;
-        min-height: 300px;
-        background-color: grey;
-      }
-      footer p {
-        color: #5f6368;
-      }
-      a, a:hover, a:active, a:visited {
-        color: black;
-      }
-      #mdc-image-list__image{
-        width:150px;
-        height:150px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      #mdc-image-list__label{
-        width: 100%;
-      }
-      .center90 {
-        margin-left: auto;
-        margin-right: auto;
-        width: 90%;
-      }
-      footer {
-        background-color: #f1f3f4;
-        margin-top: 2rem;
-        padding: 15px;
-      }
-  </style>
-
-
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
 <body class="mdc-typography">
-  <section class="section-dark section-full mdc-layout-grid" style="display: flex; align-items: center">
+  <section class="section-dark section-full title-section mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
-        <img style="max-width:100%;" src="res/prayatna.png">
+        <img class="logo" src="res/prayatna.png">
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--align-middle">
-        <h1 class="mdc-typography--headline3" align="center" >Ignite. Inspire. Innovate.</h1>
+        <h1 class="mdc-typography--headline3 title-text" align="center">Ignite. Inspire. Innovate.</h1>
         <div class="slider">
           <h1 class="mdc-typography--headline4" align="center">March 8 & 9</h1>
           <h1 class="mdc-typography--headline4" align="center"><span id="days"></span> days to go!</h1>
@@ -109,11 +31,11 @@
       </div>
     </div>
 
-    <div style="position:absolute; right:1vw; bottom:0; width:10rem">
+    <div class="floating-social-icons">
       <p align="right">
-        <a href="FB LINK" style="outline:none"><img src="res/facebook_white.png" class="img-social" /></a>
-        <a href="INSTAGRAM LINK" style="outline:none"><img src="res/instagram_white.png" class="img-social" /></a>
-        <a href="TWITTER LINK" style="outline:none"><img src="res/twitter_white.png" class="img-social" /></a>
+        <a href="facebook"><img src="res/facebook_white.png" class="img-social" /></a>
+        <a href="instagram"><img src="res/instagram_white.png" class="img-social" /></a>
+        <a href="whatsapp"><img src="res/whatsapp_white.png" class="img-social" /></a>
       </p>
     </div>
     <script>
@@ -138,36 +60,36 @@
   </section>
   <section>
     <div>
-      <div class="mdc-layout-grid ">
+      <div class="mdc-layout-grid">
         <div class="mdc-layout-grid__cell">
           <h1 class="mdc-typography--headline2"><center>About Us</center></h1>
         </div>
         <div class="mdc-layout-grid__cell">
-          <p class="mdc-typography--body1" align="justify">  The Association of Computer Technologists takes great pride in conducting PRAYATNA, our annual national level inter-college technical festival. PRAYATNA, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. In a nutshell, PRAYATNA is a platform that churns out technical and creative ideas from upcoming engineers by assessing their aptitude in coding, design, entrepreneurial skills and other multi-faceted concepts with special workshops with the help of experts from the industry enhance the participant's knowledge and creative potentials.</p>
+          <p class="mdc-typography--body1 content-about">The Association of Computer Technologists takes great pride in conducting PRAYATNA, our annual national level inter-college technical festival. PRAYATNA, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. In a nutshell, PRAYATNA is a platform that churns out technical and creative ideas from upcoming engineers by assessing their aptitude in coding, design, entrepreneurial skills and other multi-faceted concepts with special workshops with the help of experts from the industry enhance the participant's knowledge and creative potentials.</p>
         </div>
         <div class="mdc-layout-grid__cell ">
-            <h1 class="mdc-typography--headline2"><center>Sponsored By</center></h1>
+            <h1 class="mdc-typography--headline2"><center>Our Sponsors</center></h1>
         </div>
-        <ul class="mdc-layout-grid__inner mdc-image-list margin">
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+        <ul class="mdc-layout-grid__inner mdc-image-list margin sponsors-list">
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
             <img class="mdc-image-list__image" src="res/LIC.png">
           </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
             <img class="mdc-image-list__image" src="res/facebook.png">
           </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
             <img class="mdc-image-list__image" src="res/zoho.png">
           </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
             <img class="mdc-image-list__image" src="res/google.png">
           </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
             <img class="mdc-image-list__image" src="res/dell.png">
           </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
             <img class="mdc-image-list__image" src="res/amazon.jpeg">
           </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2" style="margin: auto;">
+          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
             <img class="mdc-image-list__image" src="res/uber.png">
           </li>
         </ul>
@@ -357,53 +279,53 @@
       <div class="mdc-layout-grid__cell">
           <h1 class="mdc-typography--headline2"><center>Contact Us</center></h1>
       </div>
-      <ul class="mdc-layout-grid__inner mdc-image-list margin" >
+      <ul class="mdc-layout-grid__inner mdc-image-list margin contacts-list" >
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg" id="mdc-image-list__image">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item" >
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg" id="mdc-image-list__image">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg" id="mdc-image-list__image">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg" id="mdc-image-list__image">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg" id="mdc-image-list__image">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Secratary<br>+91 92768547867<br>email@gmail.com</center></span>
+            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Secratary<br>+91 92768547867<br>email@gmail.com</center></span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg" id="mdc-image-list__image">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Event Organizer<br>+91 92768547867<br>emailid@gmail.com</center></span>
+            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Event Organizer<br>+91 92768547867<br>emailid@gmail.com</center></span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg" id="mdc-image-list__image">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Workshop Organizer<br>+91 92768547867<br>email@gmail.com</center></span>
+            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Workshop Organizer<br>+91 92768547867<br>email@gmail.com</center></span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg" id="mdc-image-list__image">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label" id="mdc-image-list__label"><center>Praveen Siva<br>Accomodation & Hospitality<br>+91 92768547867<br>gnaighdryfl@gmail.com</center></span>
+            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Accomodation & Hospitality<br>+91 92768547867<br>gnaighdryfl@gmail.com</center></span>
           </div>
         </li>
       </ul>
@@ -412,7 +334,7 @@
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.369112328477!2d80.13758015030977!3d12.948216590826457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fac595c29ff%3A0xb76082ae18b51418!2sMadras+Institute+Of+Technology%2C+Anna+University!5e0!3m2!1sen!2sin!4v1547558861807" width="600" height="600" frameborder="0" id="map" class="center90"></iframe>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop center90">
-          <p class="mdc-typography--body2" text-align="right">Department of Computer Technology,
+          <p class="mdc-typography--body2">Department of Computer Technology,
             <br>Madras Institute of Technology,
             <br>MIT Road, Radha Nagar,
             <br>Chromepet, Chennai,
@@ -421,7 +343,7 @@
 
           <h1 class="mdc-typography--headline5">Drop us a query</h1>
 
-          <form>
+          <form class="query-form" method="post">
             <div class="mdc-text-field mdc-text-field--fullwidth">
               <input class="mdc-text-field__input" type="text" name="email" placeholder="Email Address" aria-label="Full-Width Text Field" />
               <div class="mdc-line-ripple"></div>
@@ -437,7 +359,7 @@
               </div>
             </div>
             <div style="margin-top: 1rem;">
-              <button class="mdc-button" type="submit" style="display: block; margin-left: auto;">
+              <button class="mdc-button mdc-button--outlined" type="submit" style="display: block; margin-left: auto;">
                 <span class="mdc-button__label">Submit</span>
               </button>
             </div>
@@ -452,9 +374,9 @@
             <p class="mdc-typography--body2" style="display: block;margin-top: 1rem">Prayatna 2019<br>
               Association of Computer Technologists<br>
               Connect with us!<br>
-              <a href="https://www.facebook.com" style="text-decoration:none;">Facebook</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
-              <a href="https://www.instagram.com" style="text-decoration:none;">Instagram</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
-              <a href="https://www.whatsapp.com" style="text-decoration:none;">Whatsapp</a>
+              <a href="https://www.facebook.com">Facebook</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+              <a href="https://www.instagram.com">Instagram</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+              <a href="https://www.whatsapp.com">Whatsapp</a>
             </p>
           </div>
       </section>
@@ -467,6 +389,7 @@
       for (var i = tfs.length - 1; i >= 0; i--) {
         mdTfs.push(new mdc.textField.MDCTextField(tfs[i]));
       }
+      ripples.push(new mdc.ripple.MDCRipple(document.querySelector('.query-form .mdc-button')));
     </script>
   </section>
 </body>
