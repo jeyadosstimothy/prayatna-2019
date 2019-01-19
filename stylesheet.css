@@ -5,6 +5,10 @@
   font-family: 'Permanent Marker', cursive;
 }
 
+.section-header {
+  text-align: center;
+}
+
 .content-about {
   text-align: justify;
 }
@@ -41,6 +45,10 @@ a {
 .mdc-text-field--textarea .mdc-notched-outline .mdc-notched-outline__trailing,
 .mdc-card, .mdc-button {
   border-radius: 0;
+}
+
+.mdc-tab {
+  flex: 1 0 0;
 }
 
 .mdc-card__media {
