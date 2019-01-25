@@ -9,7 +9,21 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
-    <div id='root' class='mdc-typography'></div>
+    <div id='root' class='mdc-typography' style="margin-bottom: 5rem"></div>
+    <footer>
+      <section style="position: relative;">
+          <img src="res/small_logo.jpg" style="width: 85px; height: 85px; margin: 1rem;" />
+          <div style="display: inline-block;position: absolute;vertical-align: middle;height: 100%;">
+            <p class="mdc-typography--body2" style="display: block;margin-top: 1rem">Prayatna 2019<br>
+              Association of Computer Technologists<br>
+              Connect with us!<br>
+              <a href="https://www.facebook.com">Facebook</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+              <a href="https://www.instagram.com">Instagram</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+              <a href="https://www.whatsapp.com">Whatsapp</a>
+            </p>
+          </div>
+      </section>
+    </footer>
     <script type="text/javascript">
         function parseURLParams(url) {
             var queryStart = url.indexOf("?") + 1,
@@ -175,10 +189,21 @@
             'mega-event': m('p', 'mega-event'),
             'connexions': m('p', 'connexions'),
         }
+        var registrationFabExtended = {
+            view: function() {
+                return m('button', {class: 'mdc-fab mdc-fab--extended app-fab--absolute app-fab--pc'},
+                    m('span', {class: 'mdc-fab__icon material-icons'}, 'person_add'),
+                    m('span', {class: 'mdc-fab__label'}, 'Register')
+                );
+            },
+            oncreate: function(vnode) {
+                ripples.push(new mdc.ripple.MDCRipple(vnode.dom))
+            }
+        }
         var registrationFab = {
             view: function() {
-                return m('button', {class: 'mdc-fab app-fab--absolute'},
-                    m('span', {class: 'mdc-fab__icon material-icons'}, 'person_add'),
+                return m('button', {class: 'mdc-fab app-fab--absolute app-fab--mobile'},
+                    m('span', {class: 'mdc-fab__icon material-icons'}, 'person_add')
                 );
             },
             oncreate: function(vnode) {
@@ -196,7 +221,8 @@
                         m('main', {class: 'main-content-details'}, [
                             m('div', {class: 'center60'}, contents[currentPage])
                         ]),
-                        //m(registrationFab)
+                        m(registrationFab),
+                        m(registrationFabExtended)
                     )
                 ]);
             }

@@ -17,6 +17,20 @@
 </head>
 
 <body class="mdc-typography">
+  <header class="mdc-top-app-bar mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="padding-left: 20px">
+        <img src="res/small_logo.jpg" style="width: 35px;height: 35px;" />
+        <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">PRAYATNA</span>
+      </section>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+        <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;">
+          <i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>
+          <span class="mdc-button__label" style="letter-spacing: .1rem">Register</span>
+        </button>
+      </section>
+    </div>
+  </header>
   <section class="section-dark section-full title-section mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
@@ -389,7 +403,11 @@
       for (var i = tfs.length - 1; i >= 0; i--) {
         mdTfs.push(new mdc.textField.MDCTextField(tfs[i]));
       }
-      ripples.push(new mdc.ripple.MDCRipple(document.querySelector('.query-form .mdc-button')));
+      var buttons = document.querySelectorAll('.mdc-button');
+      for (var i = tfs.length - 1; i >= 0; i--) {
+        ripples.push(new mdc.ripple.MDCRipple(buttons[i]));
+      }
+      var appBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
     </script>
   </section>
 </body>
