@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Prayatna</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <style type="text/css">
+    .root {
+        --mdc-theme-primary: #aaaaaa;
+    }
+    .section-dark .mdc-button--raised:not(:disabled), .section-dark .mdc-button--unelevated:not(:disabled) {
+        background-color: #050505;
+    }
+    .logo {
+        display: block;
+        max-width: 50%;
+        margin: auto;
+    }
+    .center30 {
+        display: block;
+        margin: auto;
+        width: 30%;
+    }
+    .mdc-text-field--disabled {
+        background-color: #303030;
+    }
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+        color: #ffffff;
+    }
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input::placeholder {
+        color: #555555;
+    }
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input:focus::placeholder {
+        color: #aaaaaa;
+    }
+    .mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mdc-text-field__input {
+        border-bottom-color: #555555;
+    }
+    .mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mdc-text-field__input:hover {
+        border-bottom-color: #aaaaaa;
+    }
+    .mdc-text-field .mdc-line-ripple {
+        background-color: #ffffff;
+    }
+    @media(max-width: 1024px) {
+      .center30 {
+        display: block;
+        margin: auto;
+        width: 70%;
+      }
+    }
+  </style>
+</head>
+<body class="mdc-typography section-dark">
+  <main class="margin">
+    <section class="root center30">
+    </section>
+  </main>
+  <script type="text/javascript">
+    var textfields = [];
+    var ripples = [];
+    var TextField = {
+        view: function(vnode) {
+            var textFieldValues = {class: "mdc-text-field__input", type: (vnode.attrs.type?vnode.attrs.type:"text"), name: vnode.attrs.name, placeholder: vnode.attrs.placeholder, value: vnode.attrs.value}
+            if(vnode.attrs.disabled)
+                textFieldValues['disabled'] = true
+            return m('div', {class: "mdc-text-field" + (vnode.attrs.fullwidth?" mdc-text-field--fullwidth":"") + (vnode.attrs.disabled?" mdc-text-field--disabled":"")}, [
+                m('input', textFieldValues),
+                m('div', {class: 'mdc-line-ripple'})
+            ]);
+        },
+        oncreate: function(vnode) {
+            textfields.push(new mdc.textField.MDCTextField(vnode.dom));
+        }
+    }
+    var Button = {
+        view: function(vnode) {
+            var buttonValues = {class: 'mdc-button mdc-button--raised', onclick: vnode.attrs.onclick}
+            if(vnode.attrs.disabled) {
+                buttonValues['disabled'] = true;
+            }
+            return m('button', buttonValues,
+                m('span', {class: 'mdc-button__label'}, vnode.attrs.label)
+            );
+        },
+        oncreate: function(vnode) {
+            ripples.push(new mdc.ripple.MDCRipple(vnode.dom));
+        }
+    }
+    var username, registeredWorkshops;
+    var LoginPanel = function (initialVnode) {
+        var user, email, formToShow;
+        var userCheckForm = function(initialVnodeForm){
+            var disabled = false;
+            var userExists, name;
+            return {
+                view: function() {
+                    return m('form', {id: 'registerForm', class: "form-container margin", action:"", method: "post", onsubmit: function(event) {
+                            /*m.request({
+                                method: vnode.attr('method'),
+                                url: vnode.attr('action'),
+                                data: vnode.serialize(),
+                                withCredential: true
+                            }).then(function(data) {
+                                //Set userExists, name
+                            });*/
+
+                            event.preventDefault();
+                            email = event.srcElement.email.value;
+                            formToShow = signupForm;
+                        }}, [
+                            m("h1", {class: "mdc-typography--headline6"}, "Enter Email ID to continue"),
+                            m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, disabled: disabled}),
+                            m('div', {class:"margin", align:"right"},
+                                m(Button, {label: 'Continue', disabled: disabled, onclick: function() {
+                                    disabled = true;
+                                }})
+                            )
+                        ]
+                    );
+                }
+            }
+        }
+        var loginForm = function(initialVnodeForm){
+            var disabled = false;
+            return {
+                view: function() {
+                    return m('form', {id: 'loginform', class: "form-container margin", action:"", method: "post", onsubmit: function(event) {
+                            /*m.request({
+                                method: vnode.attr('method'),
+                                url: vnode.attr('action'),
+                                data: vnode.serialize(),
+                                withCredential: true
+                            }).then(function(data) {
+                                //Show dashboard
+                            });*/
+                            event.preventDefault();
+                        }}, [
+                            m("h1", {class: "mdc-typography--headline6"}, "Welcome"),
+                            m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, value: email, disabled: disabled}),
+                            m(TextField, {name: 'password', type: 'password', placeholder: 'Password', fullwidth: true, disabled: disabled}),
+                            m('div', {class: "margin", align:"right"},
+                                m(Button, {label: 'Login', disabled: disabled, onclick: function() {
+                                    disabled = true;
+                                }})
+                            )
+                        ]
+                    );
+                },
+            }
+        }
+        var signupForm = function(initialVnodeForm){
+            var disabled = false;
+            return{
+                view: function(){
+                    return m('form', {id: 'signupform', class: "form-container margin", action:"", method:"post", onsubmit: function(event) {
+                            /*m.request({
+                                method: vnode.attr('method'),
+                                url: vnode.attr('action'),
+                                data: vnode.serialize(),
+                                withCredential: true
+                            }).then(function(data) {
+                                //Show dashboard
+                            });*/
+                            event.preventDefault();
+                        }}, [
+                            m("h1", {class: "mdc-typography--headline6"}, "Enter your details to Sign Up"),
+                            m(TextField, {name: 'name', placeholder: 'Name', fullwidth: true, disabled: disabled}),
+                            m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, value: email, disabled: disabled}),
+                            m(TextField, {name: 'password', placeholder: 'Password', fullwidth: true, type: "password", disabled: disabled}),
+                            m(TextField, {name: 'year', placeholder: 'Year of Study', fullwidth: true, disabled: disabled}),
+                            m(TextField, {name: 'college', placeholder: 'College', fullwidth: true, disabled: disabled}),
+                            m(TextField, {name: 'phone', placeholder: 'Phone Number', fullwidth: true, disabled: disabled}),
+                            m('div', {class: "margin", align:"right"},
+                                m(Button, {label: 'Sign Up', disabled: disabled, onclick: function() {
+                                    disabled = true;
+                                }})
+                            )
+                        ]
+                    );
+                }
+            }
+        }
+        formToShow = userCheckForm;
+        return {
+            view: function() {
+                return [
+                    m('img', {src: 'res/prayatna.png', class: "logo"}),
+                    m(formToShow)
+                ];
+            }
+        }
+    }
+    var root = document.querySelector('.root');
+    m.mount(root, LoginPanel);
+  </script>
+
+</body>
+</html>
