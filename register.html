@@ -66,7 +66,7 @@
     var ripples = [];
     var TextField = {
         view: function(vnode) {
-            var textFieldValues = {class: "mdc-text-field__input", type: (vnode.attrs.type?vnode.attrs.type:"text"), name: vnode.attrs.name, placeholder: vnode.attrs.placeholder, value: vnode.attrs.value}
+            var textFieldValues = {class: "mdc-text-field__input", type: vnode.attrs.type?vnode.attrs.type:"text", name: vnode.attrs.name, placeholder: vnode.attrs.placeholder}
             if(vnode.attrs.disabled)
                 textFieldValues['disabled'] = true
             return m('div', {class: "mdc-text-field" + (vnode.attrs.fullwidth?" mdc-text-field--fullwidth":"") + (vnode.attrs.disabled?" mdc-text-field--disabled":"")}, [
@@ -80,7 +80,7 @@
     }
     var Button = {
         view: function(vnode) {
-            var buttonValues = {class: 'mdc-button mdc-button--raised', onclick: vnode.attrs.onclick}
+            var buttonValues = {class: (vnode.attrs.class?vnode.attrs.class:'mdc-button mdc-button--raised mdc-ripple-upgraded'), style: vnode.attrs.style?vnode.attrs.style:"", type: vnode.attrs.type?vnode.attrs.type:"", onclick: vnode.attrs.onclick}
             if(vnode.attrs.disabled) {
                 buttonValues['disabled'] = true;
             }
@@ -92,101 +92,52 @@
             ripples.push(new mdc.ripple.MDCRipple(vnode.dom));
         }
     }
-    var username, registeredWorkshops;
-    var LoginPanel = function (initialVnode) {
-        var user, email, formToShow;
-        var userCheckForm = function(initialVnodeForm){
-            var disabled = false;
-            var userExists, name;
-            return {
-                view: function() {
-                    return m('form', {id: 'registerForm', class: "form-container margin", action:"", method: "post", onsubmit: function(event) {
-                            /*m.request({
-                                method: vnode.attr('method'),
-                                url: vnode.attr('action'),
-                                data: vnode.serialize(),
-                                withCredential: true
-                            }).then(function(data) {
-                                //Set userExists, name
-                            });*/
 
-                            event.preventDefault();
-                            email = event.srcElement.email.value;
-                            formToShow = signupForm;
-                        }}, [
-                            m("h1", {class: "mdc-typography--headline6"}, "Enter Email ID to continue"),
-                            m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, disabled: disabled}),
-                            m('div', {class:"margin", align:"right"},
-                                m(Button, {label: 'Continue', disabled: disabled, onclick: function() {
-                                    disabled = true;
-                                }})
-                            )
-                        ]
-                    );
-                }
+    var LoginPanel = function (initialVnode) {
+        var formToShow;
+        var loginForm = {
+            view: function() {
+                return m('form', {id: 'loginform', class: "form-container margin", action:"", method: "post"},
+                    [
+                        m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Welcome"),
+                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true}),
+                        m(TextField, {name: 'password', type: 'password', placeholder: 'Password', fullwidth: true}),
+                        m('div', {class: " margin",style: "float: right;"},
+                            m(Button, { class: "mdc-button mdc-button--outlined mdc-ripple-upgraded", style:"color:#ffffff;",label: 'Sign Up', type:"button", onclick: function() {
+                                    formToShow = signupForm;
+                                }
+                            }
+                            ),
+                            m(Button, {label: 'Sign In', style:" margin-left: 15px;"})
+                        )
+                    ]
+                );
             }
         }
-        var loginForm = function(initialVnodeForm){
-            var disabled = false;
-            return {
-                view: function() {
-                    return m('form', {id: 'loginform', class: "form-container margin", action:"", method: "post", onsubmit: function(event) {
-                            /*m.request({
-                                method: vnode.attr('method'),
-                                url: vnode.attr('action'),
-                                data: vnode.serialize(),
-                                withCredential: true
-                            }).then(function(data) {
-                                //Show dashboard
-                            });*/
-                            event.preventDefault();
-                        }}, [
-                            m("h1", {class: "mdc-typography--headline6"}, "Welcome"),
-                            m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, value: email, disabled: disabled}),
-                            m(TextField, {name: 'password', type: 'password', placeholder: 'Password', fullwidth: true, disabled: disabled}),
-                            m('div', {class: "margin", align:"right"},
-                                m(Button, {label: 'Login', disabled: disabled, onclick: function() {
-                                    disabled = true;
-                                }})
-                            )
-                        ]
-                    );
-                },
+        var signupForm = {
+            view: function(){
+                return m('form', {id: 'signupform', class: "form-container margin", action:"", method:"post"},
+                    [
+                        m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Create your Prayatna Account"),
+                        m(TextField, {name: 'name', placeholder: 'Name', fullwidth: true,}),
+                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true,}),
+                        m(TextField, {name: 'password', placeholder: 'Password', fullwidth: true,}),
+                        m(TextField, {name: 'year', placeholder: 'Year of Study', fullwidth: true,}),
+                        m(TextField, {name: 'college', placeholder: 'College', fullwidth: true,}),
+                        m(TextField, {name: 'phone', placeholder: 'Phone Number', fullwidth: true,}),
+                        m('div', {class: " margin",style: "float: right;"},
+                            m(Button, { class: "mdc-button mdc-button--outlined mdc-ripple-upgraded", style:"color:#ffffff;",label: 'Cancel',type:"button", onclick: function() {
+                                    formToShow = loginForm;
+                                }
+                            }
+                            ),
+                            m(Button, {label: 'Sign Up', style:" margin-left: 15px;"})
+                        )
+                    ]
+                );
             }
         }
-        var signupForm = function(initialVnodeForm){
-            var disabled = false;
-            return{
-                view: function(){
-                    return m('form', {id: 'signupform', class: "form-container margin", action:"", method:"post", onsubmit: function(event) {
-                            /*m.request({
-                                method: vnode.attr('method'),
-                                url: vnode.attr('action'),
-                                data: vnode.serialize(),
-                                withCredential: true
-                            }).then(function(data) {
-                                //Show dashboard
-                            });*/
-                            event.preventDefault();
-                        }}, [
-                            m("h1", {class: "mdc-typography--headline6"}, "Enter your details to Sign Up"),
-                            m(TextField, {name: 'name', placeholder: 'Name', fullwidth: true, disabled: disabled}),
-                            m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, value: email, disabled: disabled}),
-                            m(TextField, {name: 'password', placeholder: 'Password', fullwidth: true, type: "password", disabled: disabled}),
-                            m(TextField, {name: 'year', placeholder: 'Year of Study', fullwidth: true, disabled: disabled}),
-                            m(TextField, {name: 'college', placeholder: 'College', fullwidth: true, disabled: disabled}),
-                            m(TextField, {name: 'phone', placeholder: 'Phone Number', fullwidth: true, disabled: disabled}),
-                            m('div', {class: "margin", align:"right"},
-                                m(Button, {label: 'Sign Up', disabled: disabled, onclick: function() {
-                                    disabled = true;
-                                }})
-                            )
-                        ]
-                    );
-                }
-            }
-        }
-        formToShow = userCheckForm;
+        formToShow = loginForm;
         return {
             view: function() {
                 return [
@@ -198,6 +149,7 @@
     }
     var root = document.querySelector('.root');
     m.mount(root, LoginPanel);
+
   </script>
 
 </body>
