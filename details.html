@@ -49,6 +49,9 @@
         var root = document.getElementById('root');
         var getPageToShow = function() {
             var params = parseURLParams(window.location.href);
+            if(params == undefined) {
+                window.location.href = "home.html";
+            }
             return params.id
         }
         var topAppBar;
