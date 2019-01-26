@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Playfair+Display|Raleway');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-.title-text {
+.title-section .mdc-typography--headline3 {
   font-family: 'Permanent Marker', cursive;
 }
 
@@ -29,9 +29,9 @@ a {
   text-decoration: none;
 }
 
-.mdc-typography--headline2, .mdc-typography--headline4, .mdc-typography--headline5,
-.mdc-typography--headline6, .mdc-typography--subtitle2, .mdc-tab, .mdc-button,
-.mdc-top-app-bar__title, .mdc-drawer__title, .mdc-drawer .mdc-list-group__subheader {
+.mdc-typography--headline2, .mdc-typography--headline3, .mdc-typography--headline4,
+.mdc-typography--headline5, .mdc-typography--headline6, .mdc-typography--subtitle2,
+.mdc-tab, .mdc-button, .mdc-top-app-bar__title, .mdc-drawer__title, .mdc-drawer .mdc-list-group__subheader {
   font-family: 'Playfair Display', serif;
 }
 
@@ -213,10 +213,10 @@ footer p {
 }
 
 .app-fab--absolute {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
 }
+
 
 .mdc-fab .mdc-fab__icon {
   font-size: 18px;
@@ -239,14 +239,12 @@ footer p {
   display: none;
 }
 
-@media(min-width: 1024px) {
-  .app-fab--absolute {
-    bottom: 1.5rem;
-    right: 1.5rem;
-  }
-}
-
 @media(max-width: 1024px) {
+  .app-fab--absolute {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+  }
   .center60 {
     display: block;
     margin: auto;
