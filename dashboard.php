@@ -1,5 +1,5 @@
 <?php
-  if(!isset($_COOKIE['user'])) {
+  if(!isset($_COOKIE['user_id'])) {
     header('Location: http://localhost/prayatna-2019/home.php');
   }
   else {
@@ -16,10 +16,10 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id in (select workshop_id from register_details where user_id = (select user_id from user_details where email_id = "' + $_COOKIE['user'] +'""))';
+    $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id in (select workshop_id from register_details where user_id = ?)';
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $_COOKIE['user']);
+    $stmt->bind_param("i", $_COOKIE['user_id']);
     $result = $stmt->execute();
     $result = $stmt->get_result();
     $workshop_ids = array();
@@ -65,7 +65,7 @@
       </div>
     </header>
     <section class="mdc-top-app-bar--fixed-adjust">
-      <h1 class="mdc-typography--headline4 anim-appear-pulse" style="text-align: center">Welcome <?php if (isset($_COOKIE['user'])) echo $_COOKIE['user'];?></h1>
+      <h1 class="mdc-typography--headline4 anim-appear-pulse" style="text-align: center">Welcome <?php if (isset($_COOKIE['user_id'])) echo $_COOKIE['name'];?></h1>
       <div class="workshops mdc-layout-grid">
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell">
@@ -85,7 +85,7 @@
                 <h1 class="mdc-typography--headline5" style="text-align: center">Registered Workshops</h1>
                 <ul class="mdc-list mdc-list--two-line" role="group">
                   <?php
-                    if(isset($_COOKIE['user'])) {
+                    if(isset($_COOKIE['user_id'])) {
                       if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
@@ -102,9 +102,6 @@
                           ';
                         }
                       }
-                      else {
-                        echo "Nothing to show";
-                      }
                     }
                   ?>
                 </ul>
@@ -116,9 +113,10 @@
             <h1 class="mdc-typography--headline5" style="text-align: center;">New Workshops</h1>
             <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
             <?php
-              if(isset($_COOKIE['user'])) {
+              if(isset($_COOKIE['user_id'])) {
+                array_push($workshop_ids, '-1'); //Adding invalid workshop id to list, so that query works even if $workshop_ids is empty
                 $ids = implode(',', $workshop_ids);
-                $sql = 'select workshop_name, date from workshop_details where workshop_id not in (' . $ids .')';
+                $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id not in (' . $ids .')';
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                   // output data of each row

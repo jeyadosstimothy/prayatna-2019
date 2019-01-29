@@ -27,7 +27,7 @@
       <!--PHP for user-->
       <?php
         // if logged in show dashboard
-        if (isset($_COOKIE["user"])) {
+        if (isset($_COOKIE["user_id"])) {
 	        echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
                   <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick = "location.href=\'dashboard.php\'">
                     <!--<i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>-->

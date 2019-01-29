@@ -1,6 +1,6 @@
 <!--PHP for user-->
 <?php
-    if (isset($_COOKIE["user"])) {
+    if (isset($_COOKIE["user_id"])) {
         header('Location: http://localhost/prayatna-2019/home.php');
     }
 ?>
