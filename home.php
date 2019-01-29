@@ -23,12 +23,30 @@
         <img src="res/small_logo.jpg" style="width: 35px;height: 35px;" />
         <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">Prayatna</span>
       </section>
-      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-        <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;">
-          <i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>
-          <span class="mdc-button__label" style="letter-spacing: .1rem">Register</span>
-        </button>
-      </section>
+
+      <!--PHP for user-->
+      <?php
+        // if logged in show dashboard
+        if (isset($_COOKIE["user"])) {
+	        echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                  <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick = "location.href=\'dashboard.php\'">
+                    <!--<i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>-->
+                    <span class="mdc-button__label" style="letter-spacing: .1rem">My Dashboard</span>
+                  </button>
+                </section>';
+        }
+        // else show register button
+        else {
+          echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                  <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick = "location.href=\'register.php\'">
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>
+                    <span class="mdc-button__label" style="letter-spacing: .1rem">Register</span>
+                  </button>
+                </section>';
+        }
+      ?>
+
+
     </div>
   </header>
   <section class="section-dark section-full title-section mdc-layout-grid">

@@ -1,3 +1,9 @@
+<!--PHP for user-->
+<?php
+    if (isset($_COOKIE["user"])) {
+        header('Location: http://localhost/prayatna-2019/home.php');
+    }
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -64,6 +70,7 @@
   <script type="text/javascript">
     var textfields = [];
     var ripples = [];
+    var json_data = {};
     var TextField = {
         view: function(vnode) {
             var textFieldValues = {class: "mdc-text-field__input", type: (vnode.attrs.type?vnode.attrs.type:"text"), name: vnode.attrs.name, placeholder: vnode.attrs.placeholder}
@@ -102,7 +109,7 @@
         var formToShow;
         var loginForm = {
             view: function() {
-                return m('form', {id: 'loginform', class: "form-container margin", action:"", method: "post"},
+                return m('form', {id: 'loginform', class: "form-container margin", action:"/prayatna-2019/ajax_responses/login.php", method: "post"},
                     [
                         m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Welcome"),
                         m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true}),
@@ -121,7 +128,38 @@
         }
         var signupForm = {
             view: function(){
-                return m('form', {id: 'signupform', class: "form-container margin", action:"", method:"post"},
+                return m('form', {id: 'signupform', class: "form-container margin", action:"/prayatna-2019/ajax_responses/signup.php", method: "post", onsubmit: function(event) {
+                            event.preventDefault();
+
+                            var json_val = {
+                                "email": event.srcElement.email.value,
+                                "name": event.srcElement.name.value,
+                                "contact": event.srcElement.phone.value};
+                            param = JSON.stringify(json_val);
+                            console.log(param);
+                            // ajax request for unique mail, phone number, name
+                            var url = '/prayatna-2019/ajax_responses/check_user.php';
+                            var xhttp = new XMLHttpRequest();
+
+                            xhttp.onreadystatechange = function () {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    json_data =  JSON.parse(this.responseText);
+                                    if(json_data["email"] == "False") {
+                                        alert('email already existed');
+                                    } else if(json_data["user"] == "False"){
+                                        alert('username already existed');
+                                    } else if(json_data["contact"] == "False") {
+                                        alert ('phone number already existed');
+                                    } else {
+                                        document.getElementById("signupform").submit();
+                                    }
+                                }
+                            };
+                            xhttp.open("POST", url, true);
+                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                            xhttp.send("x=" + param);
+                        }
+                    },
                     [
                         m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Create your Prayatna Account"),
                         m(TextField, {name: 'name', placeholder: 'Name', fullwidth: true, required: true}),
@@ -142,7 +180,7 @@
                 );
             }
         }
-        formToShow = loginForm                          ;
+        formToShow = loginForm;
         return {
             view: function() {
                 return [
