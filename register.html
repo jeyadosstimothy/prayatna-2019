@@ -69,6 +69,8 @@
             var textFieldValues = {class: "mdc-text-field__input", type: (vnode.attrs.type?vnode.attrs.type:"text"), name: vnode.attrs.name, placeholder: vnode.attrs.placeholder}
             if(vnode.attrs.disabled)
                 textFieldValues['disabled'] = true
+            if(vnode.attrs.required)
+                textFieldValues['required'] = true
             if(vnode.attrs.pattern)
                 textFieldValues['pattern'] = vnode.attrs.pattern
             if(vnode.attrs.minlength)
@@ -103,8 +105,8 @@
                 return m('form', {id: 'loginform', class: "form-container margin", action:"", method: "post"},
                     [
                         m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Welcome"),
-                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email"}),
-                        m(TextField, {name: 'password', type: 'password', placeholder: 'Password', fullwidth: true}),
+                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true}),
+                        m(TextField, {name: 'password', type: 'password', placeholder: 'Password', fullwidth: true, required: true}),
                         m('div', {class: " margin",style: "float: right;"},
                             m(Button, { class: "mdc-button mdc-button--outlined mdc-ripple-upgraded", style:"color:#ffffff;",label: 'Sign Up', type:"button", onclick: function() {
                                     formToShow = signupForm;
@@ -122,12 +124,12 @@
                 return m('form', {id: 'signupform', class: "form-container margin", action:"", method:"post"},
                     [
                         m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Create your Prayatna Account"),
-                        m(TextField, {name: 'name', placeholder: 'Name', fullwidth: true,}),
-                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email"}),
-                        m(TextField, {name: 'password', placeholder: 'Password', fullwidth: true, minlength: 8, type:  "password"}),
-                        m(TextField, {name: 'year', placeholder: 'Year of Study (1 to 4)', fullwidth: true, pattern: "[1-4]"}),
-                        m(TextField, {name: 'college', placeholder: 'College', fullwidth: true,}),
-                        m(TextField, {name: 'phone', placeholder: 'Phone Number', fullwidth: true, pattern: "[6-9][0-9]{9}"}),
+                        m(TextField, {name: 'name', placeholder: 'Name', fullwidth: true, required: true}),
+                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true}),
+                        m(TextField, {name: 'password', placeholder: 'Password', fullwidth: true, minlength: 8, type:  "password", required: true}),
+                        m(TextField, {name: 'year', placeholder: 'Year of Study (1 to 4)', fullwidth: true, pattern: "[1-4]", required: true}),
+                        m(TextField, {name: 'college', placeholder: 'College', fullwidth: true,required: true}),
+                        m(TextField, {name: 'phone', placeholder: 'Phone Number', fullwidth: true, pattern: "[6-9][0-9]{9}", required: true}),
                         m('div', {class: " margin", style: "float: right;"},
                             m(Button, {class: "mdc-button mdc-button--outlined mdc-ripple-upgraded", style:"color:#ffffff;",label: 'Cancel',type:"button", onclick: function() {
                                     formToShow = loginForm;

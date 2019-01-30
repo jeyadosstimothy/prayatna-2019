@@ -51,10 +51,6 @@ a {
   flex: 1 0 0;
 }
 
-.mdc-card__media {
-  background-image: url('res/card_placeholder.jpg');
-}
-
 .mdc-card__primary, .mdc-card__secondary {
   padding: 1rem;
 }
@@ -105,8 +101,21 @@ a {
   align-items: center;
   text-align: center;
 }
+
+@-webkit-keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 .title-section .logo {
   max-width:100%;
+  -webkit-animation: fade-in 2s;
+  animation: fade-in 2s;
 }
 .img-social {
   width: 2rem;
@@ -127,6 +136,10 @@ body {
 
 a, a:hover, a:active, a:visited {
   color: black;
+}
+
+footer a {
+  font-size: 90%;
 }
 
 .contacts-list .mdc-image-list__image {
@@ -169,15 +182,21 @@ footer p {
 }
 
 .mdc-top-app-bar__title {
-  letter-spacing: .3rem;
+  letter-spacing: .1rem;
   text-transform: uppercase;
+  //font-size: 100%;
 }
+
+.details-app-bar-title {
+  padding-left: 10px;
+}
+
 .mdc-drawer{
   --mdc-theme-primary: #212121;
 }
 
 .mdc-fab {
-  background-color: #212121
+  background-color: #212121;
 }
 
 .center60 {
@@ -213,6 +232,7 @@ footer p {
 }
 
 .app-fab--absolute {
+  position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
 }
@@ -242,6 +262,15 @@ footer p {
   padding: 1rem;
   background-color: white;
   color: black;
+}
+
+.dashboard-card-button-container {
+  margin-top: 1rem;
+}
+
+.dashboard-card-button {
+  display: block;
+  margin: auto;
 }
 
 @media(max-width: 1024px) {

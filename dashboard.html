@@ -19,10 +19,21 @@
           <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">PRAYATNA</span>
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-          <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;">
-            <i class="material-icons mdc-button__icon" aria-hidden="true">exit_to_app</i>
-            <span class="mdc-button__label" style="letter-spacing: .1rem">Logout</span>
+          <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick= "openMenu()">
+            <i class="material-icons">more_vert</i>
           </button>
+          <div class="mdc-menu-surface--anchor">
+            <div class="mdc-menu mdc-menu-surface" style="width: 150px;" tabindex="-1">
+              <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+                <li class="mdc-list-item" role="menuitem">
+                  <span class="mdc-list-item__text">Home</span>
+                </li>
+                <li class="mdc-list-item" role="menuitem">
+                  <span class="mdc-list-item__text">Log out</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
       </div>
     </header>
@@ -30,19 +41,18 @@
       <h1 class="mdc-typography--headline4" style="text-align: center">Welcome Timothy!</h1>
       <div class="workshops mdc-layout-grid">
         <div class="mdc-layout-grid__inner">
-          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
+          <div class="mdc-layout-grid__cell">
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards" style="text-align: center">
                 <h1 class="mdc-typography--headline5">Skip the Queue!</h1>
                 <h1 class="mdc-typography--subtitle1">Why wait in line when you can register online?</h1>
                 <h1 class="mdc-typography--subtitle1">Buy entry tickets now!</h1>
                 <h1 class="mdc-typography--subtitle1">Note: Workshop participants need not buy entry tickets</h1>
-                <div style="margin-top: 1rem">
-                  <button class="mdc-button mdc-button--raised" style="display: block; margin: auto;">
+                <div class="dashboard-card-button-container">
+                  <button class="mdc-button mdc-button--raised dashboard-card-button">
                     Buy Now
                   </button>
                 </div>
-                <!-- Buy entry ticket 250 -->
               </div>
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards">
                 <h1 class="mdc-typography--headline5" style="text-align: center">Registered Workshops</h1>
@@ -52,7 +62,7 @@
                       <span class="mdc-list-item__primary-text">Flutter</span>
                       <span class="mdc-list-item__secondary-text">March 8th, 2019</span>
                     </span>
-                    <button class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true">info</button>
+                    <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
                   </li>
                   <li role="separator" class="mdc-list-divider"></li>
                   <li class="mdc-list-item">
@@ -60,14 +70,14 @@
                       <span class="mdc-list-item__primary-text">Cyber Security</span>
                       <span class="mdc-list-item__secondary-text">March 8th, 2019</span>
                     </span>
-                    <button class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true">info</button>
+                    <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div class="dashboard-cards mdc-elevation--z4 mdc-layout-grid__cell mdc-layout-grid--align-middle  mdc-layout-grid__cell--span-6-desktop">
+          <div class="dashboard-cards mdc-elevation--z4 mdc-layout-grid__cell">
             <h1 class="mdc-typography--headline5" style="text-align: center;">New Workshops</h1>
             <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
               <li class="mdc-list-item" role="checkbox" aria-checked="false">
@@ -213,10 +223,44 @@
                 <button class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true">info</button>
               </li>
             </ul>
-            <div style="margin-top: 1rem">
-              <button class="mdc-button mdc-button--raised" style="display: block; margin: auto;">
+            <div class="dashboard-card-button-container">
+              <button class="mdc-button mdc-button--raised dashboard-card-button">
                 Pay Now
               </button>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell">
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards" style="text-align: center">
+                <h1 class="mdc-typography--headline5">Accomodation</h1>
+                <h1 class="mdc-typography--subtitle1">add some line for accomodation</h1>
+                <div class="dashboard-card-button-container">
+                  <button class="mdc-button mdc-button--raised dashboard-card-button">
+                    Book Now
+                  </button>
+                </div>
+                <!-- Buy entry ticket 250 -->
+              </div>
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards">
+                <h1 class="mdc-typography--headline5" style="text-align: center">Upcoming Events</h1>
+                <ul class="mdc-list mdc-list--two-line" role="group">
+                  <li class="mdc-list-item">
+                    <span class="mdc-list-item__text">
+                      <span class="mdc-list-item__primary-text">Flaw</span>
+                      <span class="mdc-list-item__secondary-text">Link for flaw</span>
+                    </span>
+                    <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                  </li>
+                  <li role="separator" class="mdc-list-divider"></li>
+                  <li class="mdc-list-item">
+                    <span class="mdc-list-item__text">
+                      <span class="mdc-list-item__primary-text">Cyber Security</span>
+                      <span class="mdc-list-item__secondary-text">March 8th, 2019</span>
+                    </span>
+                    <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <script type="text/javascript">
@@ -228,7 +272,16 @@
               ripples.push.apply(mdcList.listElements.map((listItemEl) => new mdc.ripple.MDCRipple(listItemEl)));
               mdcLists.push(mdcList);
             }
+            var buttons = document.querySelectorAll('.mdc-button');
+            for (var i = buttons.length - 1; i >= 0; i--) {
+              ripples.push(new mdc.ripple.MDCRipple(buttons[i]));
+            }
+            var mdcMenu = new mdc.menu.MDCMenu(document.querySelector('.mdc-menu'));
+            function openMenu(){
+              mdcMenu.open = true;
+            }
           </script>
+
         </div>
       </div>
     </section>
