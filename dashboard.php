@@ -4,8 +4,8 @@
   }
   else {
     $servername = "localhost";
-    $s_username = "student";
-    $s_password = "student";
+    $s_username = "root";
+    $s_password = "algorithm";
     $db_name = 'prayatna';
 
     // Create connection
@@ -22,7 +22,7 @@
     $stmt->bind_param("i", $_COOKIE['user_id']);
     $result = $stmt->execute();
     $result = $stmt->get_result();
-    $workshop_ids = array();
+    $workshop_ids = array(-1); // -1 for distinguish from workshop id
   }
 ?>
 <!DOCTYPE html>
@@ -87,19 +87,22 @@
                   <?php
                     if(isset($_COOKIE['user_id'])) {
                       if ($result->num_rows > 0) {
+                        $count = 1;
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
                           array_push($workshop_ids, $row['workshop_id']);
                           echo '
-                            <li class="mdc-list-item">
+                            <li class="mdc-list-item" onclick="window.location.href=\'details.html?id='.$row['workshop_id'].'\'">
                               <span class="mdc-list-item__text">
                                 <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
                                 <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
                               </span>
-                              <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
-                            </li>
-                            <li role="separator" class="mdc-list-divider"></li>
-                          ';
+                              <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
+                            </li>';
+                            if($count != $result->num_rows) {
+                              echo'<li role="separator" class="mdc-list-divider"></li>';
+                            }
+                            $count = $count + 1;
                         }
                       }
                     }
@@ -111,54 +114,59 @@
 
           <div class="dashboard-cards mdc-elevation--z4 mdc-layout-grid__cell">
             <h1 class="mdc-typography--headline5" style="text-align: center;">New Workshops</h1>
-            <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
-            <?php
-              if(isset($_COOKIE['user_id'])) {
-                array_push($workshop_ids, '-1'); //Adding invalid workshop id to list, so that query works even if $workshop_ids is empty
-                $ids = implode(',', $workshop_ids);
-                $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id not in (' . $ids .')';
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                    array_push($workshop_ids, $row['workshop_id']);
-                    echo '<li class="mdc-list-item" role="checkbox" aria-checked="false">
-                        <span class="mdc-list-item__graphic">
-                        <div class="mdc-checkbox">
-                        <input type="checkbox"
-                          class="mdc-checkbox__native-control"
-                          id="demo-list-checkbox-item-1" />
-                        <div class="mdc-checkbox__background">
-                        <svg class="mdc-checkbox__checkmark"
-                          viewBox="0 0 24 24">
-                          <path class="mdc-checkbox__checkmark-path"
-                          fill="none"
-                          d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                        </svg>
-                        <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        </div>
-                        </span>
-                        <span class="mdc-list-item__text">
-                        <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                        <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
-                        </span>
-                        <button class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.html?id=flutter\'">info</button>
-                      </li>
-                      <li role="separator" class="mdc-list-divider"></li>';
+            <form id = "workshop_selection" method = "post" action = "/prayatna-2019/ajax_responses/add_workshop.php">
+              <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
+                <?php
+                  if(isset($_COOKIE['user_id'])) {
+                    $ids = "'" . implode("', '", $workshop_ids) . "'" ;// making array('val1', 'val2', 'val3') because of string
+                    $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id not in (' . $ids .')';
+                    $result = $conn->query($sql);
+                    if ($result != NULL && $result->num_rows > 0) {
+                      // output data of each row
+                      $count = 1;
+                      while($row = $result->fetch_assoc()) {
+                        array_push($workshop_ids, $row['workshop_id']);
+                        echo '<li class="mdc-list-item" role="checkbox" aria-checked="false">
+                            <span class="mdc-list-item__graphic">
+                            <div class="mdc-checkbox">
+                            <input type="checkbox" name = "selectedWorkshop[]"
+                              class="mdc-checkbox__native-control"
+                              id="demo-list-checkbox-item-1" value="'.$row['workshop_id'].'"/>
+                            <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                              viewBox="0 0 24 24">
+                              <path class="mdc-checkbox__checkmark-path"
+                              fill="none"
+                              d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                            </div>
+                            </span>
+                            <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
+                            <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
+                            </span>
+                            <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.html?id='.$row['workshop_id'].'\'">info</button>
+                          </li>';
+                          if($count != $result->num_rows) {
+                            echo'<li role="separator" class="mdc-list-divider"></li>';
+                          }
+                          $count = $count + 1;
+                      }
+                    }
+                    else {
+                      echo "Nothing to show";
+                    }
                   }
-                }
-                else {
-                  echo "Nothing to show";
-                }
-              }
-            ?>
-            </ul>
-            <div class="dashboard-card-button-container">
-              <button class="mdc-button mdc-button--raised dashboard-card-button">
-                Pay Now
-              </button>
-            </div>
+                ?>
+              </ul>
+              <div class="dashboard-card-button-container">
+                <button class="mdc-button mdc-button--raised dashboard-card-button">
+                  Pay Now
+                </button>
+              </div>
+            </form>
           </div>
           <div class="mdc-layout-grid__cell">
             <div class="mdc-layout-grid__inner">
@@ -212,7 +220,6 @@
               mdcMenu.open = true;
             }
           </script>
-
         </div>
       </div>
     </section>

@@ -7,8 +7,8 @@
     $obj->contact = "True";
 
     $servername = "localhost";
-    $s_username = "student";
-    $s_password = "student";
+    $s_username = "root";
+    $s_password = "algorithm";
     $db_name = 'prayatna';
 
     // Create connection
@@ -21,13 +21,6 @@
     $email_id = $input->email;
     $name = $input->name;
     $contact = $input->contact;
-    // for checking
-    // $email_id = 'akshayred@gmail.com';
-    // $name = 'seri';
-    // $contact = 'thanks';
-
-
-    // preventing injection attack using prepared statement
     $sql = 'select * from user_details where email_id = ?';
 
     $stmt = $conn->prepare($sql);
