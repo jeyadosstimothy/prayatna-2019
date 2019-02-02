@@ -159,11 +159,22 @@ footer a {
 footer {
   background-color: #f1f3f4;
   margin-top: 2rem;
-  padding: 15px;
+  padding: 2rem 1rem 2rem 1rem;
 }
 
 footer p {
   color: #5f6368;
+}
+
+footer .logo {
+  width: 85px;
+  height: 85px;
+}
+
+footer .container {
+  padding-left: 1rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .mdc-top-app-bar{
@@ -307,6 +318,9 @@ footer p {
   margin: 0;
   padding: 0;
   color: rgba(0,0,0,.8);
+}
+
+.mdc-list-item {
   cursor: pointer;
 }
 
@@ -401,5 +415,13 @@ footer p {
 
   .app-fab--mobile {
     display: inline-flex;
+  }
+
+  footer {
+    padding: 2rem 1rem 1rem 1rem;
+  }
+
+  footer .container {
+    display: block;
   }
 }

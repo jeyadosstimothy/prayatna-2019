@@ -184,7 +184,11 @@
         return {
             view: function() {
                 return [
-                    m('img', {src: 'res/prayatna.png', class: "logo"}),
+                    m('img', {src: 'res/prayatna.png', class: "logo", onclick: function()
+                        {
+                            window.location.href='home.php'}
+                        }
+                    ),
                     m(formToShow)
                 ];
             }

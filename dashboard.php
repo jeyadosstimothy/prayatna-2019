@@ -42,20 +42,20 @@
     <header class="mdc-top-app-bar mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="padding-left: 20px">
-          <img src="res/small_logo.jpg" style="width: 35px;height: 35px;" />
+          <img src="res/prayatna-small.jpeg" style="width: 35px;height: 35px;" />
           <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">PRAYATNA</span>
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-          <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick= "openMenu()">
+          <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick="openMenu()">
             <i class="material-icons">more_vert</i>
           </button>
           <div class="mdc-menu-surface--anchor">
             <div class="mdc-menu mdc-menu-surface" style="width: 150px;" tabindex="-1">
               <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                <li class="mdc-list-item" role="menuitem">
+                <li class="mdc-list-item" role="menuitem" onclick="window.location.href='home.php'">
                   <span class="mdc-list-item__text">Home</span>
                 </li>
-                <li class="mdc-list-item" role="menuitem">
+                <li class="mdc-list-item" role="menuitem" onclick="window.location.href='ajax_responses/logout.php'">
                   <span class="mdc-list-item__text">Log out</span>
                 </li>
               </ul>
@@ -92,7 +92,7 @@
                         while($row = $result->fetch_assoc()) {
                           array_push($workshop_ids, $row['workshop_id']);
                           echo '
-                            <li class="mdc-list-item" onclick="window.location.href=\'details.html?id='.$row['workshop_id'].'\'">
+                            <li class="mdc-list-item" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">
                               <span class="mdc-list-item__text">
                                 <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
                                 <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
@@ -147,7 +147,7 @@
                             <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
                             <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
                             </span>
-                            <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.html?id='.$row['workshop_id'].'\'">info</button>
+                            <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
                           </li>';
                           if($count != $result->num_rows) {
                             echo'<li role="separator" class="mdc-list-divider"></li>';

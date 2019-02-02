@@ -10,20 +10,7 @@
 </head>
 <body>
     <div id='root' class='mdc-typography' style="margin-bottom: 5rem"></div>
-    <footer>
-      <section style="position: relative;">
-          <img src="res/small_logo.jpg" style="width: 85px; height: 85px; margin: 1rem;" />
-          <div style="display: inline-block;position: absolute;vertical-align: middle;height: 100%;">
-            <p class="mdc-typography--body2" style="display: block;margin-top: 1rem">Prayatna 2019<br>
-              Association of Computer Technologists<br>
-              Connect with us!<br>
-              <a href="https://www.facebook.com">Facebook</a>&nbsp;/
-              <a href="https://www.instagram.com">Instagram</a>&nbsp;/
-              <a href="https://www.whatsapp.com">Whatsapp</a>
-            </p>
-          </div>
-      </section>
-    </footer>
+    <?php include('footer.php') ?>
     <script type="text/javascript">
         function parseURLParams(url) {
             var queryStart = url.indexOf("?") + 1,
@@ -50,60 +37,56 @@
         var getPageToShow = function() {
             var params = parseURLParams(window.location.href);
             if(params == undefined) {
-                window.location.href = "home.html";
+                window.location.href = "home.php";
             }
             return params.id
         }
-        var mdcMenu, mdcMenuList;
-        var menu = {
-            view: function() {
-                return m('div', {class: 'mdc-menu mdc-menu-surface', style: 'width: 150px;'},
-                    m('ul', {class: 'mdc-list', role: 'menu', "aria-hidden": "true", "aria-orientation": "vertical"}, [
-                        m('li', {class: 'mdc-list-item', role:'menuitem'},
-                            m('span', {class:'mdc-list-item__text'}, 'Dashboard')
-                        ),
-                        m('li', {class: 'mdc-list-item', role:'menuitem'},
-                            m('span', {class:'mdc-list-item__text'}, 'Log Out')
-                        )
-                    ])
-                );
-            },
-            oncreate: function(vnode) {
-                mdcMenu = new mdc.menu.MDCMenu(vnode.dom);
-                mdcMenuList = new mdc.list.MDCList(vnode.dom.querySelector('.mdc-list'));
-                ripples.push.apply(mdcMenuList.listElements.map((listItemEl) => new mdc.ripple.MDCRipple(listItemEl)));
-            }
-        };
-        var topAppBar;
+        var topAppBar, cookieExists = "<?php echo isset($_COOKIE['user_id']); ?>";
         var appBar = {
             view: function() {
-                return m('header', {class: 'mdc-top-app-bar mdc-elevation--z4', id: 'app-bar'},
-                        m('div', {class: 'mdc-top-app-bar__row'},
+                var sections = [
                             m('section', {class: 'mdc-top-app-bar__section mdc-top-app-bar__section--align-start'}, [
                                 m('a', {class: 'material-icons mdc-top-app-bar__navigation-icon', tabindex: '0'}, 'menu'),
                                 m('span', {class: 'mdc-top-app-bar__title details-app-bar-title', style: 'font-size: 100%'}, 'Workshops and Events')
                             ]),
-                            m('section', {class: 'mdc-top-app-bar__section mdc-top-app-bar__section--align-end'}, [
-                                m('button', {class: 'mdc-button app-bar-button', style: '--mdc-theme-primary: #ffffff;', onclick: function(){
-                                        mdcMenu.open = true;
-                                    }},
-                                    m('i', {class: 'material-icons'},'more_vert')
-                                ),
-                                m('div', {class: 'mdc-menu-surface--anchor'},
-                                    m(menu)
+                        ];
+                if(cookieExists) {
+                    var menuButtonSection = m('section', {class: 'mdc-top-app-bar__section mdc-top-app-bar__section--align-end', role: 'toolbar'}, [
+                            m('button', {class: 'mdc-button app-bar-button', style:'--mdc-theme-primary: #ffffff;', onclick:function(){
+                                var mdcMenu = new mdc.menu.MDCMenu(document.querySelector('.mdc-menu'));
+                                mdcMenu.open = true;
+                            }} ,
+                                m('i', {class: 'material-icons'}, 'more_vert')
+                            ),
+                            m('div', {class: 'mdc-menu-surface--anchor'},
+                                m('div', {class: 'mdc-menu mdc-menu-surface', style: 'width: 150px;', tabindex: '-1'},
+                                    m('ul', {class: 'mdc-list', role: 'menu', "aria-hidden":"true", "aria-orientation":"vertical"},
+                                        m('li', {class: 'mdc-list-item', role: 'menuitem', onclick: function(){
+                                            window.location.href='dashboard.php'}},
+                                            m('span', {class: 'mdc-list-item__text'}, 'Dashboard')
+                                        ),
+                                        m('li', {class: 'mdc-list-item', role: 'menuitem', onclick: function(){
+                                            window.location.href='ajax_responses/logout.php'}},
+                                            m('span', {class: 'mdc-list-item__text'}, 'Log out')
+                                        )
+                                    )
                                 )
-                            ]),
-                        )
-                    );
+                            )
+                        ]);
+                    sections.push(menuButtonSection);
+                }
+                return m('header', {class: 'mdc-top-app-bar mdc-elevation--z4', id: 'app-bar'},
+                    m('div', {class: 'mdc-top-app-bar__row'}, sections)
+                );
             },
             oncreate: function(vnode) {
                 topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(vnode.dom);
                 topAppBar.listen('MDCTopAppBar:nav', () => {
                   drawer.open = true;
                 });
-                ripples.push(new mdc.ripple.MDCRipple(vnode.dom.querySelector('.mdc-button')));
             }
         }
+
         var currentPage = getPageToShow();
         var switchPage = function(page) {
             currentPage = page;
@@ -126,7 +109,7 @@
             }
         }
         var nav = m('nav', {class: 'mdc-list'}, [
-                    m('a', {class: 'mdc-list-item', href: 'home.html', 'aria-selected': 'true', tabindex: '0'}, [
+                    m('a', {class: 'mdc-list-item', href: 'home.php', 'aria-selected': 'true', tabindex: '0'}, [
                         m('h3', {class: 'mdc-list-group__subheader', style: 'color: #212121'}, 'Home')
                     ]),
                     m('h3', {class: 'mdc-list-group__subheader', style: 'color: #212121'}, 'Workshops'),
@@ -260,7 +243,7 @@
             view: function() {
                 return m('aside', {class: 'mdc-drawer mdc-drawer--modal'}, [
                         m('div', {class: 'mdc-drawer__header', style: 'position:relative'}, [
-                            m('img', {src: 'res/small_logo.jpg', style: 'width: 50px; height: 50px;'}),
+                            m('img', {src: 'res/prayatna-small.jpeg', style: 'width: 50px; height: 50px;'}),
                             m('h3', {class: 'mdc-drawer__title', style: 'display: inline-block;position: absolute;margin-left: 1rem'}, "Prayatna '19")
                         ]),
                         m('div', {class: 'mdc-drawer__content'},
@@ -317,7 +300,12 @@
         }
         var registrationFabExtended = {
             view: function() {
-                return m('button', {class: 'mdc-fab mdc-fab--extended app-fab--absolute app-fab--pc'},
+                return m('button', {class: 'mdc-fab mdc-fab--extended app-fab--absolute app-fab--pc', onclick: function(){
+                        if(cookieExists)
+                            window.location.href = "dashboard.php";
+                        else
+                            window.location.href = "register.php";
+                    }},
                     m('span', {class: 'mdc-fab__icon material-icons'}, 'person_add'),
                     m('span', {class: 'mdc-fab__label'}, 'Register')
                 );
@@ -328,7 +316,12 @@
         }
         var registrationFab = {
             view: function() {
-                return m('button', {class: 'mdc-fab app-fab--absolute app-fab--mobile'},
+                return m('button', {class: 'mdc-fab app-fab--absolute app-fab--mobile', onclick: function(){
+                        if(cookieExists)
+                            window.location.href = "dashboard.php";
+                        else
+                            window.location.href = "register.php";
+                    }},
                     m('span', {class: 'mdc-fab__icon material-icons'}, 'person_add')
                 );
             },

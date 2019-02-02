@@ -20,7 +20,7 @@
   <header class="mdc-top-app-bar mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="padding-left: 20px">
-        <img src="res/small_logo.jpg" style="width: 35px;height: 35px;" />
+        <img src="res/prayatna-small.jpeg" style="width: 35px;height: 35px;" />
         <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">Prayatna</span>
       </section>
 
@@ -29,11 +29,22 @@
         // if logged in show dashboard
         if (isset($_COOKIE["user_id"])) {
 	        echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-                  <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick = "location.href=\'dashboard.php\'">
-                    <!--<i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>-->
-                    <span class="mdc-button__label" style="letter-spacing: .1rem">My Dashboard</span>
+                  <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick="openMenu()">
+                    <i class="material-icons">more_vert</i>
                   </button>
-                </section>';
+                  <div class="mdc-menu-surface--anchor">
+                    <div class="mdc-menu mdc-menu-surface" style="width: 150px;" tabindex="-1">
+                      <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+                        <li class="mdc-list-item" role="menuitem" onclick="window.location.href=\'dashboard.php\'">
+                          <span class="mdc-list-item__text">Dashboard</span>
+                        </li>
+                        <li class="mdc-list-item" role="menuitem" onclick="window.location.href=\'ajax_responses/logout.php\'">
+                          <span class="mdc-list-item__text">Log out</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+              </section>';
         }
         // else show register button
         else {
@@ -45,7 +56,6 @@
                 </section>';
         }
       ?>
-
 
     </div>
   </header>
@@ -65,9 +75,9 @@
 
     <div class="floating-social-icons">
       <p align="right">
-        <a href="facebook"><img src="res/facebook_white.png" class="img-social" /></a>
-        <a href="instagram"><img src="res/instagram_white.png" class="img-social" /></a>
-        <a href="whatsapp"><img src="res/whatsapp_white.png" class="img-social" /></a>
+        <a href="https://www.facebook.com/prayatnact"><img src="res/facebook_white.png" class="img-social" /></a>
+        <a href="https://www.instagram.com/act.mit/"><img src="res/instagram_white.png" class="img-social" /></a>
+        <a href="https://api.whatsapp.com/send?phone=919597180925"><img src="res/whatsapp_white.png" class="img-social" /></a>
       </p>
     </div>
     <script>
@@ -170,7 +180,7 @@
       var ripples = []
       var CardPrimaryAction = {
         view: function(vnode) {
-          return m('div', {class: 'mdc-card__primary-action', tabindex:"0", onclick: function() {window.location.href = "details.html?id="+vnode.attrs.id;}},
+          return m('div', {class: 'mdc-card__primary-action', tabindex:"0", onclick: function() {window.location.href = "details.php?id="+vnode.attrs.id;}},
             m('div', {class: 'mdc-card__media mdc-card__media--16-9', style: vnode.attrs.style}),
             m('div', {class: 'mdc-card__primary'},
               m('h2', {class: 'mdc-card__title mdc-typography--headline6'}, vnode.attrs.title),
@@ -584,22 +594,6 @@
         </div>
       </div>
     </div>
-    <footer>
-      <section style="position: relative;">
-          <img src="res/small_logo.jpg" style="width: 85px; height: 85px; margin: 1rem;" />
-          <div style="display: inline-block;position: absolute;vertical-align: middle;height: 100%;">
-            <p class="mdc-typography--body2" style="display: block;margin-top: 1rem">Prayatna 2019<br>
-              Association of Computer Technologists<br>
-              Connect with us!<br>
-              <a href="https://www.facebook.com">Facebook</a>&nbsp;/
-              <a href="https://www.instagram.com">Instagram</a>&nbsp;/
-              <a href="https://www.whatsapp.com">Whatsapp</a>
-            </p>
-          </div>
-      </section>
-    </footer>
-
-
     <script type="text/javascript">
       var tfs = document.querySelectorAll('.mdc-text-field');
       var mdTfs = []
@@ -611,8 +605,14 @@
         ripples.push(new mdc.ripple.MDCRipple(buttons[i]));
       }
       var appBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
+
+      var mdcMenu = new mdc.menu.MDCMenu(document.querySelector('.mdc-menu'));
+      function openMenu(){
+        mdcMenu.open = true;
+      }
     </script>
   </section>
+  <?php include('footer.php') ?>
 </body>
 </html>
 
