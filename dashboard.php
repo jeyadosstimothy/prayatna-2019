@@ -123,14 +123,21 @@
                     $result = $conn->query($sql);
                     if ($result != NULL && $result->num_rows > 0) {
                       // output data of each row
+                      $sql = "select count(user_id) as cnt, workshop_id from register_details group by workshop_id";
+                      $ans = $conn->query($sql);
+                      $count_id_pair = array();
+                      while($row = $ans->fetch_assoc()) {
+                        $count_id_pair[$row['workshop_id']] = $row['cnt'];
+                      }
                       $count = 1;
                       while($row = $result->fetch_assoc()) {
                         array_push($workshop_ids, $row['workshop_id']);
-                        echo '<li class="mdc-list-item" role="checkbox" aria-checked="false">
+                        $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= 1);
+                        echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
                             <span class="mdc-list-item__graphic">
                             <div class="mdc-checkbox">
                             <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
-                              value="'.$row['workshop_id'].'" price="' .$row["price"]. '"/>
+                              value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.($filled?'disabled':'').'/>
                             <div class="mdc-checkbox__background">
                             <svg class="mdc-checkbox__checkmark"
                               viewBox="0 0 24 24">
@@ -144,7 +151,7 @@
                             </span>
                             <span class="mdc-list-item__text">
                             <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                            <span class="mdc-list-item__secondary-text">' . $row['date'] .', Rs. '. $row['price']  . '</span>
+                            <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
                             </span>
                             <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
                           </li>';
