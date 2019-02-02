@@ -490,9 +490,7 @@
               child: m(TabBar, {tabs: eventTabs, id: 'eventTabBar'}),
               span: 4,
             }),
-            m('div',
-              m(Panel, {child: panelContent[currentPanel]})
-            ),
+            m(Panel, {child: panelContent[currentPanel]})
           );
         }
       }

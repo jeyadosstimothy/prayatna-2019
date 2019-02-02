@@ -2,13 +2,11 @@
     if(!isset($_POST['submit'])) {
         header('Location: http://localhost/prayatna-2019/home.php');
     }
-    $servername = "localhost";
-    $s_username = "student";
-    $s_password = "student";
-    $db_name = 'prayatna';
+
+    require '../constants.php';
 
     // Create connection
-    $conn = new mysqli($servername, $s_username, $s_password, $db_name);
+    $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 
     // check connection
     if ($conn->connect_error) {
@@ -31,7 +29,8 @@
         setcookie('name', $row['name'], time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie('email', $row['email_id'], time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie('phone', $row['phone_number'], time() + (86400 * 30), "/"); // 86400 = 1 day
-        header('Location: http://localhost/prayatna-2019/dashboard.php');}
+        header('Location: http://localhost/prayatna-2019/dashboard.php');
+    }
     else {
         echo 'failure';
     }

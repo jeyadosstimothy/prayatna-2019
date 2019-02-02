@@ -6,13 +6,10 @@
     $obj->email = "True";
     $obj->contact = "True";
 
-    $servername = "localhost";
-    $s_username = "student";
-    $s_password = "student";
-    $db_name = 'prayatna';
+    require '../constants.php';
 
     // Create connection
-    $conn = new mysqli($servername, $s_username, $s_password, $db_name);
+    $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 
     // check connection
     if ($conn->connect_error) {

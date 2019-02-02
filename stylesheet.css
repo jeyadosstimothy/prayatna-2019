@@ -165,6 +165,10 @@ footer a {
   border-width: 1px;
 }
 
+.mdc-button--raised:not(:disabled), .mdc-button--unelevated:not(:disabled) {
+  background-color: #252525;
+}
+
 footer {
   background-color: #f1f3f4;
   margin-top: 2rem;

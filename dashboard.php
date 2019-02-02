@@ -2,28 +2,17 @@
   if(!isset($_COOKIE['user_id'])) {
     header('Location: http://localhost/prayatna-2019/home.php');
   }
-  else {
-    $servername = "localhost";
-    $s_username = "student";
-    $s_password = "student";
-    $db_name = 'prayatna';
 
-    // Create connection
-    $conn = new mysqli($servername, $s_username, $s_password, $db_name);
+  require 'constants.php';
 
-    // check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+  // Create connection
+  $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 
-    $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id in (select workshop_id from register_details where user_id = ?)';
-
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $_COOKIE['user_id']);
-    $result = $stmt->execute();
-    $result = $stmt->get_result();
-    $workshop_ids = array(-1); // -1 for distinguish from workshop id
+  // check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
   }
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -86,6 +75,14 @@
                 <ul class="mdc-list mdc-list--two-line" role="group">
                   <?php
                     if(isset($_COOKIE['user_id'])) {
+                      $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id in (select workshop_id from register_details where user_id = ?)';
+
+                      $stmt = $conn->prepare($sql);
+                      $stmt->bind_param("i", $_COOKIE['user_id']);
+                      $result = $stmt->execute();
+                      $result = $stmt->get_result();
+                      $workshop_ids = array(-1); // -1 for making sure "not in" list is not empty when querying unregistered workshops
+
                       if ($result->num_rows > 0) {
                         $count = 1;
                         // output data of each row
@@ -99,11 +96,14 @@
                               </span>
                               <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
                             </li>';
-                            if($count != $result->num_rows) {
-                              echo'<li role="separator" class="mdc-list-divider"></li>';
-                            }
-                            $count = $count + 1;
+                          if($count != $result->num_rows) {
+                            echo'<li role="separator" class="mdc-list-divider"></li>';
+                          }
+                          $count = $count + 1;
                         }
+                      }
+                      else {
+                        echo 'Nothing to show';
                       }
                     }
                   ?>
@@ -119,7 +119,7 @@
                 <?php
                   if(isset($_COOKIE['user_id'])) {
                     $ids = "'" . implode("', '", $workshop_ids) . "'" ;// making array('val1', 'val2', 'val3') because of string
-                    $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id not in (' . $ids .')';
+                    $sql = 'select workshop_id, workshop_name, date, price from workshop_details where workshop_id not in (' . $ids .')';
                     $result = $conn->query($sql);
                     if ($result != NULL && $result->num_rows > 0) {
                       // output data of each row
@@ -129,9 +129,8 @@
                         echo '<li class="mdc-list-item" role="checkbox" aria-checked="false">
                             <span class="mdc-list-item__graphic">
                             <div class="mdc-checkbox">
-                            <input type="checkbox" name = "selectedWorkshop[]"
-                              class="mdc-checkbox__native-control"
-                              id="demo-list-checkbox-item-1" value="'.$row['workshop_id'].'"/>
+                            <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
+                              value="'.$row['workshop_id'].'" price="' .$row["price"]. '"/>
                             <div class="mdc-checkbox__background">
                             <svg class="mdc-checkbox__checkmark"
                               viewBox="0 0 24 24">
@@ -145,7 +144,7 @@
                             </span>
                             <span class="mdc-list-item__text">
                             <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                            <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
+                            <span class="mdc-list-item__secondary-text">' . $row['date'] .', Rs. '. $row['price']  . '</span>
                             </span>
                             <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
                           </li>';
@@ -161,6 +160,7 @@
                   }
                 ?>
               </ul>
+              <p id="total-amount" style="text-align: center;font-family: 'Raleway', sans-serif"></p>
               <div class="dashboard-card-button-container">
                 <button class="mdc-button mdc-button--raised dashboard-card-button">
                   Pay Now
@@ -219,6 +219,18 @@
             function openMenu(){
               mdcMenu.open = true;
             }
+          </script>
+          <script type="text/javascript">
+            var value = 0, paymentAmount = document.getElementById("total-amount");
+            $('input[type=checkbox]').change(function(){
+              var txt = $(this).attr('price');
+              if($(this).is(':checked')) {
+                value = value + parseInt(txt);
+              } else {
+                value = value - parseInt(txt);
+              }
+              paymentAmount.innerHTML = "Total Amount: Rs. " + value;
+            });
           </script>
         </div>
       </div>
