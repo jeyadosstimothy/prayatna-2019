@@ -150,6 +150,8 @@ footer a {
 
 .contacts-list .mdc-image-list__label {
   width: 100%;
+  white-space: normal;
+  text-align: center;
 }
 
 .sponsors-list .mdc-image-list__item {

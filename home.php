@@ -59,7 +59,7 @@
 
     </div>
   </header>
-  <section class="section-dark section-full title-section mdc-layout-grid">
+  <section class="section-dark section-full title-section mdc-layout-grid mdc-top-app-bar--fixed-adjust">
     <div class="mdc-layout-grid__inner anim-appear-slideup-fadein">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
         <img class="logo" src="res/prayatna.png">
@@ -508,49 +508,65 @@
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+            <span class="mdc-image-list__label mdc-typography--body2">
+              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+            </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item" >
           <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+            <span class="mdc-image-list__label mdc-typography--body2">
+              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+            </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+            <span class="mdc-image-list__label mdc-typography--body2">
+              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+            </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com</center></span>
+            <span class="mdc-image-list__label mdc-typography--body2">
+              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+            </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Secratary<br>+91 92768547867<br>email@gmail.com</center></span>
+            <span class="mdc-image-list__label mdc-typography--body2">
+              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+            </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Event Organizer<br>+91 92768547867<br>emailid@gmail.com</center></span>
+            <span class="mdc-image-list__label mdc-typography--body2">
+              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+            </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Workshop Organizer<br>+91 92768547867<br>email@gmail.com</center></span>
+            <span class="mdc-image-list__label mdc-typography--body2">
+              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+            </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
           <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
-            <span class="mdc-image-list__label"><center class="mdc-typography--body2">Praveen Siva<br>Accomodation & Hospitality<br>+91 92768547867<br>gnaighdryfl@gmail.com</center></span>
+            <span class="mdc-image-list__label mdc-typography--body2">
+              Praveen Siva<br>Paper Presentation Coordinator<br>+91 92768547867<br>mail@gmail.com
+            </span>
           </div>
         </li>
       </ul>
