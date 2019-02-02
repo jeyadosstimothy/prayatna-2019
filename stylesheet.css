@@ -286,12 +286,6 @@ footer .container {
   animation-delay: .1s;
 }
 
-.floating-social-icons p {
-  opacity: 0;
-  animation: slidedown 235ms cubic-bezier(.4,0,.2,1) forwards, fadein .1s cubic-bezier(.4,0,.2,1) forwards;
-  animation-delay: .1s;
-}
-
 .anim-appear-slideup-fadein {
   opacity: 0;
   animation: slideup .3s cubic-bezier(.4,0,.2,1) forwards, fadein .2s cubic-bezier(.4,0,.2,1) forwards;

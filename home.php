@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <div class="floating-social-icons">
+    <div class="floating-social-icons anim-appear-slideright-fadein">
       <p align="right">
         <a href="https://www.facebook.com/prayatnact"><img src="res/facebook_white.png" class="img-social" /></a>
         <a href="https://www.instagram.com/act.mit/"><img src="res/instagram_white.png" class="img-social" /></a>
