@@ -243,7 +243,7 @@
             view: function() {
                 return m('aside', {class: 'mdc-drawer mdc-drawer--modal'}, [
                         m('div', {class: 'mdc-drawer__header', style: 'position:relative'}, [
-                            m('img', {src: 'res/prayatna-small.jpeg', style: 'width: 50px; height: 50px;'}),
+                            m('img', {src: 'res/prayatna-small.png', style: 'width: 50px; height: 50px;'}),
                             m('h3', {class: 'mdc-drawer__title', style: 'display: inline-block;position: absolute;margin-left: 1rem'}, "Prayatna '19")
                         ]),
                         m('div', {class: 'mdc-drawer__content'},
