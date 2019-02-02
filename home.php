@@ -570,13 +570,13 @@
 
           <h1 class="mdc-typography--headline5">Drop us a query</h1>
 
-          <form class="query-form" method="post">
+          <form class="query-form" id="query-form" method="post"  accept-charset="UTF-8">
             <div class="mdc-text-field mdc-text-field--fullwidth">
-              <input class="mdc-text-field__input" type="text" name="email" placeholder="Email Address" aria-label="Full-Width Text Field" />
+              <input class="mdc-text-field__input" type="email" name="email" placeholder="Email Address" aria-label="Full-Width Text Field" required/>
               <div class="mdc-line-ripple"></div>
             </div>
             <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" style="margin-top: 1rem">
-              <textarea id="textarea" class="mdc-text-field__input" name="query" rows="4"></textarea>
+              <textarea id="textarea" class="mdc-text-field__input" name="query" rows="4" required></textarea>
               <div class="mdc-notched-outline">
                 <div class="mdc-notched-outline__leading"></div>
                 <div class="mdc-notched-outline__notch">
@@ -586,7 +586,7 @@
               </div>
             </div>
             <div style="margin-top: 1rem;">
-              <button class="mdc-button mdc-button--outlined" type="submit" style="display: block; margin-left: auto;">
+              <button class="mdc-button mdc-button--outlined" type="submit" value="submit" style="display: block; margin-left: auto;">
                 <span class="mdc-button__label">Submit</span>
               </button>
             </div>
@@ -610,6 +610,22 @@
       function openMenu(){
         mdcMenu.open = true;
       }
+    </script>
+    <script type="text/javascript">
+      $("#query-form").submit(function(e){
+        e.preventDefault();
+        var form = $("#query-form");
+        $.ajax({
+          url: "ajax_responses/feedback_mail.php",
+          type:"POST",
+          data: form.serialize(),
+          success: function(response){
+              $("#textarea").val('');
+              $("#query-form input[name='email']").val('');
+              alert(response);
+          }
+        });
+      });
     </script>
   </section>
   <?php include('footer.php') ?>
