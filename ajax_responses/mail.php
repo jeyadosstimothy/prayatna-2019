@@ -6,10 +6,10 @@ require  '../PHPMailer/src/SMTP.php';
 
 $prayatna_email = "prayatna2k19@gmail.com";
 
-function send_mail($email_to, $subject, $body_content) {
+function send_mail($email_to, $subject, $body_content, $bcc=false) {
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->IsSMTP();
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'ssl';
     $mail->Host = 'smtp.gmail.com';
@@ -21,13 +21,16 @@ function send_mail($email_to, $subject, $body_content) {
     $mail->Body = $body_content;
     $mail->AddAddress($email_to);
 
+    if($bcc)
+        $mail->AddBCC($GLOBALS['prayatna_email']);
+
     if(!$mail->Send()) {
         $error = 'Mail error: '.$mail->ErrorInfo;
         error_log($error);
-        echo 'An error occured while sending your feedback. Please try again later';
+        return false;
     }
     else {
-        echo 'Your feedback has been received';
+        return true;
     }
 
 }

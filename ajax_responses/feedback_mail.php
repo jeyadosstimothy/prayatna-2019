@@ -2,7 +2,7 @@
 
 require 'mail.php';
 
-$email= $_POST['email'];
+$email = $_POST['email'];
 $query = $_POST['query'];
 
 $subject = "Thanks for reaching out to us!";
@@ -22,10 +22,9 @@ Team ACT,
 Prayatna 2k19
 ";
 
-send_mail($email, $subject, $body_content);
-
-
-$subject = 'Query: ' . $email;
-send_mail($prayatna_email, $subject, $query);
+if(send_mail($email, $subject, $body_content, true))
+    echo 'Your feedback has been received';
+else
+    echo 'An error occured while sending your feedback. Please try again later';
 
 ?>

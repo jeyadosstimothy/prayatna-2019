@@ -614,6 +614,7 @@
     <script type="text/javascript">
       $("#query-form").submit(function(e){
         e.preventDefault();
+        document.querySelector('#query-form button').setAttribute('disabled', 'true');
         var form = $("#query-form");
         $.ajax({
           url: "ajax_responses/feedback_mail.php",
@@ -622,6 +623,7 @@
           success: function(response){
               $("#textarea").val('');
               $("#query-form input[name='email']").val('');
+              document.querySelector('#query-form button').removeAttribute('disabled');
               alert(response);
           }
         });
