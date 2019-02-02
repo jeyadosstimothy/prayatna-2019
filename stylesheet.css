@@ -47,6 +47,14 @@ a {
   border-radius: 0;
 }
 
+.input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #212121 inset;
+}
+
+.input-text-color:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff;
+}
+
 .mdc-tab {
   flex: 1 0 0;
   padding: 0 12px;

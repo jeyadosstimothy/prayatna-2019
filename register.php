@@ -73,7 +73,7 @@
     var json_data = {};
     var TextField = {
         view: function(vnode) {
-            var textFieldValues = {class: "mdc-text-field__input", type: (vnode.attrs.type?vnode.attrs.type:"text"), name: vnode.attrs.name, placeholder: vnode.attrs.placeholder}
+            var textFieldValues = {class: "mdc-text-field__input input input-text-color", type: (vnode.attrs.type?vnode.attrs.type:"text"), name: vnode.attrs.name, placeholder: vnode.attrs.placeholder}
             if(vnode.attrs.disabled)
                 textFieldValues['disabled'] = true
             if(vnode.attrs.required)
@@ -118,8 +118,7 @@
                             m(Button, { class: "mdc-button mdc-button--outlined mdc-ripple-upgraded", style:"color:#ffffff;",label: 'Sign Up', type:"button", onclick: function() {
                                     formToShow = signupForm;
                                 }
-                            }
-                            ),
+                            }),
                             m(Button, {label: 'Sign In', style:" margin-left: 15px;"})
                         )
                     ]
@@ -172,8 +171,7 @@
                             m(Button, {class: "mdc-button mdc-button--outlined mdc-ripple-upgraded", style:"color:#ffffff;",label: 'Cancel',type:"button", onclick: function() {
                                     formToShow = loginForm;
                                 }
-                            }
-                            ),
+                            }),
                             m(Button, {label: 'Sign Up', style:" margin-left: 15px;"})
                         )
                     ]
@@ -184,11 +182,11 @@
         return {
             view: function() {
                 return [
-                    m('img', {src: 'res/prayatna.png', class: "logo", onclick: function()
-                        {
-                            window.location.href='home.php'}
+                    m('img', {src: 'res/prayatna.png', class: "logo", style: "cursor: pointer;",
+                        onclick: function(){
+                            window.location.href='home.php'
                         }
-                    ),
+                    }),
                     m(formToShow)
                 ];
             }
