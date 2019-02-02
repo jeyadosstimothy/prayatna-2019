@@ -49,6 +49,7 @@ a {
 
 .mdc-tab {
   flex: 1 0 0;
+  padding: 0 12px;
 }
 
 .mdc-card__primary, .mdc-card__secondary {
@@ -277,10 +278,26 @@ footer .container {
   animation-delay: .1s;
 }
 
-.anim-appear {
+.floating-social-icons p {
+  opacity: 0;
+  animation: slidedown 235ms cubic-bezier(.4,0,.2,1) forwards, fadein .1s cubic-bezier(.4,0,.2,1) forwards;
+  animation-delay: .1s;
+}
+
+.anim-appear-slideup-fadein {
   opacity: 0;
   animation: slideup .3s cubic-bezier(.4,0,.2,1) forwards, fadein .2s cubic-bezier(.4,0,.2,1) forwards;
   animation-delay: .3s;
+}
+
+.anim-appear-slideright-fadein {
+  opacity: 0;
+  animation: slideright 235ms cubic-bezier(.4,0,.2,1) forwards, fadein .1s cubic-bezier(.4,0,.2,1) forwards;
+  animation-delay: .1s;
+}
+
+.anim-appear-fadein {
+  animation: fadein .5s cubic-bezier(.4,0,.2,1) forwards;
 }
 
 .anim-appear-pulse {
@@ -320,10 +337,6 @@ footer .container {
   color: rgba(0,0,0,.8);
 }
 
-.mdc-list-item {
-  cursor: pointer;
-}
-
 .mdc-drawer .mdc-list-group__subheader {
   padding: 0 16px 8px 16px;
   font-size: 1rem;
@@ -334,10 +347,26 @@ footer .container {
   padding-bottom: 16px;
 }
 
+.mdc-list-item {
+  cursor: pointer;
+}
+
+.mdc-menu-surface {
+  border-radius: 0;
+}
+
 .app-fab--absolute {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+}
+
+.mdc-fab--extended {
+  border-radius: 24px 0;
+}
+
+.mdc-fab:not(.mdc-fab--extended) {
+  border-radius: 50% 0;
 }
 
 .mdc-fab .mdc-fab__icon {

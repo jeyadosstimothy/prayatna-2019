@@ -59,7 +59,7 @@
                                 m('i', {class: 'material-icons'}, 'more_vert')
                             ),
                             m('div', {class: 'mdc-menu-surface--anchor'},
-                                m('div', {class: 'mdc-menu mdc-menu-surface', style: 'width: 150px;', tabindex: '-1'},
+                                m('div', {class: 'mdc-menu mdc-menu-surface anim-appear-pulse', style: 'width: 150px;', tabindex: '-1'},
                                     m('ul', {class: 'mdc-list', role: 'menu', "aria-hidden":"true", "aria-orientation":"vertical"},
                                         m('li', {class: 'mdc-list-item', role: 'menuitem', onclick: function(){
                                             window.location.href='dashboard.php'}},
@@ -256,7 +256,7 @@
             }
         }
         var contents = {
-            'flutter': m('div', [
+            'flutter': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'Flutter Workshop'),
                 m('p', {class: 'mdc-typography--body1'},
                     `Flutter allows you to build beautiful native apps on iOS and Android from a single codebase. Delight your users with Flutter's built-in beautiful Material Design and Cupertino (iOS-flavor) widgets, rich motion APIs, smooth natural scrolling, and platform awareness. Flutter's widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android. Flutter's hot reload helps you quickly and easily experiment, build UIs, add features, and fix bugs faster. Experience sub-second reload times, without losing state, on emulators, simulators, and hardware for iOS and Android.`),
@@ -282,7 +282,7 @@
             ]),
             'cyber-security': m('p', 'cyber-security'),
             'artificial-intelligence': m('p', 'artificial-intelligence'),
-            'ospc': m('div', [
+            'ospc': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'OSPC'),
                 m('p', {class: 'mdc-typography--body1'},
                     `Flutter allows you to build beautiful native apps on iOS and Android from a single codebase. Delight your users with Flutter's built-in beautiful Material Design and Cupertino (iOS-flavor) widgets, rich motion APIs, smooth natural scrolling, and platform awareness. Flutter's widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android. Flutter's hot reload helps you quickly and easily experiment, build UIs, add features, and fix bugs faster. Experience sub-second reload times, without losing state, on emulators, simulators, and hardware for iOS and Android.`),
@@ -337,9 +337,7 @@
                     m('div', {class: 'drawer-frame-app-content'},
                         m(appBar),
                         m('div', {class: 'mdc-top-app-bar--fixed-adjust'}),
-                        m('main', {class: 'main-content-details'}, [
-                            m('div', {class: 'center60'}, contents[currentPage])
-                        ]),
+                        m('main', {class: 'center60 main-content-details'}, contents[currentPage]),
                         m(registrationFab),
                         m(registrationFabExtended)
                     )

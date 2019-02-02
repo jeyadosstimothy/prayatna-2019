@@ -3,7 +3,7 @@
       <div class="container">
         <img class="logo" src="res/prayatna-small.jpeg" />
       </div>
-      <div class="container">
+      <div class="container anim-appear-slideright-fadein">
         <p class="mdc-typography--body2 content">Prayatna 2019<br>
           Association of Computer Technologists<br>
           Connect with us!<br>

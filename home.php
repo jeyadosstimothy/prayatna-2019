@@ -33,7 +33,7 @@
                     <i class="material-icons">more_vert</i>
                   </button>
                   <div class="mdc-menu-surface--anchor">
-                    <div class="mdc-menu mdc-menu-surface" style="width: 150px;" tabindex="-1">
+                    <div class="mdc-menu mdc-menu-surface anim-appear-pulse" style="width: 150px;" tabindex="-1">
                       <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
                         <li class="mdc-list-item" role="menuitem" onclick="window.location.href=\'dashboard.php\'">
                           <span class="mdc-list-item__text">Dashboard</span>
@@ -60,7 +60,7 @@
     </div>
   </header>
   <section class="section-dark section-full title-section mdc-layout-grid">
-    <div class="mdc-layout-grid__inner anim-appear">
+    <div class="mdc-layout-grid__inner anim-appear-slideup-fadein">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
         <img class="logo" src="res/prayatna.png">
       </div>
@@ -101,41 +101,39 @@
     </script>
   </section>
   <section>
-    <div>
-      <div class="mdc-layout-grid anim-appear">
-        <div class="mdc-layout-grid__cell">
-          <h1 class="mdc-typography--headline3 section-header">About Us</h1>
-        </div>
-        <div class="mdc-layout-grid__cell">
-          <p class="mdc-typography--body1 content-about">The Association of Computer Technologists takes great pride in conducting PRAYATNA, our annual national level inter-college technical festival. PRAYATNA, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. In a nutshell, PRAYATNA is a platform that churns out technical and creative ideas from upcoming engineers by assessing their aptitude in coding, design, entrepreneurial skills and other multi-faceted concepts with special workshops with the help of experts from the industry enhance the participant's knowledge and creative potentials.</p>
-        </div>
-        <div class="mdc-layout-grid__cell ">
-            <h1 class="mdc-typography--headline3 section-header">Our Sponsors</h1>
-        </div>
-        <ul class="mdc-layout-grid__inner mdc-image-list margin sponsors-list">
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-            <img class="mdc-image-list__image" src="res/LIC.png">
-          </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-            <img class="mdc-image-list__image" src="res/facebook.png">
-          </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-            <img class="mdc-image-list__image" src="res/zoho.png">
-          </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-            <img class="mdc-image-list__image" src="res/google.png">
-          </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-            <img class="mdc-image-list__image" src="res/dell.png">
-          </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-            <img class="mdc-image-list__image" src="res/amazon.jpeg">
-          </li>
-          <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-            <img class="mdc-image-list__image" src="res/uber.png">
-          </li>
-        </ul>
+    <div class="mdc-layout-grid anim-appear-fadein">
+      <div class="mdc-layout-grid__cell">
+        <h1 class="mdc-typography--headline3 section-header">About Us</h1>
       </div>
+      <div class="mdc-layout-grid__cell">
+        <p class="mdc-typography--body1 content-about">The Association of Computer Technologists takes great pride in conducting PRAYATNA, our annual national level inter-college technical festival. PRAYATNA, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. In a nutshell, PRAYATNA is a platform that churns out technical and creative ideas from upcoming engineers by assessing their aptitude in coding, design, entrepreneurial skills and other multi-faceted concepts with special workshops with the help of experts from the industry enhance the participant's knowledge and creative potentials.</p>
+      </div>
+      <div class="mdc-layout-grid__cell ">
+        <h1 class="mdc-typography--headline3 section-header">Our Sponsors</h1>
+      </div>
+      <ul class="mdc-layout-grid__inner mdc-image-list margin sponsors-list">
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <img class="mdc-image-list__image" src="res/LIC.png">
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <img class="mdc-image-list__image" src="res/facebook.png">
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <img class="mdc-image-list__image" src="res/zoho.png">
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <img class="mdc-image-list__image" src="res/google.png">
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <img class="mdc-image-list__image" src="res/dell.png">
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <img class="mdc-image-list__image" src="res/amazon.jpeg">
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <img class="mdc-image-list__image" src="res/uber.png">
+        </li>
+      </ul>
     </div>
   </section>
   <section class="section-dark">
@@ -478,7 +476,7 @@
       }
       var workshopEventPanel = {
         view: function() {
-          return m('div', {class: 'mdc-layout-grid'},
+          return m('div', {class: 'mdc-layout-grid anim-appear-fadein'},
             m(Cell, {
               child: m('h1', {class: 'mdc-typography--headline3 section-header'}, 'Workshops'),
               span: 4,
@@ -492,7 +490,9 @@
               child: m(TabBar, {tabs: eventTabs, id: 'eventTabBar'}),
               span: 4,
             }),
-            m('div', m(Panel, {child: panelContent[currentPanel]})),
+            m('div',
+              m(Panel, {child: panelContent[currentPanel]})
+            ),
           );
         }
       }
@@ -502,7 +502,7 @@
     </script>
   </section>
   <section>
-    <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid anim-appear-fadein">
       <div class="mdc-layout-grid__cell">
           <h1 class="mdc-typography--headline3 section-header">Contact Us</h1>
       </div>

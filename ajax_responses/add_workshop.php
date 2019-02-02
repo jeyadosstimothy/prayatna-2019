@@ -3,8 +3,8 @@ if(!isset($_POST['submit'])) {
     header('Location: http://localhost/prayatna-2019/ajax_responses/invalid_request.php');
 }
 $servername = "localhost";
-$s_username = "root";
-$s_password = "algorithm";
+$s_username = "student";
+$s_password = "student";
 $db_name = 'prayatna';
 
 // Create connection
@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 $sql = 'INSERT INTO register_details (workshop_id, user_id) VALUES (?, ?)';
 $stmt = $conn->prepare($sql);
 foreach($_POST['selectedWorkshop'] as $value)
-{ 
+{
     echo $value . ' ' . $_COOKIE['user_id'];
     $stmt->bind_param("si", $value, $_COOKIE['user_id']);
     $result = $stmt->execute();

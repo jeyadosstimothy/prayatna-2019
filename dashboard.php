@@ -50,7 +50,7 @@
             <i class="material-icons">more_vert</i>
           </button>
           <div class="mdc-menu-surface--anchor">
-            <div class="mdc-menu mdc-menu-surface" style="width: 150px;" tabindex="-1">
+            <div class="mdc-menu mdc-menu-surface anim-appear-pulse" style="width: 150px;" tabindex="-1">
               <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
                 <li class="mdc-list-item" role="menuitem" onclick="window.location.href='home.php'">
                   <span class="mdc-list-item__text">Home</span>
@@ -66,7 +66,7 @@
     </header>
     <section class="mdc-top-app-bar--fixed-adjust">
       <h1 class="mdc-typography--headline4 anim-appear-pulse" style="text-align: center">Welcome <?php if (isset($_COOKIE['user_id'])) echo $_COOKIE['name'];?></h1>
-      <div class="workshops mdc-layout-grid">
+      <div class="workshops mdc-layout-grid anim-appear-slideup-fadein">
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell">
             <div class="mdc-layout-grid__inner">

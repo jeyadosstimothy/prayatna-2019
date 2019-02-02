@@ -7,8 +7,8 @@
     $obj->contact = "True";
 
     $servername = "localhost";
-    $s_username = "root";
-    $s_password = "algorithm";
+    $s_username = "student";
+    $s_password = "student";
     $db_name = 'prayatna';
 
     // Create connection
