@@ -12,7 +12,6 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
-
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -65,9 +64,33 @@
                 <h1 class="mdc-typography--subtitle1">Buy entry tickets now!</h1>
                 <h1 class="mdc-typography--subtitle1">Note: Workshop participants need not buy entry tickets</h1>
                 <div class="dashboard-card-button-container">
-                  <button class="mdc-button mdc-button--raised dashboard-card-button">
-                    Buy Now
-                  </button>
+                  <form method="post" action='cashfree/request.php'>
+                    <?php
+                      $sql = 'select bought_entry from user_details where user_id=?';
+                      $stmt = $conn->prepare($sql);
+                      $stmt->bind_param("i", $_COOKIE['user_id']);
+                      $result = $stmt->execute();
+                      $result = $stmt->get_result();
+                      if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        if ($row['bought_entry']) {
+                    ?>
+                    <button class="mdc-button mdc-button--raised dashboard-card-button" disabled>
+                      Bought
+                    </button>
+                    <?php
+                        }
+                        else {
+                    ?>
+                    <button class="mdc-button mdc-button--raised dashboard-card-button">
+                      Buy Now
+                    </button>
+                    <?php
+                        }
+                      }
+                    ?>
+                    <input type="hidden" name="type" value="entry" />
+                  </form>
                 </div>
               </div>
               <div class="center90 mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards">
@@ -114,7 +137,7 @@
 
           <div class="dashboard-cards mdc-elevation--z4 mdc-layout-grid__cell">
             <h1 class="mdc-typography--headline5" style="text-align: center;">New Workshops</h1>
-            <form id = "workshop_selection" method = "post" action = "/prayatna-2019/ajax_responses/add_workshop.php">
+            <form method="post" action="cashfree/request.php">
               <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
                 <?php
                   if(isset($_COOKIE['user_id'])) {
@@ -173,6 +196,7 @@
                   Pay Now
                 </button>
               </div>
+              <input type="hidden" name="type" value="workshop" />
             </form>
           </div>
           <div class="mdc-layout-grid__cell">
