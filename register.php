@@ -82,6 +82,9 @@
                 textFieldValues['pattern'] = vnode.attrs.pattern
             if(vnode.attrs.minlength)
                 textFieldValues['minlength'] = vnode.attrs.pattern
+            if(vnode.attrs.maxlength)
+                textFieldValues['maxlength'] = vnode.attrs.maxlength
+
             return m('div', {class: "mdc-text-field" + (vnode.attrs.fullwidth?" mdc-text-field--fullwidth":"") + (vnode.attrs.disabled?" mdc-text-field--disabled":"")}, [
                 m('input', textFieldValues),
                 m('div', {class: 'mdc-line-ripple'})
@@ -112,8 +115,8 @@
                 return m('form', {id: 'loginform', class: "form-container margin", action:"/prayatna-2019/ajax_responses/login.php", method: "post"},
                     [
                         m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Welcome"),
-                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true}),
-                        m(TextField, {name: 'password', type: 'password', placeholder: 'Password', fullwidth: true, required: true}),
+                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true, maxlength: '254'}),
+                        m(TextField, {name: 'password', type: 'password', placeholder: 'Password', fullwidth: true, required: true, maxlength: '60'}),
                         m('div', {class: " margin",style: "float: right;"},
                             m(Button, { class: "mdc-button mdc-button--outlined mdc-ripple-upgraded", style:"color:#ffffff;",label: 'Sign Up', type:"button", onclick: function() {
                                     formToShow = signupForm;
@@ -161,11 +164,11 @@
                     },
                     [
                         m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Create your Prayatna Account"),
-                        m(TextField, {name: 'name', placeholder: 'Name', fullwidth: true, required: true}),
-                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true}),
-                        m(TextField, {name: 'password', placeholder: 'Password', fullwidth: true, minlength: 8, type:  "password", required: true}),
+                        m(TextField, {name: 'name', placeholder: 'Name', fullwidth: true, required: true, maxlength: '64'}),
+                        m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true, maxlength: '254'}),
+                        m(TextField, {name: 'password', placeholder: 'Password', fullwidth: true, minlength: 8, type:  "password", required: true, maxlength: '60'}),
                         m(TextField, {name: 'year', placeholder: 'Year of Study (1 to 4)', fullwidth: true, pattern: "[1-4]", required: true}),
-                        m(TextField, {name: 'college', placeholder: 'College', fullwidth: true,required: true}),
+                        m(TextField, {name: 'college', placeholder: 'College', fullwidth: true,required: true, maxlength: '300'}),
                         m(TextField, {name: 'phone', placeholder: 'Phone Number', fullwidth: true, pattern: "[6-9][0-9]{9}", required: true}),
                         m('div', {class: " margin", style: "float: right;"},
                             m(Button, {class: "mdc-button mdc-button--outlined mdc-ripple-upgraded", style:"color:#ffffff;",label: 'Cancel',type:"button", onclick: function() {

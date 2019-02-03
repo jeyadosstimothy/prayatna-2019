@@ -1,6 +1,6 @@
 <?php
     $db_server = "localhost";
-    $db_username = "student";
-    $db_password = "student";
+    $db_username = "root";
+    $db_password = "algorithm";
     $db_name = 'prayatna';
 ?>
