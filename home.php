@@ -1,3 +1,6 @@
+<?php
+  require 'constants.php';
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,7 +15,7 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>
-
+  <script type="text/javascript" src="lazyload.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
@@ -20,7 +23,7 @@
   <header class="mdc-top-app-bar mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="padding-left: 20px">
-        <img src="res/prayatna-small.png" style="width: 35px;height: 35px;" />
+        <img class="lazyload" data-src="res/prayatna-small.png" style="width: 35px;height: 35px;" />
         <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">Prayatna</span>
       </section>
 
@@ -28,6 +31,9 @@
       <?php
         // if logged in show dashboard
         if (isset($_COOKIE["user_id"])) {
+          if(calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {
+            header('Location: http://localhost/prayatna-2019/ajax_responses/logout.php');
+          }
 	        echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
                   <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick="openMenu()">
                     <i class="material-icons">more_vert</i>
@@ -62,7 +68,7 @@
   <section class="section-dark section-full title-section mdc-layout-grid mdc-top-app-bar--fixed-adjust">
     <div class="mdc-layout-grid__inner anim-appear-slideup-fadein">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
-        <img class="logo" src="res/prayatna.png">
+        <img class="logo lazyload" data-src="res/prayatna.png">
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--align-middle">
         <h1 class="mdc-typography--headline3 title-text" align="center">Ignite. Inspire. Innovate.</h1>
@@ -75,9 +81,9 @@
 
     <div class="floating-social-icons anim-appear-slideright-fadein">
       <p align="right">
-        <a href="https://www.facebook.com/prayatnact"><img src="res/facebook_white.png" class="img-social" /></a>
-        <a href="https://www.instagram.com/act.mit/"><img src="res/instagram_white.png" class="img-social" /></a>
-        <a href="https://api.whatsapp.com/send?phone=919597180925"><img src="res/whatsapp_white.png" class="img-social" /></a>
+        <a href="https://www.facebook.com/prayatnact"><img data-src="res/facebook_white.png" class="lazyload img-social" /></a>
+        <a href="https://www.instagram.com/act.mit/"><img data-src="res/instagram_white.png" class="lazyload img-social" /></a>
+        <a href="https://api.whatsapp.com/send?phone=919597180925"><img data-src="res/whatsapp_white.png" class="lazyload img-social" /></a>
       </p>
     </div>
     <script>
@@ -113,25 +119,25 @@
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin sponsors-list">
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image" src="res/LIC.png">
+          <img class="mdc-image-list__image lazyload" data-src="res/LIC.png">
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image" src="res/facebook.png">
+          <img class="mdc-image-list__image lazyload" data-src="res/facebook.png">
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image" src="res/zoho.png">
+          <img class="mdc-image-list__image lazyload" data-src="res/zoho.png">
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image" src="res/google.png">
+          <img class="mdc-image-list__image lazyload" data-src="res/google.png">
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image" src="res/dell.png">
+          <img class="mdc-image-list__image lazyload" data-src="res/dell.png">
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image" src="res/amazon.jpeg">
+          <img class="mdc-image-list__image lazyload" data-src="res/amazon.jpeg">
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image" src="res/uber.png">
+          <img class="mdc-image-list__image lazyload" data-src="res/uber.png">
         </li>
       </ul>
     </div>
@@ -506,7 +512,7 @@
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin contacts-list" >
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
@@ -514,7 +520,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item" >
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
@@ -522,7 +528,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
@@ -530,7 +536,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
@@ -538,7 +544,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
@@ -546,7 +552,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
@@ -554,7 +560,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
@@ -562,7 +568,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4" src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Paper Presentation Coordinator<br>+91 92768547867<br>mail@gmail.com
@@ -644,11 +650,9 @@
       });
     </script>
   </section>
+  <script>
+    lazyload();
+  </script>
   <?php include('footer.php') ?>
 </body>
 </html>
-
-
-
-
-

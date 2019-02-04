@@ -1,9 +1,13 @@
 <?php
+  require 'constants.php';
+
   if(!isset($_COOKIE['user_id'])) {
     header('Location: http://localhost/prayatna-2019/home.php');
+  } else {
+    if(calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {
+      header('Location: http://localhost/prayatna-2019/ajax_responses/logout.php');
+    }
   }
-
-  require 'constants.php';
 
   // Create connection
   $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
