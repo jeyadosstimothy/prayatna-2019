@@ -225,7 +225,6 @@
                     Book Now
                   </button>
                 </div>
-                <!-- Buy entry ticket 250 -->
               </div>
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
                 <h1 class="mdc-typography--headline5 dashboard-card-title">Upcoming Events</h1>
@@ -287,7 +286,7 @@
                 var date = workshops[i].attributes.date.value;
                 if(registeredWorkshopDates.includes(date) || selectedDates.includes(date))
                 {
-                  alert("Can't register 2 workshops on same day!");
+                  showSnackbar("Can't register 2 workshops on same day!");
                   return false;
                 }
                 selectedDates.push(workshops[i].attributes.date.value);
@@ -299,5 +298,6 @@
       </div>
     </section>
   </main>
+  <?php include('snackbar.php') ?>
 </body>
 </html>

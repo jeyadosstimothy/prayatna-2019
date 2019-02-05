@@ -592,7 +592,7 @@
 
           <form class="query-form" id="query-form" method="post"  accept-charset="UTF-8">
             <div class="mdc-text-field mdc-text-field--fullwidth">
-              <input class="mdc-text-field__input" type="email" name="email" placeholder="Email Address" aria-label="Full-Width Text Field" required/>
+              <input class="mdc-text-field__input" type="email" name="email" placeholder="Email Address" aria-label="Full-Width Text Field" required value="<?=$_COOKIE['email']; ?>"/>
               <div class="mdc-line-ripple"></div>
             </div>
             <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" style="margin-top: 1rem">
@@ -631,7 +631,6 @@
       if(menu) {
         mdcMenu = new mdc.menu.MDCMenu(menu);
       }
-
       function openMenu(){
         mdcMenu.open = true;
       }
@@ -646,10 +645,10 @@
           type:"POST",
           data: form.serialize(),
           success: function(response){
-              $("#textarea").val('');
-              $("#query-form input[name='email']").val('');
-              document.querySelector('#query-form button').removeAttribute('disabled');
-              alert(response);
+            $("#textarea").val('');
+            $("#query-form input[name='email']").val('');
+            document.querySelector('#query-form button').removeAttribute('disabled');
+            showSnackbar(response);
           }
         });
       });
@@ -658,6 +657,7 @@
   <script>
     lazyload();
   </script>
+  <?php include('snackbar.php') ?>
   <?php include('footer.php') ?>
 </body>
 </html>

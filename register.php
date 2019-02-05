@@ -144,11 +144,9 @@
                                 if (this.readyState == 4 && this.status == 200) {
                                     json_data =  JSON.parse(this.responseText);
                                     if(json_data["email"] == "False") {
-                                        alert('email already existed');
-                                    } else if(json_data["user"] == "False"){
-                                        alert('username already existed');
+                                        showSnackbar('Email ID already exists!');
                                     } else if(json_data["contact"] == "False") {
-                                        alert ('phone number already existed');
+                                        showSnackbar('Phone number already exists!');
                                     } else {
                                         document.getElementById("signupform").submit();
                                     }
@@ -196,6 +194,6 @@
     m.mount(root, LoginPanel);
 
   </script>
-
+  <?php include('snackbar.php') ?>
 </body>
 </html>

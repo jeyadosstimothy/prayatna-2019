@@ -2,7 +2,6 @@
     header("Content-Type: application/json; charset=UTF-8");
     $input = json_decode($_POST["x"], false);
 
-    $obj->user = "True";
     $obj->email = "True";
     $obj->contact = "True";
 
@@ -29,21 +28,6 @@
     if($result->num_rows > 0) {
         $obj->email = "False";
     }
-
-    // preventing injection attack using prepared statement
-    $sql = 'select * from user_details where name = ?';
-
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $name);
-
-    $result = $stmt->execute();
-    $result = $stmt->get_result();
-
-
-    if($result->num_rows > 0) {
-        $obj->user = "False";
-    }
-
 
     // preventing injection attack using prepared statement
     $sql = 'select * from user_details where phone_number = ?';
