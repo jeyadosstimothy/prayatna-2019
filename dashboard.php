@@ -58,12 +58,12 @@
     </header>
     <section class="mdc-top-app-bar--fixed-adjust">
       <h1 class="mdc-typography--headline4 anim-appear-pulse" style="text-align: center">Welcome <?php if (isset($_COOKIE['user_id'])) echo $_COOKIE['name'];?></h1>
-      <div class="workshops mdc-layout-grid anim-appear-slideup-fadein">
+      <div class="mdc-layout-grid anim-appear-slideup-fadein">
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell">
             <div class="mdc-layout-grid__inner">
-              <div class="center90 mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards" style="text-align: center">
-                <h1 class="mdc-typography--headline5">Skip the Queue!</h1>
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card" style="text-align: center">
+                <h1 class="mdc-typography--headline5 dashboard-card-title">Skip the Queue!</h1>
                 <h1 class="mdc-typography--subtitle1">Why wait in line when you can register online?</h1>
                 <h1 class="mdc-typography--subtitle1">Buy entry tickets now!</h1>
                 <h1 class="mdc-typography--subtitle1">Note: Workshop participants need not buy entry tickets</h1>
@@ -100,8 +100,8 @@
               <script type="text/javascript">
                 var registeredWorkshopDates = [];
               </script>
-              <div class="center90 mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards">
-                <h1 class="mdc-typography--headline5" style="text-align: center">Registered Workshops</h1>
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
+                <h1 class="mdc-typography--headline5 dashboard-card-title">Registered Workshops</h1>
                 <ul class="mdc-list mdc-list--two-line" role="group">
                   <?php
                     if(isset($_COOKIE['user_id'])) {
@@ -147,74 +147,78 @@
             </div>
           </div>
 
-          <div class="dashboard-cards mdc-elevation--z4 mdc-layout-grid__cell">
-            <h1 class="mdc-typography--headline5" style="text-align: center;">New Workshops</h1>
-            <form method="post" action="cashfree/request.php" id="new-workshop-form">
-              <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
-                <?php
-                  if(isset($_COOKIE['user_id'])) {
-                    $ids = "'" . implode("', '", $workshop_ids) . "'" ;// making array('val1', 'val2', 'val3') because of string
-                    $sql = 'select workshop_id, workshop_name, date, price from workshop_details where workshop_id not in (' . $ids .')';
-                    $result = $conn->query($sql);
-                    if ($result != NULL && $result->num_rows > 0) {
-                      // output data of each row
-                      $sql = "select count(user_id) as cnt, workshop_id from register_details group by workshop_id";
-                      $ans = $conn->query($sql);
-                      $count_id_pair = array();
-                      while($row = $ans->fetch_assoc()) {
-                        $count_id_pair[$row['workshop_id']] = $row['cnt'];
-                      }
-                      $count = 1;
-                      while($row = $result->fetch_assoc()) {
-                        array_push($workshop_ids, $row['workshop_id']);
-                        $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= 1);
-                        echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
-                            <span class="mdc-list-item__graphic">
-                            <div class="mdc-checkbox">
-                            <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
-                              value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.'" date="' .$row["date"]. '" '.($filled?'disabled':'').'/>
-                            <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark"
-                              viewBox="0 0 24 24">
-                              <path class="mdc-checkbox__checkmark-path"
-                              fill="none"
-                              d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                            </svg>
-                            <div class="mdc-checkbox__mixedmark"></div>
-                            </div>
-                            </div>
-                            </span>
-                            <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                            <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
-                            </span>
-                            <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
-                          </li>';
-                          if($count != $result->num_rows) {
-                            echo'<li role="separator" class="mdc-list-divider"></li>';
+          <div class="mdc-layout-grid__cell">
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
+                <h1 class="mdc-typography--headline5 dashboard-card-title">New Workshops</h1>
+                <form method="post" action="cashfree/request.php" id="new-workshop-form">
+                  <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
+                    <?php
+                      if(isset($_COOKIE['user_id'])) {
+                        $ids = "'" . implode("', '", $workshop_ids) . "'" ;// making array('val1', 'val2', 'val3') because of string
+                        $sql = 'select workshop_id, workshop_name, date, price from workshop_details where workshop_id not in (' . $ids .')';
+                        $result = $conn->query($sql);
+                        if ($result != NULL && $result->num_rows > 0) {
+                          // output data of each row
+                          $sql = "select count(user_id) as cnt, workshop_id from register_details group by workshop_id";
+                          $ans = $conn->query($sql);
+                          $count_id_pair = array();
+                          while($row = $ans->fetch_assoc()) {
+                            $count_id_pair[$row['workshop_id']] = $row['cnt'];
                           }
-                          $count = $count + 1;
+                          $count = 1;
+                          while($row = $result->fetch_assoc()) {
+                            array_push($workshop_ids, $row['workshop_id']);
+                            $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= 1);
+                            echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
+                                <span class="mdc-list-item__graphic">
+                                <div class="mdc-checkbox">
+                                <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
+                                  value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.'" date="' .$row["date"]. '" '.($filled?'disabled':'').'/>
+                                <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                  viewBox="0 0 24 24">
+                                  <path class="mdc-checkbox__checkmark-path"
+                                  fill="none"
+                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                </div>
+                                </span>
+                                <span class="mdc-list-item__text">
+                                <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
+                                <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
+                                </span>
+                                <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
+                              </li>';
+                              if($count != $result->num_rows) {
+                                echo'<li role="separator" class="mdc-list-divider"></li>';
+                              }
+                              $count = $count + 1;
+                          }
+                        }
+                        else {
+                          echo "Nothing to show";
+                        }
                       }
-                    }
-                    else {
-                      echo "Nothing to show";
-                    }
-                  }
-                ?>
-              </ul>
-              <p id="total-amount" style="text-align: center;font-family: 'Raleway', sans-serif"></p>
-              <div class="dashboard-card-button-container">
-                <button class="mdc-button mdc-button--raised dashboard-card-button">
-                  Pay Now
-                </button>
+                    ?>
+                  </ul>
+                  <p id="total-amount" style="font-family: 'Raleway', sans-serif"></p>
+                  <div class="dashboard-card-button-container">
+                    <button class="mdc-button mdc-button--raised dashboard-card-button">
+                      Pay Now
+                    </button>
+                  </div>
+                  <input type="hidden" name="type" value="workshop" />
+                </form>
               </div>
-              <input type="hidden" name="type" value="workshop" />
-            </form>
+            </div>
           </div>
           <div class="mdc-layout-grid__cell">
             <div class="mdc-layout-grid__inner">
-              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards" style="text-align: center">
-                <h1 class="mdc-typography--headline5">Accomodation</h1>
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
+                <h1 class="mdc-typography--headline5 dashboard-card-title">Accomodation</h1>
                 <h1 class="mdc-typography--subtitle1">add some line for accomodation</h1>
                 <div class="dashboard-card-button-container">
                   <button class="mdc-button mdc-button--raised dashboard-card-button">
@@ -223,8 +227,8 @@
                 </div>
                 <!-- Buy entry ticket 250 -->
               </div>
-              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards">
-                <h1 class="mdc-typography--headline5" style="text-align: center">Upcoming Events</h1>
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
+                <h1 class="mdc-typography--headline5 dashboard-card-title">Upcoming Events</h1>
                 <ul class="mdc-list mdc-list--two-line" role="group">
                   <li class="mdc-list-item">
                     <span class="mdc-list-item__text">

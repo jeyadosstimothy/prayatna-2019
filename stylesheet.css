@@ -398,10 +398,14 @@ footer .container {
   display: none;
 }
 
-.dashboard-cards {
+.dashboard-card {
   padding: 1rem;
   background-color: white;
   color: black;
+}
+
+.dashboard-card-title {
+  text-align: center;
 }
 
 .dashboard-card-button-container {

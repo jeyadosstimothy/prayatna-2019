@@ -1,7 +1,7 @@
 <?php
     $db_server = "localhost";
-    $db_username = "root";
-    $db_password = "algorithm";
+    $db_username = "student";
+    $db_password = "student";
     $db_name = 'prayatna';
 
     function calculate_hash($user_id, $name, $email, $phone_number) {
