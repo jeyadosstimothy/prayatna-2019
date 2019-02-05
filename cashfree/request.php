@@ -25,11 +25,19 @@ if ($conn->connect_error) {
 }
 
 function loadWorkshops($conn) {
-  $sql = 'select workshop_id, price from workshop_details';
+  $sql = 'select workshop_id, price, date from workshop_details';
   $result = $conn->query($sql);
   $workshops = array();
   while ($row = $result->fetch_assoc()) {
-    $workshops[$row['workshop_id']] = $row['price'];
+    $workshops[$row['workshop_id']] = array('price' => $row['price'], 'date' => $row['date']);
+  }
+  $sql = 'select workshop_id, user_id from register_details where user_id=?';
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $_COOKIE['user_id']);
+  $result = $stmt->execute();
+  $result = $stmt->get_result();
+  while ($row = $result->fetch_assoc()) {
+    $workshops[$row['workshop_id']]['registered'] = true;
   }
   ksort($workshops);
   return $workshops;
@@ -41,14 +49,28 @@ function isValidPost($workshops) {
   }
   if($_POST['type'] == 'workshop') {
     $count = 0;
+    $selectedDates = array();
+    $registeredDates = array();
+    foreach ($workshops as $workshop_id => $workshop_details) {
+      if($workshop_details['registered'])
+        array_push($registeredDates, $workshop_details['date']);
+    }
     foreach ($_POST['selectedWorkshop'] as $workshop_id) {
       if (!array_key_exists($workshop_id, $workshops)) {
         return false;
       }
+      else if($workshops[$workshop_id]['registered']) {
+        return false;
+      }
+      else if(in_array($workshops[$workshop_id]['date'], $registeredDates) || in_array($workshops[$workshop_id]['date'], $selectedDates)) {
+        return false;
+      }
       $count = $count + 1;
+      array_push($selectedDates, $workshops[$workshop_id]['date']);
     }
     if($count == 0)
       return false;
+
   }
   return true;
 }
@@ -61,7 +83,7 @@ function getOrderID($workshops) {
   }
   elseif ($_POST['type'] == 'workshop') {
     $index = 1;
-    foreach ($workshops as $workshop_id => $price) {
+    foreach ($workshops as $workshop_id => $workshop_details) {
       if(in_array($workshop_id, $_POST['selectedWorkshop'])) {
         $workshops_selected |= (1<<$index);
       }
@@ -77,7 +99,7 @@ function getOrderAmount($workshops) {
   elseif ($_POST['type'] == 'workshop') {
     $total = 0;
     foreach ($_POST['selectedWorkshop'] as $workshop_id) {
-      $total = $total + 1;//$workshops[$workshop_id];
+      $total = $total + 1; // $workshops[$workshop_id]['price'];
     }
     return $total;
   }

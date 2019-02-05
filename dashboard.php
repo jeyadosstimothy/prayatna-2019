@@ -97,6 +97,9 @@
                   </form>
                 </div>
               </div>
+              <script type="text/javascript">
+                var registeredWorkshopDates = [];
+              </script>
               <div class="center90 mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-cards">
                 <h1 class="mdc-typography--headline5" style="text-align: center">Registered Workshops</h1>
                 <ul class="mdc-list mdc-list--two-line" role="group">
@@ -123,6 +126,11 @@
                               </span>
                               <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
                             </li>';
+                          ?>
+                          <script type="text/javascript">
+                            registeredWorkshopDates.push('<?=$row['date'];?>');
+                          </script>
+                          <?php
                           if($count != $result->num_rows) {
                             echo'<li role="separator" class="mdc-list-divider"></li>';
                           }
@@ -141,7 +149,7 @@
 
           <div class="dashboard-cards mdc-elevation--z4 mdc-layout-grid__cell">
             <h1 class="mdc-typography--headline5" style="text-align: center;">New Workshops</h1>
-            <form method="post" action="cashfree/request.php">
+            <form method="post" action="cashfree/request.php" id="new-workshop-form">
               <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
                 <?php
                   if(isset($_COOKIE['user_id'])) {
@@ -164,7 +172,7 @@
                             <span class="mdc-list-item__graphic">
                             <div class="mdc-checkbox">
                             <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
-                              value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.($filled?'disabled':'').'/>
+                              value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.'" date="' .$row["date"]. '" '.($filled?'disabled':'').'/>
                             <div class="mdc-checkbox__background">
                             <svg class="mdc-checkbox__checkmark"
                               viewBox="0 0 24 24">
@@ -265,6 +273,22 @@
                 value = value - parseInt(txt);
               }
               paymentAmount.innerHTML = "Total Amount: Rs. " + value;
+            });
+          </script>
+          <script type="text/javascript">
+            $('#new-workshop-form').submit(function () {
+              var workshops = document.querySelectorAll('input[type=checkbox]:checked');
+              var selectedDates = [];
+              for (var i = workshops.length - 1; i >= 0; i--) {
+                var date = workshops[i].attributes.date.value;
+                if(registeredWorkshopDates.includes(date) || selectedDates.includes(date))
+                {
+                  alert("Can't register 2 workshops on same day!");
+                  return false;
+                }
+                selectedDates.push(workshops[i].attributes.date.value);
+              }
+              return true;
             });
           </script>
         </div>
