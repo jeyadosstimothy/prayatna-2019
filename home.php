@@ -626,7 +626,12 @@
       }
       var appBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
 
-      var mdcMenu = new mdc.menu.MDCMenu(document.querySelector('.mdc-menu'));
+      var menu = document.querySelector('.mdc-menu');
+      var mdcMenu;
+      if(menu) {
+        mdcMenu = new mdc.menu.MDCMenu(menu);
+      }
+
       function openMenu(){
         mdcMenu.open = true;
       }

@@ -55,6 +55,10 @@ a {
   -webkit-text-fill-color: #ffffff;
 }
 
+.mdc-text-field__input::placeholder {
+  opacity: 1;
+}
+
 .mdc-tab {
   flex: 1 0 0;
   padding: 0 12px;
