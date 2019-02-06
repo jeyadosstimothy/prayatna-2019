@@ -19,11 +19,12 @@
     $email_id = $_POST['email'];
     $college = $_POST['college'];
     $year_of_study = $_POST['year'];
+    $city = $_POST['city'];
 
     // preventing injection attack using prepared statement
-    $sql = 'INSERT INTO user_details (name, email_id, phone_number, password, college, year_of_study) VALUES (?, ?, ?, ?, ?, ?)';
+    $sql = 'INSERT INTO user_details (name, email_id, phone_number, password, college, year_of_study, city) VALUES (?, ?, ?, ?, ?, ?, ?)';
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $name, $email_id, $phone_number, $password, $college, $year_of_study);
+    $stmt->bind_param("sssssss", $name, $email_id, $phone_number, $password, $college, $year_of_study, $city);
     $result = $stmt->execute();
 
     // make the user login
@@ -39,6 +40,7 @@
         setcookie('name', $row['name'], time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie('email', $row['email_id'], time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie('phone', $row['phone_number'], time() + (86400 * 30), "/"); // 86400 = 1 day
+        setcookie('signature', calculate_hash($row['user_id'], $row['name'], $row['email_id'], $row['phone_number']), time() + (86400 * 30), "/");
         header('Location: http://localhost/prayatna-2019/dashboard.php');}
     else {
         echo 'failure';
