@@ -83,7 +83,7 @@
       <p align="right">
         <a href="https://www.facebook.com/prayatnact"><img src="res/facebook_white.png" class="img-social" /></a>
         <a href="https://www.instagram.com/act.mit/"><img src="res/instagram_white.png" class="img-social" /></a>
-        <a href="https://api.whatsapp.com/send?phone=919597180925"><img src="res/whatsapp_white.png" class="img-social" /></a>
+        <a href="https://www.linkedin.com/in/prayatna-mit-642b23158/"><img src="res/linkedin_white.png" class="img-social" /></a>
       </p>
     </div>
     <script>

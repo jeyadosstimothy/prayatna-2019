@@ -9,7 +9,7 @@
           Connect with us!<br>
           <a href="https://www.facebook.com/prayatnact">Facebook</a>&nbsp;/
           <a href="https://www.instagram.com/act.mit/">Instagram</a>&nbsp;/
-          <a href="https://api.whatsapp.com/send?phone=919677207736">Whatsapp</a>
+          <a href="https://www.linkedin.com/in/prayatna-mit-642b23158/">LinkedIn</a>
         </p>
       </div>
   </section>
