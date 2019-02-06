@@ -10,11 +10,11 @@
 
 <?php
 
-if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
-  header('Location: http://localhost/prayatna-2019/dashboard.php');
-}
-
 require '../constants.php';
+
+if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
+  header('Location: '.$domain.'/dashboard.php');
+}
 
 // Create connection
 $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
@@ -110,21 +110,21 @@ $workshops = loadWorkshops($conn);
 $conn->close();
 
 if(!isValidPost($workshops)) {
-  header('Location: http://localhost/prayatna-2019/dashboard.php');
+  header('Location: '.$domain.'/dashboard.php');
 }
 
 $mode = "TEST"; //<------------ Change to TEST for test server, PROD for production
 
-$secretKey = ""; // get from cashfree
+$secretKey = "ba0ae39f639b6d99197e1ab8b7e4b47ec75568e6"; // get from cashfree
 
-$appId = ''; // get from cashfree
+$appId = '343179cbdd7c8f81b332fc9f1343'; // get from cashfree
 $orderId = getOrderID($workshops);
 $orderAmount = getOrderAmount($workshops);
 $orderCurrency = 'INR';
 $customerName = $_COOKIE['name'];
 $customerPhone = $_COOKIE['phone'];
 $customerEmail = $_COOKIE['email'];
-$returnUrl = 'http://localhost/prayatna-2019/cashfree/response.php';
+$returnUrl = $domain.'/cashfree/response.php';
 
 $postData = array(
   "appId" => $appId,

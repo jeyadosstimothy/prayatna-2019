@@ -1,7 +1,8 @@
 <?php
     require 'constants.php';
+
     if(isset($_COOKIE['user_id']) && calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {
-        header('Location: http://localhost/prayatna-2019/ajax_responses/logout.php');
+        header('Location: '.$domain.'/ajax_responses/logout.php');
     }
 ?>
 

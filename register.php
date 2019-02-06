@@ -1,7 +1,9 @@
 <!--PHP for user-->
 <?php
+    require 'constants.php';
+
     if (isset($_COOKIE["user_id"])) {
-        header('Location: http://localhost/prayatna-2019/home.php');
+        header('Location: '.$domain.'/home.php');
     }
 ?>
 <!DOCTYPE html>
@@ -109,7 +111,7 @@
         var formToShow;
         var loginForm = {
             view: function() {
-                return m('form', {id: 'loginform', class: "form-container margin", action:"/prayatna-2019/ajax_responses/login.php", method: "post"},
+                return m('form', {id: 'loginform', class: "form-container margin", action:"ajax_responses/login.php", method: "post"},
                     [
                         m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Welcome"),
                         m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true, maxlength: '254'}),
@@ -127,7 +129,7 @@
         }
         var signupForm = {
             view: function(){
-                return m('form', {id: 'signupform', class: "form-container margin", action:"/prayatna-2019/ajax_responses/signup.php", method: "post", onsubmit: function(event) {
+                return m('form', {id: 'signupform', class: "form-container margin", action:"ajax_responses/signup.php", method: "post", onsubmit: function(event) {
                             event.preventDefault();
 
                             var json_val = {
@@ -137,7 +139,7 @@
                             param = JSON.stringify(json_val);
                             console.log(param);
                             // ajax request for unique mail, phone number, name
-                            var url = '/prayatna-2019/ajax_responses/check_user.php';
+                            var url = 'ajax_responses/check_user.php';
                             var xhttp = new XMLHttpRequest();
 
                             xhttp.onreadystatechange = function () {

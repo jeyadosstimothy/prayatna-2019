@@ -1,9 +1,9 @@
 <?php
-    if(!isset($_POST['submit'])) {
-        header('Location: http://localhost/prayatna-2019/home.php');
-    }
-
     require '../constants.php';
+
+    if(!isset($_POST['submit'])) {
+        header('Location: '.$domain.'/ajax_responses/register.php');
+    }
 
     // Create connection
     $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
@@ -32,7 +32,7 @@
         setcookie('signature', calculate_hash($row['user_id'], $row['name'], $row['email_id'], $row['phone_number']), time() + (86400 * 30), "/");
 
         $conn->close();
-        header('Location: http://localhost/prayatna-2019/dashboard.php');
+        header('Location: '.$domain.'/dashboard.php');
     }
     else {
         echo 'failure';

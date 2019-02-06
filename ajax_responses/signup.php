@@ -1,9 +1,9 @@
 <?php
-    if(!isset($_POST['submit'])) {
-        header('Location: http://localhost/prayatna-2019/ajax_responses/invalid_request.php');
-    }
-
     require '../constants.php';
+
+    if(!isset($_POST['submit'])) {
+        header('Location: '.$domain.'/ajax_responses/invalid_request.php');
+    }
 
     // Create connection
     $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
@@ -44,7 +44,7 @@
 
         $conn->close();
 
-        header('Location: http://localhost/prayatna-2019/dashboard.php');}
+        header('Location: '.$domain.'/dashboard.php');}
     else {
         $conn->close();
 

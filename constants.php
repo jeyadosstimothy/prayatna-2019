@@ -1,4 +1,5 @@
 <?php
+    $domain = 'http://'.$_SERVER['SERVER_NAME'].'/prayatna-2019';
     $db_server = "localhost";
     $db_username = "student";
     $db_password = "student";

@@ -1,9 +1,11 @@
 <?php
+    require '../constants.php';
+
     if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
-        header('Location: http://localhost/prayatna-2019/ajax_responses/invalid_request.php');
+        header('Location: '.$domain.'/ajax_responses/invalid_request.php');
     }
 
-    $secretkey = ""; // get from cashfree
+    $secretkey = "ba0ae39f639b6d99197e1ab8b7e4b47ec75568e6"; // get from cashfree
     $orderId = $_POST["orderId"];
     $orderAmount = $_POST["orderAmount"];
     $referenceId = $_POST["referenceId"];
@@ -29,8 +31,6 @@
 
     if ($signature == $computedSignature) {
         if($txStatus == 'SUCCESS') {
-            require '../constants.php';
-
             // Create connection
             $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 
@@ -73,9 +73,9 @@
             }
             $conn->close();
         }
-        header('Location: http://localhost/prayatna-2019/dashboard.php');
+        header('Location: '.$domain.'/dashboard.php');
     }
     else {
-        header('Location: http://localhost/prayatna-2019/ajax_responses/invalid_request.php');
+        header('Location: '.$domain.'/ajax_responses/invalid_request.php');
     }
 ?>

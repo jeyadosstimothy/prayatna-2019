@@ -32,7 +32,7 @@
         // if logged in show dashboard
         if (isset($_COOKIE["user_id"])) {
           if(calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {
-            header('Location: http://localhost/prayatna-2019/ajax_responses/logout.php');
+            header('Location: '.$domain.'/ajax_responses/logout.php');
           }
 	        echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
                   <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick="openMenu()">
@@ -55,7 +55,7 @@
         // else show register button
         else {
           echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-                  <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick = "location.href=\'register.php\'">
+                  <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick = "window.location.href=\'register.php\'">
                     <i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>
                     <span class="mdc-button__label" style="letter-spacing: .1rem">Register</span>
                   </button>
