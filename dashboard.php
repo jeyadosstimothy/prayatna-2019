@@ -63,188 +63,232 @@
           <div class="mdc-layout-grid__cell">
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card" style="text-align: center">
-                <h1 class="mdc-typography--headline5 dashboard-card-title">Skip the Queue!</h1>
-                <h1 class="mdc-typography--subtitle1">Why wait in line when you can register online?</h1>
-                <h1 class="mdc-typography--subtitle1">Buy entry tickets now!</h1>
-                <h1 class="mdc-typography--subtitle1">Note: Workshop participants need not buy entry tickets</h1>
-                <div class="dashboard-card-button-container">
-                  <form method="post" action='cashfree/request.php'>
-                    <?php
-                      $sql = 'select bought_entry from user_details where user_id=?';
-                      $stmt = $conn->prepare($sql);
-                      $stmt->bind_param("i", $_COOKIE['user_id']);
-                      $result = $stmt->execute();
-                      $result = $stmt->get_result();
-                      if ($result->num_rows > 0) {
-                        $row = $result->fetch_assoc();
-                        if ($row['bought_entry']) {
-                    ?>
-                    <button class="mdc-button mdc-button--raised dashboard-card-button" disabled>
-                      Bought
-                    </button>
-                    <?php
+                <div class="dashboard-card-content">
+                  <h1 class="mdc-typography--headline5 dashboard-card-title">Skip the Queue!</h1>
+                  <h1 class="mdc-typography--subtitle1">Why wait in line when you can register online?</h1>
+                  <h1 class="mdc-typography--subtitle1">Buy entry tickets now!</h1>
+                  <h1 class="mdc-typography--subtitle1">Note: Workshop participants need not buy entry tickets</h1>
+                  <div class="dashboard-card-button-container">
+                    <form method="post" action='cashfree/request.php'>
+                      <?php
+                        $sql = 'select bought_entry from user_details where user_id=?';
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("i", $_COOKIE['user_id']);
+                        $result = $stmt->execute();
+                        $result = $stmt->get_result();
+                        if ($result->num_rows > 0) {
+                          $row = $result->fetch_assoc();
+                          if ($row['bought_entry']) {
+                      ?>
+                      <button class="mdc-button mdc-button--raised dashboard-card-button" disabled>
+                        Bought
+                      </button>
+                      <?php
+                          }
+                          else {
+                      ?>
+                      <button class="mdc-button mdc-button--raised dashboard-card-button">
+                        Buy Now
+                      </button>
+                      <?php
+                          }
                         }
-                        else {
-                    ?>
-                    <button class="mdc-button mdc-button--raised dashboard-card-button">
-                      Buy Now
-                    </button>
-                    <?php
-                        }
-                      }
-                    ?>
-                    <input type="hidden" name="type" value="entry" />
-                  </form>
+                      ?>
+                      <input type="hidden" name="type" value="entry" />
+                    </form>
+                  </div>
                 </div>
               </div>
               <script type="text/javascript">
                 var registeredWorkshopDates = [];
               </script>
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
-                <h1 class="mdc-typography--headline5 dashboard-card-title">Registered Workshops</h1>
-                <ul class="mdc-list mdc-list--two-line" role="group">
-                  <?php
-                    if(isset($_COOKIE['user_id'])) {
-                      $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id in (select workshop_id from register_details where user_id = ?)';
-
-                      $stmt = $conn->prepare($sql);
-                      $stmt->bind_param("i", $_COOKIE['user_id']);
-                      $result = $stmt->execute();
-                      $result = $stmt->get_result();
-                      $workshop_ids = array(-1); // -1 for making sure "not in" list is not empty when querying unregistered workshops
-
-                      if ($result->num_rows > 0) {
-                        $count = 1;
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                          array_push($workshop_ids, $row['workshop_id']);
-                          echo '
-                            <li class="mdc-list-item" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">
-                              <span class="mdc-list-item__text">
-                                <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                                <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
-                              </span>
-                              <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
-                            </li>';
-                          ?>
-                          <script type="text/javascript">
-                            registeredWorkshopDates.push('<?=$row['date'];?>');
-                          </script>
-                          <?php
-                          if($count != $result->num_rows) {
-                            echo'<li role="separator" class="mdc-list-divider"></li>';
-                          }
-                          $count = $count + 1;
-                        }
-                      }
-                      else {
-                        echo 'Nothing to show';
-                      }
-                    }
-                  ?>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="mdc-layout-grid__cell">
-            <div class="mdc-layout-grid__inner">
-              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
-                <h1 class="mdc-typography--headline5 dashboard-card-title">New Workshops</h1>
-                <form method="post" action="cashfree/request.php" id="new-workshop-form">
-                  <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
+                <div class="dashboard-card-content">
+                  <h1 class="mdc-typography--headline5 dashboard-card-title">Registered Workshops</h1>
+                  <ul class="mdc-list mdc-list--two-line" role="group">
                     <?php
                       if(isset($_COOKIE['user_id'])) {
-                        $ids = "'" . implode("', '", $workshop_ids) . "'" ;// making array('val1', 'val2', 'val3') because of string
-                        $sql = 'select workshop_id, workshop_name, date, price from workshop_details where workshop_id not in (' . $ids .')';
-                        $result = $conn->query($sql);
-                        if ($result != NULL && $result->num_rows > 0) {
-                          // output data of each row
-                          $sql = "select count(user_id) as cnt, workshop_id from register_details group by workshop_id";
-                          $ans = $conn->query($sql);
-                          $count_id_pair = array();
-                          while($row = $ans->fetch_assoc()) {
-                            $count_id_pair[$row['workshop_id']] = $row['cnt'];
-                          }
+                        $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id in (select workshop_id from register_details where user_id = ?)';
+
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("i", $_COOKIE['user_id']);
+                        $result = $stmt->execute();
+                        $result = $stmt->get_result();
+                        $workshop_ids = array(-1); // -1 for making sure "not in" list is not empty when querying unregistered workshops
+
+                        if ($result->num_rows > 0) {
                           $count = 1;
+                          // output data of each row
                           while($row = $result->fetch_assoc()) {
                             array_push($workshop_ids, $row['workshop_id']);
-                            $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= 1);
-                            echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
-                                <span class="mdc-list-item__graphic">
-                                <div class="mdc-checkbox">
-                                <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
-                                  value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.'" date="' .$row["date"]. '" '.($filled?'disabled':'').'/>
-                                <div class="mdc-checkbox__background">
-                                <svg class="mdc-checkbox__checkmark"
-                                  viewBox="0 0 24 24">
-                                  <path class="mdc-checkbox__checkmark-path"
-                                  fill="none"
-                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                                </svg>
-                                <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                </div>
-                                </span>
+                            echo '
+                              <li class="mdc-list-item" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">
                                 <span class="mdc-list-item__text">
-                                <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                                <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
+                                  <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
+                                  <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
                                 </span>
-                                <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
+                                <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
                               </li>';
-                              if($count != $result->num_rows) {
-                                echo'<li role="separator" class="mdc-list-divider"></li>';
-                              }
-                              $count = $count + 1;
+                            ?>
+                            <script type="text/javascript">
+                              registeredWorkshopDates.push('<?=$row['date'];?>');
+                            </script>
+                            <?php
+                            if($count != $result->num_rows) {
+                              echo'<li role="separator" class="mdc-list-divider"></li>';
+                            }
+                            $count = $count + 1;
                           }
                         }
                         else {
-                          echo "Nothing to show";
+                          echo 'Nothing to show';
                         }
                       }
                     ?>
                   </ul>
-                  <p id="total-amount" style="font-family: 'Raleway', sans-serif"></p>
-                  <div class="dashboard-card-button-container">
-                    <button class="mdc-button mdc-button--raised dashboard-card-button">
-                      Pay Now
-                    </button>
-                  </div>
-                  <input type="hidden" name="type" value="workshop" />
-                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mdc-layout-grid__cell">
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
+                <div class="dashboard-card-content">
+                  <h1 class="mdc-typography--headline5 dashboard-card-title">New Workshops</h1>
+                  <form method="post" action="cashfree/request.php" id="new-workshop-form">
+                    <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
+                      <?php
+                        if(isset($_COOKIE['user_id'])) {
+                          $ids = "'" . implode("', '", $workshop_ids) . "'" ;// making array('val1', 'val2', 'val3') because of string
+                          $sql = 'select workshop_id, workshop_name, date, price from workshop_details where workshop_id not in (' . $ids .')';
+                          $result = $conn->query($sql);
+                          if ($result != NULL && $result->num_rows > 0) {
+                            // output data of each row
+                            $sql = "select count(user_id) as cnt, workshop_id from register_details group by workshop_id";
+                            $ans = $conn->query($sql);
+                            $count_id_pair = array();
+                            while($row = $ans->fetch_assoc()) {
+                              $count_id_pair[$row['workshop_id']] = $row['cnt'];
+                            }
+                            $count = 1;
+                            while($row = $result->fetch_assoc()) {
+                              array_push($workshop_ids, $row['workshop_id']);
+                              $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= 1);
+                              echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
+                                  <span class="mdc-list-item__graphic">
+                                  <div class="mdc-checkbox">
+                                  <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
+                                    value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.'" date="' .$row["date"]. '" '.($filled?'disabled':'').'/>
+                                  <div class="mdc-checkbox__background">
+                                  <svg class="mdc-checkbox__checkmark"
+                                    viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path"
+                                    fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                  </svg>
+                                  <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  </div>
+                                  </span>
+                                  <span class="mdc-list-item__text">
+                                  <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
+                                  <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
+                                  </span>
+                                  <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
+                                </li>';
+                                if($count != $result->num_rows) {
+                                  echo'<li role="separator" class="mdc-list-divider"></li>';
+                                }
+                                $count = $count + 1;
+                            }
+                          }
+                          else {
+                            echo "Nothing to show";
+                          }
+                        }
+                      ?>
+                    </ul>
+                    <p id="total-amount" style="font-family: 'Raleway', sans-serif"></p>
+                    <div class="dashboard-card-button-container">
+                      <button class="mdc-button mdc-button--raised dashboard-card-button">
+                        Pay Now
+                      </button>
+                    </div>
+                    <input type="hidden" name="type" value="workshop" />
+                  </form>
+                </div>
               </div>
             </div>
           </div>
           <div class="mdc-layout-grid__cell">
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
-                <h1 class="mdc-typography--headline5 dashboard-card-title">Accomodation</h1>
-                <h1 class="mdc-typography--subtitle1">add some line for accomodation</h1>
-                <div class="dashboard-card-button-container">
-                  <button class="mdc-button mdc-button--raised dashboard-card-button">
-                    Book Now
-                  </button>
+                <div class="dashboard-card-content">
+                  <h1 class="mdc-typography--headline5 dashboard-card-title">Accomodation</h1>
+                  <h1 class="mdc-typography--subtitle1" style="text-align: center">Accomodation Fee of Rs.500 must be paid on check-in</h1>
+                  <?php
+                    $sql = 'select check_in, check_out from user_details where user_id=?';
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("i", $_COOKIE['user_id']);
+                    $result = $stmt->execute();
+                    $result = $stmt->get_result();
+                    if($result->num_rows > 0) {
+                      $row = $result->fetch_assoc();
+                      $reserved = ($row['check_in'] != NULL);
+                    }
+
+                  ?>
+                  <form method="post" action="ajax_responses/reserve_accomodation.php" id="accomodation-form">
+                    <div class="mdc-text-field accomodation-date-field mdc-text-field--with-leading-icon">
+                      <div>
+                        <i class="material-icons mdc-text-field__icon">event</i>
+                        <input class="mdc-text-field__input" placeholder="Check in" type='date' name='check_in' required <?=($reserved?'disabled':'')?> value="<?=$row['check_in'];?>"/>
+                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                          Check-in
+                        </label>
+                        <div class="mdc-line-ripple"></div>
+                      </div>
+                    </div>
+                    <div class="mdc-text-field accomodation-date-field mdc-text-field--with-leading-icon">
+                      <div>
+                        <i class="material-icons mdc-text-field__icon">event</i>
+                        <input class="mdc-text-field__input" placeholder="Check out" type='date' name='check_out' required <?=($reserved?'disabled':'')?> value="<?=$row['check_out'];?>"/>
+                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                          Check-out
+                        </label>
+                        <div class="mdc-line-ripple"></div>
+                      </div>
+                    </div>
+                    <div class="dashboard-card-button-container">
+                      <button class="mdc-button mdc-button--raised dashboard-card-button" <?=($reserved?'disabled':'')?>>
+                        <?=($reserved?'Reserved':'Reserve Now')?>
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
-                <h1 class="mdc-typography--headline5 dashboard-card-title">Upcoming Events</h1>
-                <ul class="mdc-list mdc-list--two-line" role="group">
-                  <li class="mdc-list-item">
-                    <span class="mdc-list-item__text">
-                      <span class="mdc-list-item__primary-text">Flaw</span>
-                      <span class="mdc-list-item__secondary-text">Link for flaw</span>
-                    </span>
-                    <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
-                  </li>
-                  <li role="separator" class="mdc-list-divider"></li>
-                  <li class="mdc-list-item">
-                    <span class="mdc-list-item__text">
-                      <span class="mdc-list-item__primary-text">Cyber Security</span>
-                      <span class="mdc-list-item__secondary-text">March 8th, 2019</span>
-                    </span>
-                    <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
-                  </li>
-                </ul>
+                <div class="dashboard-card-content">
+                  <h1 class="mdc-typography--headline5 dashboard-card-title">Upcoming Events</h1>
+                  <ul class="mdc-list mdc-list--two-line" role="group">
+                    <li class="mdc-list-item">
+                      <span class="mdc-list-item__text">
+                        <span class="mdc-list-item__primary-text">Flaw</span>
+                        <span class="mdc-list-item__secondary-text">Link for flaw</span>
+                      </span>
+                      <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                    </li>
+                    <li role="separator" class="mdc-list-divider"></li>
+                    <li class="mdc-list-item">
+                      <span class="mdc-list-item__text">
+                        <span class="mdc-list-item__primary-text">Cyber Security</span>
+                        <span class="mdc-list-item__secondary-text">March 8th, 2019</span>
+                      </span>
+                      <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -264,6 +308,11 @@
             var mdcMenu = new mdc.menu.MDCMenu(document.querySelector('.mdc-menu'));
             function openMenu(){
               mdcMenu.open = true;
+            }
+            var tfs = document.querySelectorAll('.mdc-text-field');
+            var mdTfs = []
+            for (var i = tfs.length - 1; i >= 0; i--) {
+              mdTfs.push(new mdc.textField.MDCTextField(tfs[i]));
             }
           </script>
           <script type="text/javascript">

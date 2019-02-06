@@ -403,9 +403,12 @@ footer .container {
 }
 
 .dashboard-card {
-  padding: 1rem;
   background-color: white;
   color: black;
+}
+
+.dashboard-card-content {
+  margin: 1rem;
 }
 
 .dashboard-card-title {
@@ -413,12 +416,18 @@ footer .container {
 }
 
 .dashboard-card-button-container {
-  margin-top: 1rem;
+  margin: 1rem auto .5rem;
 }
 
 .dashboard-card-button {
   display: block;
   margin: auto;
+}
+
+.accomodation-date-field.mdc-text-field {
+  margin: 1rem auto;
+  width: 70%;
+  display: block;
 }
 
 @media(max-width: 1024px) {
