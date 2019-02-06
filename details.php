@@ -307,7 +307,7 @@
         }
         var registrationFabExtended = {
             view: function() {
-                return m('button', {class: 'mdc-fab mdc-fab--extended app-fab--absolute app-fab--pc', onclick: function(){
+                return m('button', {class: 'mdc-fab mdc-fab--extended app-fab--absolute app-fab--pc anim-appear-pulse', onclick: function(){
                         if(cookieExists)
                             window.location.href = "dashboard.php";
                         else
@@ -323,7 +323,7 @@
         }
         var registrationFab = {
             view: function() {
-                return m('button', {class: 'mdc-fab app-fab--absolute app-fab--mobile', onclick: function(){
+                return m('button', {class: 'mdc-fab app-fab--absolute app-fab--mobile anim-appear-pulse', onclick: function(){
                         if(cookieExists)
                             window.location.href = "dashboard.php";
                         else
