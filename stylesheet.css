@@ -37,7 +37,7 @@ a {
 
 .mdc-typography--body1, .mdc-typography--body2, .mdc-typography--subtitle1,
 .mdc-floating-label, .mdc-text-field__input, .mdc-list, .mdc-list-item__secondary-text,
-.mdc-drawer .mdc-list-item, .mdc-fab__label {
+.mdc-drawer .mdc-list-item, .mdc-fab__label, .mdc-typography {
   font-family: 'Raleway', sans-serif;
 }
 

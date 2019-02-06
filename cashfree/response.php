@@ -71,6 +71,7 @@
                 $stmt->bind_param(str_repeat('si', count($sql_values) / 2), ...$sql_values);
                 $result = $stmt->execute();
             }
+            $conn->close();
         }
         header('Location: http://localhost/prayatna-2019/dashboard.php');
     }

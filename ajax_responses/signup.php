@@ -41,8 +41,13 @@
         setcookie('email', $row['email_id'], time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie('phone', $row['phone_number'], time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie('signature', calculate_hash($row['user_id'], $row['name'], $row['email_id'], $row['phone_number']), time() + (86400 * 30), "/");
+
+        $conn->close();
+
         header('Location: http://localhost/prayatna-2019/dashboard.php');}
     else {
+        $conn->close();
+
         echo 'failure';
     }
 ?>

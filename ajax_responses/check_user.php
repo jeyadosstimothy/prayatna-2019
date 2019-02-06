@@ -44,4 +44,6 @@
     }
     $json_obj = json_encode($obj);
     echo $json_obj;
+
+    $conn->close();
 ?>

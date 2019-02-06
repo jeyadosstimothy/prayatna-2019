@@ -107,6 +107,8 @@ function getOrderAmount($workshops) {
 
 $workshops = loadWorkshops($conn);
 
+$conn->close();
+
 if(!isValidPost($workshops)) {
   header('Location: http://localhost/prayatna-2019/dashboard.php');
 }
@@ -147,6 +149,7 @@ if ($mode == "PROD") {
 } else {
   $url = "https://test.cashfree.com/billpay/checkout/post/submit";
 }
+
 
 ?>
   <form action="<?php echo $url; ?>" name="frm1" method="post">

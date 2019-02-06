@@ -23,5 +23,7 @@
     $stmt->bind_param("sss", $check_in, $check_out, $user_id);
     $result = $stmt->execute();
 
+    $conn->close();
+
     header('Location: http://localhost/prayatna-2019/dashboard.php');
 ?>

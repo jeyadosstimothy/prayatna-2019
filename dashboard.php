@@ -57,7 +57,7 @@
       </div>
     </header>
     <section class="mdc-top-app-bar--fixed-adjust">
-      <h1 class="mdc-typography--headline4 anim-appear-pulse" style="text-align: center">Welcome <?php if (isset($_COOKIE['user_id'])) echo $_COOKIE['name'];?></h1>
+      <h1 class="mdc-typography--headline4 anim-appear-pulse" style="text-align: center">Welcome <?php if (isset($_COOKIE['user_id'])) echo $_COOKIE['name'];?>!</h1>
       <div class="mdc-layout-grid anim-appear-slideup-fadein">
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell">
@@ -99,52 +99,25 @@
                   </div>
                 </div>
               </div>
-              <script type="text/javascript">
-                var registeredWorkshopDates = [];
-              </script>
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
                 <div class="dashboard-card-content">
-                  <h1 class="mdc-typography--headline5 dashboard-card-title">Registered Workshops</h1>
+                  <h1 class="mdc-typography--headline5 dashboard-card-title">Upcoming Events</h1>
                   <ul class="mdc-list mdc-list--two-line" role="group">
-                    <?php
-                      if(isset($_COOKIE['user_id'])) {
-                        $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id in (select workshop_id from register_details where user_id = ?)';
-
-                        $stmt = $conn->prepare($sql);
-                        $stmt->bind_param("i", $_COOKIE['user_id']);
-                        $result = $stmt->execute();
-                        $result = $stmt->get_result();
-                        $workshop_ids = array(-1); // -1 for making sure "not in" list is not empty when querying unregistered workshops
-
-                        if ($result->num_rows > 0) {
-                          $count = 1;
-                          // output data of each row
-                          while($row = $result->fetch_assoc()) {
-                            array_push($workshop_ids, $row['workshop_id']);
-                            echo '
-                              <li class="mdc-list-item" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">
-                                <span class="mdc-list-item__text">
-                                  <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                                  <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
-                                </span>
-                                <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
-                              </li>';
-                            ?>
-                            <script type="text/javascript">
-                              registeredWorkshopDates.push('<?=$row['date'];?>');
-                            </script>
-                            <?php
-                            if($count != $result->num_rows) {
-                              echo'<li role="separator" class="mdc-list-divider"></li>';
-                            }
-                            $count = $count + 1;
-                          }
-                        }
-                        else {
-                          echo 'Nothing to show';
-                        }
-                      }
-                    ?>
+                    <li class="mdc-list-item">
+                      <span class="mdc-list-item__text">
+                        <span class="mdc-list-item__primary-text">Flaw</span>
+                        <span class="mdc-list-item__secondary-text">Link for flaw</span>
+                      </span>
+                      <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                    </li>
+                    <li role="separator" class="mdc-list-divider"></li>
+                    <li class="mdc-list-item">
+                      <span class="mdc-list-item__text">
+                        <span class="mdc-list-item__primary-text">Cyber Security</span>
+                        <span class="mdc-list-item__secondary-text">March 8th, 2019</span>
+                      </span>
+                      <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -159,57 +132,58 @@
                   <form method="post" action="cashfree/request.php" id="new-workshop-form">
                     <ul class="mdc-list mdc-list--two-line" role="group" aria-label="List with checkbox items">
                       <?php
-                        if(isset($_COOKIE['user_id'])) {
-                          $ids = "'" . implode("', '", $workshop_ids) . "'" ;// making array('val1', 'val2', 'val3') because of string
-                          $sql = 'select workshop_id, workshop_name, date, price from workshop_details where workshop_id not in (' . $ids .')';
-                          $result = $conn->query($sql);
-                          if ($result != NULL && $result->num_rows > 0) {
-                            // output data of each row
-                            $sql = "select count(user_id) as cnt, workshop_id from register_details group by workshop_id";
-                            $ans = $conn->query($sql);
-                            $count_id_pair = array();
-                            while($row = $ans->fetch_assoc()) {
-                              $count_id_pair[$row['workshop_id']] = $row['cnt'];
-                            }
-                            $count = 1;
-                            while($row = $result->fetch_assoc()) {
-                              array_push($workshop_ids, $row['workshop_id']);
-                              $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= 1);
-                              echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
-                                  <span class="mdc-list-item__graphic">
-                                  <div class="mdc-checkbox">
-                                  <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
-                                    value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.'" date="' .$row["date"]. '" '.($filled?'disabled':'').'/>
-                                  <div class="mdc-checkbox__background">
-                                  <svg class="mdc-checkbox__checkmark"
-                                    viewBox="0 0 24 24">
-                                    <path class="mdc-checkbox__checkmark-path"
-                                    fill="none"
-                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                                  </svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                  </div>
-                                  </div>
-                                  </span>
-                                  <span class="mdc-list-item__text">
-                                  <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                                  <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
-                                  </span>
-                                  <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
-                                </li>';
-                                if($count != $result->num_rows) {
-                                  echo'<li role="separator" class="mdc-list-divider"></li>';
-                                }
-                                $count = $count + 1;
-                            }
+                        $sql = 'select workshop_id, workshop_name, date, price from workshop_details where workshop_id not in (select workshop_id from register_details where user_id = ?)';
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("i", $_COOKIE['user_id']);
+                        $result = $stmt->execute();
+                        $result = $stmt->get_result();
+                        $new_workshop_ids = array(-1);
+                        if ($result != NULL && $result->num_rows > 0) {
+                          // output data of each row
+                          $sql = "select count(user_id) as cnt, workshop_id from register_details group by workshop_id";
+                          $ans = $conn->query($sql);
+                          $count_id_pair = array();
+                          while($row = $ans->fetch_assoc()) {
+                            $count_id_pair[$row['workshop_id']] = $row['cnt'];
                           }
-                          else {
-                            echo "Nothing to show";
+                          $count = 1;
+                          while($row = $result->fetch_assoc()) {
+                            array_push($new_workshop_ids, $row['workshop_id']);
+                            $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= 1);
+                            echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
+                                <span class="mdc-list-item__graphic">
+                                <div class="mdc-checkbox">
+                                <input type="checkbox" name="selectedWorkshop[]" class="mdc-checkbox__native-control"
+                                  value="'.$row['workshop_id'].'" price="' .$row["price"]. '" '.'" date="' .$row["date"]. '" '.($filled?'disabled':'').'/>
+                                <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                  viewBox="0 0 24 24">
+                                  <path class="mdc-checkbox__checkmark-path"
+                                  fill="none"
+                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                </div>
+                                </span>
+                                <span class="mdc-list-item__text">
+                                <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
+                                <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
+                                </span>
+                                <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
+                              </li>';
+                              if($count != $result->num_rows) {
+                                echo'<li role="separator" class="mdc-list-divider"></li>';
+                              }
+                              $count = $count + 1;
                           }
+                        }
+                        else {
+                          echo "<p style='text-align: center;'>Nothing to show</p>";
                         }
                       ?>
                     </ul>
-                    <p id="total-amount" style="font-family: 'Raleway', sans-serif"></p>
+                    <p id="total-amount" style="text-align: center;"></p>
                     <div class="dashboard-card-button-container">
                       <button class="mdc-button mdc-button--raised dashboard-card-button">
                         Pay Now
@@ -223,6 +197,48 @@
           </div>
           <div class="mdc-layout-grid__cell">
             <div class="mdc-layout-grid__inner">
+              <script type="text/javascript">
+                var registeredWorkshopDates = [];
+              </script>
+              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
+                <div class="dashboard-card-content">
+                  <h1 class="mdc-typography--headline5 dashboard-card-title">Registered Workshops</h1>
+                  <ul class="mdc-list mdc-list--two-line" role="group">
+                    <?php
+                      $ids = "'" . implode("', '", $new_workshop_ids) . "'" ;
+                      $sql = 'select workshop_id, workshop_name, date from workshop_details where workshop_id not in ('.$ids.')';
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+                        $count = 1;
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                          echo '
+                            <li class="mdc-list-item" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">
+                              <span class="mdc-list-item__text">
+                                <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
+                                <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
+                              </span>
+                              <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
+                            </li>';
+                          ?>
+                          <script type="text/javascript">
+                            registeredWorkshopDates.push('<?=$row['date'];?>');
+                          </script>
+                          <?php
+                          if($count != $result->num_rows) {
+                            echo'<li role="separator" class="mdc-list-divider"></li>';
+                          }
+                          $count = $count + 1;
+                        }
+                      }
+                      else {
+                        echo 'Nothing to show';
+                      }
+                    ?>
+                  </ul>
+                </div>
+              </div>
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
                 <div class="dashboard-card-content">
                   <h1 class="mdc-typography--headline5 dashboard-card-title">Accomodation</h1>
@@ -268,31 +284,11 @@
                   </form>
                 </div>
               </div>
-              <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
-                <div class="dashboard-card-content">
-                  <h1 class="mdc-typography--headline5 dashboard-card-title">Upcoming Events</h1>
-                  <ul class="mdc-list mdc-list--two-line" role="group">
-                    <li class="mdc-list-item">
-                      <span class="mdc-list-item__text">
-                        <span class="mdc-list-item__primary-text">Flaw</span>
-                        <span class="mdc-list-item__secondary-text">Link for flaw</span>
-                      </span>
-                      <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
-                    </li>
-                    <li role="separator" class="mdc-list-divider"></li>
-                    <li class="mdc-list-item">
-                      <span class="mdc-list-item__text">
-                        <span class="mdc-list-item__primary-text">Cyber Security</span>
-                        <span class="mdc-list-item__secondary-text">March 8th, 2019</span>
-                      </span>
-                      <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+
             </div>
           </div>
           <script type="text/javascript">
+            var appBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
             var ripples = [];
             var lists = document.querySelectorAll('.mdc-list');
             var mdcLists = [];
@@ -348,5 +344,8 @@
     </section>
   </main>
   <?php include('snackbar.php') ?>
+  <?php
+    $conn->close();
+  ?>
 </body>
 </html>
