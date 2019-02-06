@@ -23,7 +23,7 @@
   <header class="mdc-top-app-bar mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="padding-left: 20px">
-        <img class="lazyload" data-src="res/prayatna-small.png" style="width: 35px;height: 35px;" />
+        <img src="res/prayatna-small.png" style="width: 35px;height: 35px;" />
         <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">Prayatna</span>
       </section>
 
@@ -68,7 +68,7 @@
   <section class="section-dark section-full title-section mdc-layout-grid mdc-top-app-bar--fixed-adjust">
     <div class="mdc-layout-grid__inner anim-appear-slideup-fadein">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
-        <img class="logo lazyload" data-src="res/prayatna.png">
+        <img class="logo" src="res/prayatna.png">
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--align-middle">
         <h1 class="mdc-typography--headline3 title-text" align="center">Ignite. Inspire. Innovate.</h1>
@@ -81,9 +81,9 @@
 
     <div class="floating-social-icons anim-appear-slideright-fadein">
       <p align="right">
-        <a href="https://www.facebook.com/prayatnact"><img data-src="res/facebook_white.png" class="lazyload img-social" /></a>
-        <a href="https://www.instagram.com/act.mit/"><img data-src="res/instagram_white.png" class="lazyload img-social" /></a>
-        <a href="https://api.whatsapp.com/send?phone=919597180925"><img data-src="res/whatsapp_white.png" class="lazyload img-social" /></a>
+        <a href="https://www.facebook.com/prayatnact"><img src="res/facebook_white.png" class="img-social" /></a>
+        <a href="https://www.instagram.com/act.mit/"><img src="res/instagram_white.png" class="img-social" /></a>
+        <a href="https://api.whatsapp.com/send?phone=919597180925"><img src="res/whatsapp_white.png" class="img-social" /></a>
       </p>
     </div>
     <script>
