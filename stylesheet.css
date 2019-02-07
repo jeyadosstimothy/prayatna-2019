@@ -161,6 +161,11 @@ footer a {
 .sponsors-list .mdc-image-list__item {
   margin: auto;
 }
+
+.sponsors-list.mdc-layout-grid__inner {
+  grid-gap: 5rem 3rem;
+}
+
 .center90 {
   margin-left: auto;
   margin-right: auto;
@@ -322,6 +327,7 @@ footer .container {
 
 .mdc-drawer{
   --mdc-theme-primary: #212121;
+  width: 270px;
 }
 
 .mdc-fab {
@@ -408,7 +414,18 @@ footer .container {
 }
 
 .dashboard-card-content {
-  margin: 1rem;
+  margin: .75rem;
+}
+
+.dashboard-card-content .mdc-list-item{
+  padding: 0 8px;
+}
+.dashboard-card-content .mdc-list-item__graphic {
+  margin-right: 16px;
+}
+.dashboard-card-content .mdc-icon-button {
+  padding: 12px 0px;
+  width: 24px;
 }
 
 .dashboard-card-title {
@@ -416,17 +433,17 @@ footer .container {
 }
 
 .dashboard-card-button-container {
-  margin: 1rem auto .5rem;
+  margin: 1rem auto 1.5rem;
+  text-align: center;
 }
 
 .dashboard-card-button {
-  display: block;
-  margin: auto;
+  display: inline-block;
+  --mdc-theme-primary: #252525;
 }
 
-.accomodation-date-field.mdc-text-field {
-  margin: 1rem auto;
-  width: 70%;
+#accomodation-form .mdc-text-field {
+  margin: 1rem auto 1.5rem;
   display: block;
 }
 

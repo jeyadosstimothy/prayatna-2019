@@ -62,7 +62,7 @@
       <h1 class="mdc-typography--headline4 anim-appear-pulse" style="text-align: center">Welcome <?php if (isset($_COOKIE['user_id'])) echo $_COOKIE['name'];?>!</h1>
       <div class="mdc-layout-grid anim-appear-slideup-fadein">
         <div class="mdc-layout-grid__inner">
-          <div class="mdc-layout-grid__cell">
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-tablet">
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card" style="text-align: center">
                 <div class="dashboard-card-content">
@@ -126,7 +126,7 @@
             </div>
           </div>
 
-          <div class="mdc-layout-grid__cell">
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-tablet">
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
                 <div class="dashboard-card-content">
@@ -197,7 +197,7 @@
               </div>
             </div>
           </div>
-          <div class="mdc-layout-grid__cell">
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-tablet">
             <div class="mdc-layout-grid__inner">
               <script type="text/javascript">
                 var registeredWorkshopDates = [];
@@ -235,7 +235,7 @@
                         }
                       }
                       else {
-                        echo 'Nothing to show';
+                        echo '<p style="text-align: center">Nothing to show</p>';
                       }
                     ?>
                   </ul>
@@ -257,8 +257,8 @@
                     }
 
                   ?>
-                  <form method="post" action="ajax_responses/reserve_accomodation.php" id="accomodation-form">
-                    <div class="mdc-text-field accomodation-date-field mdc-text-field--with-leading-icon">
+                  <form method="post" action="ajax_responses/reserve_accomodation.php" id="accomodation-form" class="center90">
+                    <div class="mdc-text-field mdc-text-field--with-leading-icon">
                       <div>
                         <i class="material-icons mdc-text-field__icon">event</i>
                         <input class="mdc-text-field__input" placeholder="Check in" type='date' name='check_in' required <?=($reserved?'disabled':'')?> value="<?=$row['check_in'];?>"/>
@@ -268,7 +268,7 @@
                         <div class="mdc-line-ripple"></div>
                       </div>
                     </div>
-                    <div class="mdc-text-field accomodation-date-field mdc-text-field--with-leading-icon">
+                    <div class="mdc-text-field mdc-text-field--with-leading-icon">
                       <div>
                         <i class="material-icons mdc-text-field__icon">event</i>
                         <input class="mdc-text-field__input" placeholder="Check out" type='date' name='check_out' required <?=($reserved?'disabled':'')?> value="<?=$row['check_out'];?>"/>
@@ -279,11 +279,18 @@
                       </div>
                     </div>
                     <div class="dashboard-card-button-container">
-                      <button class="mdc-button mdc-button--raised dashboard-card-button" <?=($reserved?'disabled':'')?>>
-                        <?=($reserved?'Reserved':'Reserve Now')?>
-                      </button>
+                      <span class="dashboard-card-button">
+                        <button class="mdc-button mdc-button--outlined" style="margin-right: .5rem" type="button" onclick="window.location.href='download_link'">
+                          Get Details
+                        </button>
+                        <button class="mdc-button mdc-button--raised" <?=($reserved?'disabled':'')?>  style="margin-left: .5rem">
+                          <?=($reserved?'Reserved':'Reserve Now')?>
+                        </button>
+                      </div>
                     </div>
                   </form>
+
+
                 </div>
               </div>
 
