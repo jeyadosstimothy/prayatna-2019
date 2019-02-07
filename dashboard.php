@@ -2,7 +2,8 @@
   require 'constants.php';
 
   if(!isset($_COOKIE['user_id'])) {
-    header('Location: '.$domain.'/home.php');
+    header('Location: '.$domain);
+    exit;
   } else {
     if(calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {
       header('Location: '.$domain.'/ajax_responses/logout.php');
@@ -62,7 +63,7 @@
     <header class="mdc-top-app-bar mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="padding-left: 20px">
-          <a href="home.php">
+          <a href="/">
             <img src="res/prayatna-small.png" style="width: 35px;height: 35px;" />
           </a>
           <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">PRAYATNA</span>
@@ -74,7 +75,7 @@
           <div class="mdc-menu-surface--anchor">
             <div class="mdc-menu mdc-menu-surface anim-appear-pulse" style="width: 150px;" tabindex="-1">
               <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                <a href="home.php">
+                <a href="/">
                   <li class="mdc-list-item" role="menuitem">
                     <span class="mdc-list-item__text">Home</span>
                   </li>

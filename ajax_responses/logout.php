@@ -9,5 +9,5 @@
     setcookie('email', '', time() - 3600, '/');
     setcookie('phone', '', time() - 3600, '/');
     setcookie('signature', '', time() - 3600, '/');
-    header('Location: '.$domain.'/home.php');
+    header('Location: '.$domain);
 ?>

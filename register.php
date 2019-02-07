@@ -2,7 +2,8 @@
 <?php
     require 'constants.php';
     if (isset($_COOKIE["user_id"])) {
-        header('Location: '.$domain.'/home.php');
+        header('Location: '.$domain);
+        exit;
     }
 ?>
 <!DOCTYPE html>
@@ -221,7 +222,7 @@
         return {
             view: function() {
                 return [
-                    m('a', {href: 'home.php'},
+                    m('a', {href: '/'},
                         m('img', {src: 'res/prayatna.png', class: "logo", style: "cursor: pointer;"})
                     ),
                     m(formToShow)

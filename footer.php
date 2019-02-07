@@ -1,7 +1,7 @@
 <footer>
   <section style="position: relative;">
       <div class="container">
-        <a href="home.php">
+        <a href="/">
           <img class="logo" src="res/prayatna-small.png" />
         </a>
       </div>
@@ -10,7 +10,7 @@
           Association of Computer Technologists<br>
           Connect with us!<br>
           <a href="https://www.facebook.com/prayatnact">Facebook</a>&nbsp;/
-          <a href="https://www.instagram.com/act.mit/">Instagram</a>&nbsp;/
+          <a href="https://www.instagram.com/prayatnact">Instagram</a>&nbsp;/
           <a href="https://www.linkedin.com/in/prayatna-mit-642b23158/">LinkedIn</a>
         </p>
       </div>

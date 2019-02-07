@@ -76,7 +76,7 @@
         var getPageToShow = function() {
             var params = parseURLParams(window.location.href);
             if(params == undefined) {
-                window.location.href = "home.php";
+                window.location.href = "/";
             }
             return params.id
         }
@@ -100,7 +100,7 @@
                             m('div', {class: 'mdc-menu-surface--anchor'},
                                 m('div', {class: 'mdc-menu mdc-menu-surface anim-appear-pulse', style: 'width: 150px;', tabindex: '-1'},
                                     m('ul', {class: 'mdc-list', role: 'menu', "aria-hidden":"true", "aria-orientation":"vertical"},
-                                        m('a', {href: 'home.php'},
+                                        m('a', {href: '/'},
                                             m('li', {class: 'mdc-list-item', role: 'menuitem'},
                                                 m('span', {class: 'mdc-list-item__text'}, 'Home')
                                             )
@@ -191,7 +191,7 @@
             }
         }
         var nav = m('nav', {class: 'mdc-list'}, [
-                    m('a', {class: 'mdc-list-item', href: 'home.php', 'aria-selected': 'true', tabindex: '0'}, [
+                    m('a', {class: 'mdc-list-item', href: '/', 'aria-selected': 'true', tabindex: '0'}, [
                         m('h3', {class: 'mdc-list-group__subheader', style: 'color: #212121'}, 'Home')
                     ]),
                     m('h3', {class: 'mdc-list-group__subheader', style: 'color: #212121'}, 'Workshops'),
@@ -308,7 +308,7 @@
         var appDrawer = {
             view: function() {
                 return m('aside', {class: 'mdc-drawer mdc-drawer--modal'}, [
-                        m('a', {href: 'home.php'},
+                        m('a', {href: '/'},
                             m('div', {class: 'mdc-drawer__header', style: 'position:relative'}, [
                                 m('img', {src: 'res/prayatna-small.png', style: 'width: 50px; height: 50px;'}),
                                 m('h3', {class: 'mdc-drawer__title', style: 'display: inline-block;position: absolute;margin-left: 1rem'}, "Prayatna '19")
