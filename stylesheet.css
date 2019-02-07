@@ -363,7 +363,7 @@ footer .container {
   cursor: pointer;
 }
 
-.mdc-menu-surface {
+.mdc-menu-surface, .mdc-snackbar__surface {
   border-radius: 0;
 }
 
