@@ -1,5 +1,5 @@
 <?php
-
+require '../https_redirect.php';
 require 'mail.php';
 
 $email = $_POST['email'];

@@ -1,4 +1,5 @@
 <?php
+  require 'https_redirect.php';
   require 'constants.php';
 ?>
 <!DOCTYPE html>
@@ -57,6 +58,7 @@
         if (isset($_COOKIE["user_id"])) {
           if(calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {
             header('Location: '.$domain.'/ajax_responses/logout.php');
+            exit;
           }
           echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
             <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick="openMenu()">

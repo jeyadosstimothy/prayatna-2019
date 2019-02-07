@@ -1,4 +1,5 @@
 <?php
+    require 'https_redirect.php';
     require 'constants.php';
 
     if(isset($_COOKIE['user_id']) && calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {

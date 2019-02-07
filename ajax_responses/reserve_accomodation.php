@@ -1,4 +1,5 @@
 <?php
+    require '../https_redirect.php';
     require '../constants.php';
 
     if(!isset($_POST['submit'])) {

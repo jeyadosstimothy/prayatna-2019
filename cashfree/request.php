@@ -1,3 +1,6 @@
+<?php
+  require '../https_redirect.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -2,6 +2,7 @@
     //session_start();
     // set the expiration date to one hour ago
     //unset($_COOKIE["user_id"]);
+    require '../https_redirect.php';
     require '../constants.php';
 
     setcookie('user_id', '', time() - 3600, '/');

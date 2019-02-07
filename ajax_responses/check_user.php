@@ -1,4 +1,5 @@
 <?php
+    require '../https_redirect.php';
     header("Content-Type: application/json; charset=UTF-8");
     $input = json_decode($_POST["x"], false);
 
