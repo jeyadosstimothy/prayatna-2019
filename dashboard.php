@@ -105,21 +105,25 @@
                 <div class="dashboard-card-content">
                   <h1 class="mdc-typography--headline5 dashboard-card-title">Upcoming Events</h1>
                   <ul class="mdc-list mdc-list--two-line" role="group">
-                    <li class="mdc-list-item">
-                      <span class="mdc-list-item__text">
-                        <span class="mdc-list-item__primary-text">Flaw</span>
-                        <span class="mdc-list-item__secondary-text">Link for flaw</span>
-                      </span>
-                      <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
-                    </li>
+                    <a href="details.php?id=freeze-it">
+                      <li class="mdc-list-item">
+                        <span class="mdc-list-item__text">
+                          <span class="mdc-list-item__primary-text">Freeze It!</span>
+                          <span class="mdc-list-item__secondary-text">Currently Live</span>
+                        </span>
+                        <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                      </li>
+                    </a>
                     <li role="separator" class="mdc-list-divider"></li>
-                    <li class="mdc-list-item">
-                      <span class="mdc-list-item__text">
-                        <span class="mdc-list-item__primary-text">Cyber Security</span>
-                        <span class="mdc-list-item__secondary-text">March 8th, 2019</span>
-                      </span>
-                      <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
-                    </li>
+                    <a href="details.php?id=connexions-online">
+                      <li class="mdc-list-item">
+                        <span class="mdc-list-item__text">
+                          <span class="mdc-list-item__primary-text">Connexions Online</span>
+                          <span class="mdc-list-item__secondary-text">Feb 15, 2019</span>
+                        </span>
+                        <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                      </li>
+                    </a>
                   </ul>
                 </div>
               </div>
@@ -243,8 +247,8 @@
               </div>
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
                 <div class="dashboard-card-content">
-                  <h1 class="mdc-typography--headline5 dashboard-card-title">Accomodation</h1>
-                  <h1 class="mdc-typography--subtitle1" style="text-align: center">Accomodation Fee of Rs.500 must be paid on check-in</h1>
+                  <h1 class="mdc-typography--headline5 dashboard-card-title">Need Accomodation?</h1>
+                  <h1 class="mdc-typography--subtitle1" style="text-align: center">Let us know!</h1>
                   <?php
                     $sql = 'select check_in, check_out from user_details where user_id=?';
                     $stmt = $conn->prepare($sql);
@@ -280,9 +284,11 @@
                     </div>
                     <div class="dashboard-card-button-container">
                       <span class="dashboard-card-button">
-                        <button class="mdc-button mdc-button--outlined" style="margin-right: .5rem" type="button" onclick="window.location.href='download_link'">
-                          Get Details
-                        </button>
+                        <a href="res/accomodation-prayatna.pdf" download>
+                          <button class="mdc-button mdc-button--outlined" style="margin-right: .5rem" type="button">
+                            Get Details
+                          </button>
+                        </a>
                         <button class="mdc-button mdc-button--raised" <?=($reserved?'disabled':'')?>  style="margin-left: .5rem">
                           <?=($reserved?'Reserved':'Reserve Now')?>
                         </button>

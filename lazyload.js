@@ -93,7 +93,7 @@
             let self = this;
             let observerConfig = {
                 root: null,
-                rootMargin: "0px",
+                rootMargin: "20%",
                 threshold: [0]
             };
 

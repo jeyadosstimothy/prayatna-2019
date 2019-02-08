@@ -65,7 +65,7 @@ a {
 }
 
 .mdc-card__primary, .mdc-card__secondary {
-  padding: 1rem;
+  padding: .75rem;
 }
 
 .mdc-card__secondary {

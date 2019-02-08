@@ -75,7 +75,7 @@
         <img class="logo" src="res/prayatna.png">
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--align-middle">
-        <h1 class="mdc-typography--headline3 title-text" align="center">Ignite. Inspire. Innovate.</h1>
+        <h1 class="mdc-typography--headline3 title-text" align="center">Let your neurons fire</h1>
         <div class="slider">
           <h1 class="mdc-typography--headline4" align="center">March 8 & 9</h1>
           <h1 class="mdc-typography--headline4" align="center"><span id="days"></span> days to go!</h1>
@@ -119,29 +119,44 @@
         <p class="mdc-typography--body1 content-about">The Association of Computer Technologists takes great pride in conducting PRAYATNA, our annual national level inter-college technical festival. PRAYATNA, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. In a nutshell, PRAYATNA is a platform that churns out technical and creative ideas from upcoming engineers by assessing their aptitude in coding, design, entrepreneurial skills and other multi-faceted concepts with special workshops with the help of experts from the industry enhance the participant's knowledge and creative potentials.</p>
       </div>
       <div class="mdc-layout-grid__cell ">
-        <h1 class="mdc-typography--headline3 section-header">Our Sponsors</h1>
+        <h1 class="mdc-typography--headline3 section-header">Interns & Sponsors</h1>
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin sponsors-list">
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image lazyload" data-src="res/LIC.png">
+          <a href="https://www.gigamon.com/"><img class="mdc-image-list__image lazyload" data-src="res/gigamon.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image lazyload" data-src="res/facebook.png">
+          <a href="https://www.skcript.com/"><img class="mdc-image-list__image lazyload" data-src="res/skcript.svg"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image lazyload" data-src="res/zoho.png">
+          <a href="https://www.cns-inc.com/"><img class="mdc-image-list__image lazyload" data-src="res/cnsi.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image lazyload" data-src="res/google.png">
+          <a href="http://accolite.com/"><img class="mdc-image-list__image lazyload" data-src="res/accolite.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image lazyload" data-src="res/dell.png">
+          <a href="https://www.freshworks.com/"><img class="mdc-image-list__image lazyload" data-src="res/freshworks.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image lazyload" data-src="res/amazon.jpeg">
+          <a href="http://www.f22labs.com/"><img class="mdc-image-list__image lazyload" data-src="res/f22labs.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <img class="mdc-image-list__image lazyload" data-src="res/uber.png">
+          <a href="https://motorq.co/"><img class="mdc-image-list__image lazyload" data-src="res/motorq.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://linkstreet.in/"><img class="mdc-image-list__image lazyload" data-src="res/linkstreet.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="http://botcode.com/"><img class="mdc-image-list__image lazyload" data-src="res/botcode.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.madstreetden.com/"><img class="mdc-image-list__image lazyload" data-src="res/mad-street-den.jpeg"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.guvi.in/"><img class="mdc-image-list__image lazyload" data-src="res/guvi.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.zoho.com/"><img class="mdc-image-list__image lazyload" data-src="res/zoho.png"></a>
         </li>
       </ul>
     </div>
@@ -235,9 +250,18 @@
         }),
         m(Cell, {
           child: m(Card, {
+            title: 'System Design',
+            subtitle: 'Uber',
+            secondary: 'Build your own Whatsapp!',
+            id: 'system-design',
+            style: "background-image: url('res/system-design.jpeg');"
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
             title: 'Cyber Security',
             subtitle: 'Ernst & Young',
-            secondary: 'Security in Computers',
+            secondary: "Something's Phishy!",
             id: 'cyber-security',
             style: "background-image: url('res/cyber-security.jpg');"
           })
@@ -245,159 +269,142 @@
         m(Cell, {
           child: m(Card, {
             title: 'Artificial Intelligence',
-            subtitle: 'Microsoft',
-            secondary: 'Machine Learning',
+            subtitle: 'InMobi',
+            secondary: 'The Future of Technology, Demystified',
             id: 'artificial-intelligence',
             style: "background-image: url('res/artificial-intelligence.jpg');"
           })
         }),
         m(Cell, {
           child: m(Card, {
-            title: 'ReactJS and Node.js',
-            subtitle: 'Microsoft',
-            secondary: 'Machine Learning',
-            id: 'react-and-node-js',
-            style: "background-image: url('res/react-node-js.png');"
+            title: 'ReactJS',
+            subtitle: 'Guvi',
+            secondary: 'Designing Websites with Perfection',
+            id: 'react-js',
+            style: "background-image: url('res/react.png');"
           })
         }),
         m(Cell, {
           child: m(Card, {
-            title: 'Placement Workshop',
-            subtitle: 'Microsoft',
-            secondary: 'Machine Learning',
-            id: 'placement',
+            title: 'Cracking the Coding Interview',
+            subtitle: 'PayPal',
+            secondary: 'Placements just got easier!',
+            id: 'cracking-the-coding-interview',
             style: "background-image: url('res/placements.jpeg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'System Design',
-            subtitle: 'Microsoft',
-            secondary: 'Machine Learning',
-            id: 'system-design',
-            style: "background-image: url('res/system-design.jpeg');"
           })
         }),
       ]
       var techEvents = [
         m(Cell, {
           child: m(Card, {
+            title: 'Motorq Hackathon',
+            subtitle: 'The Flagship Event',
+            id: 'hackathon',
+            style: "background-image: url('res/hackathon.png');"
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
             title: 'OSPC',
-            subtitle: 'OnSite Programming Contest',
+            subtitle: "The Problem Solvers's Paradise",
             id: 'ospc',
-            style: "background-image: url('res/ospc.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Coffee With Java',
-            subtitle: 'Present a Paper',
-            id: 'coffee-with-java',
-            style: "background-image: url('res/coffee-with-java.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Web Hub',
-            subtitle: 'Present a Paper',
-            id: 'paper-presentation',
-            style: "background-image: url('res/web-hub.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'SQL Scholar',
-            subtitle: 'Present a Paper',
-            id: 'sql-scholar',
-            style: "background-image: url('res/sql-scholar.jpg');"
+            style: "background-image: url('res/ospc.png');"
           })
         }),
         m(Cell, {
           child: m(Card, {
             title: 'Mini Placement',
-            subtitle: 'Present a Paper',
+            subtitle: 'Simulate Your Interviews',
             id: 'mini-placement',
-            style: "background-image: url('res/mini-placement.jpg');"
+            style: "background-image: url('res/mini-placement.png');"
           })
         }),
         m(Cell, {
           child: m(Card, {
-            title: 'Street Coding',
-            subtitle: 'Present a Paper',
-            id: 'street-coding',
-            style: "background-image: url('res/street-coding.jpg');"
+            title: 'Web Hub',
+            subtitle: 'What You See Is What You Get',
+            id: 'web-hub',
+            style: "background-image: url('res/web-hub.jpg');"
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'Code ‘N Chaos',
+            subtitle: 'How well do you code under pressure?',
+            id: 'code-n-chaos',
+            style: "background-image: url('res/code-n-chaos.jpg');"
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'DB Dwellers',
+            subtitle: 'Select * from the Universe',
+            id: 'db-dwellers',
+            style: "background-image: url('res/db-dwellers.jpg');"
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'Parseltongue',
+            subtitle: 'Express Your Fluency In Python',
+            id: 'parseltongue',
+            style: "background-image: url('res/parseltongue.jpg');"
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: "OOPS! It's Java",
+            subtitle: 'Are you a jaw-dropping JAVA Developer?',
+            id: 'oops-its-java',
+            style: "background-image: url('res/oops-its-java.jpg');"
           })
         }),
         m(Cell, {
           child: m(Card, {
             title: 'Paper Presentation',
-            subtitle: 'Present a Paper',
+            subtitle: 'Give your idea the recognition it deserves!',
             id: 'paper-presentation',
             style: "background-image: url('res/paper-presentation.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Python Event',
-            subtitle: 'Present a Paper',
-            id: 'python-event',
-            style: "background-image: url('res/python.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Hackathon',
-            subtitle: 'Present a Paper',
-            id: 'hackathon',
-            style: "background-image: url('res/hackathon.jpg');"
           })
         }),
       ]
       var nonTechEvents = [
         m(Cell, {
           child: m(Card, {
-            title: 'Mega Event',
-            subtitle: 'A oneliner about this event',
-            id: 'mega-event',
-            style: "background-image: url('res/mega-event.png');"
+            title: 'Kaleidoscope',
+            subtitle: 'The Mega Event',
+            id: 'kaleidoscope',
+            style: "background-image: url('res/kaleidoscope.webp');"
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'Connexions',
+            subtitle: 'Crack it quicker and collar up as connectors.',
+            id: 'connexions',
+            style: "background-image: url('res/connexions.png');"
           })
         }),
         m(Cell, {
           child: m(Card, {
             title: 'Bplan',
-            subtitle: 'Present a Paper',
+            subtitle: "It's always wise to look ahead",
             id: 'bplan',
             style: "background-image: url('res/bplan.jpg');"
           })
         }),
         m(Cell, {
           child: m(Card, {
-            title: 'Connections',
-            subtitle: 'Present a Paper',
-            id: 'connections',
-            style: "background-image: url('res/connections.png');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'IPL Auctions',
-            subtitle: 'Present a Paper',
-            id: 'ipl-auctions',
-            style: "background-image: url('res/ipl-auc.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Google Desk',
-            subtitle: 'Present a Paper',
-            id: 'google-desk',
-            style: "background-image: url('res/google-desk.jpg');"
+            title: 'IPL Auction',
+            subtitle: 'Bid, Win, Have a Grin',
+            id: 'ipl-auction',
+            style: "background-image: url('res/ipl-auction.jpg');"
           })
         }),
         m(Cell, {
           child: m(Card, {
             title: 'Math O Mania',
-            subtitle: 'Present a Paper',
+            subtitle: 'Do you speak the language of the Gods?',
             id: 'math-o-mania',
             style: "background-image: url('res/math-o-mania.jpg');"
           })
@@ -405,7 +412,7 @@
         m(Cell, {
           child: m(Card, {
             title: 'Treasure Hunt',
-            subtitle: 'Present a Paper',
+            subtitle: 'Clear Vision holds the Key',
             id: 'treasure-hunt',
             style: "background-image: url('res/treasure-hunt.jpg');"
           })
@@ -413,7 +420,7 @@
         m(Cell, {
           child: m(Card, {
             title: 'Gaming',
-            subtitle: 'Present a Paper',
+            subtitle: 'Life is short, Game More',
             id: 'gaming',
             style: "background-image: url('res/gaming.png');"
           })
@@ -422,58 +429,34 @@
       var onlineEvents = [
         m(Cell, {
           child: m(Card, {
-            title: 'Connexions',
-            subtitle: 'A oneliner about this event',
-            id: 'connexions',
-            style: "background-image: url('res/connexions.png');"
+            title: 'Freeze It!',
+            subtitle: 'Let your Lens Speak',
+            id: 'freeze-it',
+            style: "background-image: url('res/freeze-it.jpg');"
+          })
+        }),
+        m(Cell, {
+          child: m(Card, {
+            title: 'Connexions Online',
+            subtitle: 'Pause coding and start connecting!',
+            id: 'connexions-online',
+            style: "background-image: url('res/connexions-online.png');"
           })
         }),
         m(Cell, {
           child: m(Card, {
             title: 'OLPC',
-            subtitle: 'Present a Paper',
+            subtitle: 'Think twice, Code once',
             id: 'olpc',
             style: "background-image: url('res/olpc.jpg');"
           })
         }),
         m(Cell, {
           child: m(Card, {
-            title: 'Photography Contest',
-            subtitle: 'Present a Paper',
-            id: 'photo-contest',
-            style: "background-image: url('res/photo-contest.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Musically',
-            subtitle: 'Present a Paper',
-            id: 'musically',
-            style: "background-image: url('res/musically.png');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Flaw',
-            subtitle: 'Present a Paper',
-            id: 'flaw',
-            style: "background-image: url('res/flaw.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'IPL Auction',
-            subtitle: 'Present a Paper',
-            id: 'ipl-auction',
-            style: "background-image: url('res/ipl.jpg');"
-          })
-        }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Legends of Hidden Temple',
-            subtitle: 'Present a Paper',
-            id: 'loht',
-            style: "background-image: url('res/loht.jpg');"
+            title: 'Daily Quiz',
+            subtitle: 'Unlocking knowledge at the speed of thought!',
+            id: 'daily-quiz',
+            style: "background-image: url('res/quiz.jpeg');"
           })
         }),
       ]
@@ -516,66 +499,66 @@
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin contacts-list" >
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/praveen_siva.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+              Praveen Siva<br>Chairman<br><a href="tel:+919597180925">+91 9597180925</a><br><a href="mailto:praveen17siva@gmail.com">praveen17siva@gmail.com</a>
             </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item" >
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/amarnath.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+              Amarnath D<br>Secretary<br><a href="tel:+919080082180">+91 9080082180</a><br><a href="mailto:amarnathdevraj@gmail.com">amarnathdevraj@gmail.com</a>
             </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/harshitha.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+              Harshitha P R<br>Women's Secretary<br><a href="tel:+918883183838">+91 8883183838</a><br><a href="mailto:harshithapr1997@gmail.com">harshithapr1997@gmail.com</a>
             </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/prashanth.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+              Prashanth T R<br>Workshop Coordinator<br><a href="tel:+919003165816">+91 9003165816</a><br><a href="mailto:prachoo2198@gmail.com">prachoo2198@gmail.com</a>
             </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/akshay.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+              Akshay V<br>Event Coordinator (Tech)<br><a href="tel:+918056027690">+91 8056027690</a><br><a href="mailto:akshayred@gmail.com">akshayred@gmail.com</a>
             </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/swetha.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+              Swetha B<br>Paper Presentation Coordinator<br><a href="tel:+917373124348">+91 7373124348</a><br><a href="mailto:swethadhanam494@gmail.com">swethadhanam494@gmail.com</a>
             </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/manikandan.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Chairman<br>+91 92768547867<br>mail@gmail.com
+              Manikandan M<br>Accommodation - Boys<br><a href="tel:+917639118010">+91 7639118010</a><br><a href="mailto:vairavanmani2@gmail.com">vairavanmani2@gmail.com</a>
             </span>
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/small_logo.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/chandrika.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Paper Presentation Coordinator<br>+91 92768547867<br>mail@gmail.com
+              Chandrika V<br>Accommodation - Girls<br><a href="tel:+919787171852">+91 9787171852</a><br><a href="vchandrika228@gmail.com">vchandrika228@gmail.com</a>
             </span>
           </div>
         </li>
