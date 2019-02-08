@@ -130,6 +130,11 @@ body {
   margin: 0;
 }
 
+body.details-container {
+  position: relative;
+  min-height: 100vh;
+}
+
 #map {
   height: 100%;
   min-height: 300px;
@@ -186,6 +191,14 @@ footer {
   padding: 2rem 1rem 2rem 1rem;
 }
 
+.details-container footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 0;
+}
+
 footer p {
   color: #5f6368;
 }
@@ -199,6 +212,10 @@ footer .container {
   padding-left: 1rem;
   display: inline-block;
   vertical-align: middle;
+}
+
+.footer--fixed-adjust {
+  padding-bottom: 15rem;
 }
 
 .mdc-top-app-bar{
@@ -377,6 +394,7 @@ footer .container {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+  z-index: 1;
 }
 
 .mdc-fab--extended {
@@ -414,15 +432,17 @@ footer .container {
 }
 
 .dashboard-card-content {
-  margin: .75rem;
+  margin: .5rem;
 }
 
 .dashboard-card-content .mdc-list-item{
   padding: 0 8px;
 }
+
 .dashboard-card-content .mdc-list-item__graphic {
   margin-right: 16px;
 }
+
 .dashboard-card-content .mdc-icon-button {
   padding: 12px 0px;
   width: 24px;
@@ -494,5 +514,9 @@ footer .container {
 
   footer .container {
     display: block;
+  }
+
+  .footer--fixed-adjust {
+    padding-bottom: 20rem;
   }
 }

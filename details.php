@@ -18,8 +18,8 @@
     <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
-<body>
-    <div id='root' class='mdc-typography' style="margin-bottom: 5rem"></div>
+<body class="details-container">
+    <div id='root' class='mdc-typography footer--fixed-adjust'></div>
     <?php include('footer.php') ?>
     <script type="text/javascript">
         function parseURLParams(url) {

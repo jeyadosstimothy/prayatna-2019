@@ -24,7 +24,7 @@
 </head>
 
 <body class="mdc-typography">
-  <header class="mdc-top-app-bar mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
+  <header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="padding-left: 20px">
         <img src="res/prayatna-small.png" style="width: 35px;height: 35px;" />

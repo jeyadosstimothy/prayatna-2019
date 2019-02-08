@@ -176,7 +176,7 @@
                                 <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
                                 <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
                                 </span>
-                                <button type="button" class="mdc-list-item__meta mdc-icon-button material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</button>
+                                <span class="mdc-list-item__meta material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</span>
                               </li>';
                               if($count != $result->num_rows) {
                                 echo'<li role="separator" class="mdc-list-divider"></li>';
