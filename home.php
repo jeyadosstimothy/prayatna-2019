@@ -201,26 +201,19 @@
         }
       }
       var ripples = []
-      var CardPrimaryAction = {
+      var CellCard = {
         view: function(vnode) {
-          return m('div', {class: 'mdc-card__primary-action', tabindex:"0", onclick: function() {window.location.href = "details.php?id="+vnode.attrs.id;}},
+          return m('div', {class: 'mdc-layout-grid__cell mdc-card mdc-card__primary-action mdc-elevation--z4 mdc-layout-grid__cell--span-' + (vnode.attrs.span?vnode.attrs.span:'3-desktop mdc-layout-grid__cell--span-2-phone'), tabindex:"0", onclick: function() {window.location.href = "details.php?id="+vnode.attrs.id;}},
             m('div', {class: 'mdc-card__media mdc-card__media--16-9', style: vnode.attrs.style}),
             m('div', {class: 'mdc-card__primary'},
               m('h2', {class: 'mdc-card__title mdc-typography--headline6'}, vnode.attrs.title),
               m('h3', {class: 'mdc-card__subtitle mdc-typography--subtitle2'}, vnode.attrs.subtitle)
             ),
-            m('div', {class: 'mdc-card__secondary mdc-typography--body2'}, vnode.attrs.secondary)
+            (vnode.attrs.secondary?m('div', {class: 'mdc-card__secondary mdc-typography--body2'}, vnode.attrs.secondary):null)
           );
         },
         oncreate: function(vnode) {
           ripples.push(new mdc.ripple.MDCRipple(vnode.dom));
-        }
-      }
-      var Card = {
-        view: function(vnode) {
-          return m('div', {class: 'mdc-card mdc-elevation--z4'},
-            m(CardPrimaryAction, {title: vnode.attrs.title, subtitle: vnode.attrs.subtitle, secondary: vnode.attrs.secondary, id: vnode.attrs.id, style: vnode.attrs.style})
-          );
         }
       }
       var Cell = {
@@ -239,225 +232,173 @@
         m(Tab, {active: false, text: 'Online', onclick: function(){currentPanel = 'onlineEvents'}}),
       ]
       var workshops = [
-        m(Cell, {
-          child: m(Card, {
-            title: 'Flutter',
-            subtitle: 'Geeky Ants',
-            secondary: 'Build beautiful apps with Flutter!',
-            id: 'flutter',
-            style: "background-image: url('res/flutter.jpg');"
-          })
+        m(CellCard, {
+          title: 'Flutter',
+          subtitle: 'Ruchika, Geeky Ants',
+          secondary: 'Build beautiful apps with Flutter!',
+          id: 'flutter',
+          style: "background-image: url('res/flutter.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'System Design',
-            subtitle: 'Uber',
-            secondary: 'Build your own Whatsapp!',
-            id: 'system-design',
-            style: "background-image: url('res/system-design.jpeg');"
-          })
+        m(CellCard, {
+          title: 'System Design',
+          subtitle: 'Gaurav Sen, Youtuber',
+          secondary: 'Build your own Whatsapp!',
+          id: 'system-design',
+          style: "background-image: url('res/system-design.jpeg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Cyber Security',
-            subtitle: 'Ernst & Young',
-            secondary: "Something's Phishy!",
-            id: 'cyber-security',
-            style: "background-image: url('res/cyber-security.jpg');"
-          })
+        m(CellCard, {
+          title: 'Cyber Security',
+          subtitle: 'Ernst & Young',
+          secondary: "Something's Phishy!",
+          id: 'cyber-security',
+          style: "background-image: url('res/cyber-security.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Artificial Intelligence',
-            subtitle: 'InMobi',
-            secondary: 'The Future of Technology, Demystified',
-            id: 'artificial-intelligence',
-            style: "background-image: url('res/artificial-intelligence.jpg');"
-          })
+        m(CellCard, {
+          title: 'ReactJS',
+          subtitle: 'Guvi',
+          secondary: 'Designing Websites with Perfection',
+          id: 'react-js',
+          style: "background-image: url('res/react.png');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'ReactJS',
-            subtitle: 'Guvi',
-            secondary: 'Designing Websites with Perfection',
-            id: 'react-js',
-            style: "background-image: url('res/react.png');"
-          })
+        m(CellCard, {
+          title: 'Artificial Intelligence',
+          subtitle: 'Ramkumar, InMobi',
+          secondary: 'The Future of Technology, Demystified',
+          id: 'artificial-intelligence',
+          style: "background-image: url('res/artificial-intelligence.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Cracking the Coding Interview',
-            subtitle: 'PayPal',
-            secondary: 'Placements just got easier!',
-            id: 'cracking-the-coding-interview',
-            style: "background-image: url('res/placements.jpeg');"
-          })
+        m(CellCard, {
+          title: 'Cracking the Coding Interview',
+          subtitle: 'Hemanth, PayPal',
+          secondary: 'Placements just got easier!',
+          id: 'cracking-the-coding-interview',
+          style: "background-image: url('res/placements.jpeg');"
         }),
       ]
       var techEvents = [
-        m(Cell, {
-          child: m(Card, {
-            title: 'Motorq Hackathon',
-            subtitle: 'The Flagship Event',
-            id: 'hackathon',
-            style: "background-image: url('res/hackathon.png');"
-          })
+        m(CellCard, {
+          title: 'Motorq Hackathon',
+          subtitle: 'The Flagship Event',
+          id: 'hackathon',
+          style: "background-image: url('res/hackathon.png');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'OSPC',
-            subtitle: "The Problem Solvers's Paradise",
-            id: 'ospc',
-            style: "background-image: url('res/ospc.png');"
-          })
+        m(CellCard, {
+          title: 'OSPC',
+          subtitle: "The Problem Solvers's Paradise",
+          id: 'ospc',
+          style: "background-image: url('res/ospc.png');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Mini Placement',
-            subtitle: 'Simulate Your Interviews',
-            id: 'mini-placement',
-            style: "background-image: url('res/mini-placement.png');"
-          })
+        m(CellCard, {
+          title: 'Mini Placement',
+          subtitle: 'Simulate Your Interviews',
+          id: 'mini-placement',
+          style: "background-image: url('res/mini-placement.png');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Web Hub',
-            subtitle: 'What You See Is What You Get',
-            id: 'web-hub',
-            style: "background-image: url('res/web-hub.jpg');"
-          })
+        m(CellCard, {
+          title: 'Web Hub',
+          subtitle: 'What You See Is What You Get',
+          id: 'web-hub',
+          style: "background-image: url('res/web-hub.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Code ‘N Chaos',
-            subtitle: 'How well do you code under pressure?',
-            id: 'code-n-chaos',
-            style: "background-image: url('res/code-n-chaos.jpg');"
-          })
+        m(CellCard, {
+          title: 'Code ‘N Chaos',
+          subtitle: 'How well do you code under pressure?',
+          id: 'code-n-chaos',
+          style: "background-image: url('res/code-n-chaos.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'DB Dwellers',
-            subtitle: 'Select * from the Universe',
-            id: 'db-dwellers',
-            style: "background-image: url('res/db-dwellers.jpg');"
-          })
+        m(CellCard, {
+          title: 'DB Dwellers',
+          subtitle: 'Select * from the Universe',
+          id: 'db-dwellers',
+          style: "background-image: url('res/db-dwellers.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Parseltongue',
-            subtitle: 'Express Your Fluency In Python',
-            id: 'parseltongue',
-            style: "background-image: url('res/parseltongue.jpg');"
-          })
+        m(CellCard, {
+          title: 'Parseltongue',
+          subtitle: 'Express Your Fluency In Python',
+          id: 'parseltongue',
+          style: "background-image: url('res/parseltongue.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: "OOPS! It's Java",
-            subtitle: 'Are you a jaw-dropping JAVA Developer?',
-            id: 'oops-its-java',
-            style: "background-image: url('res/oops-its-java.jpg');"
-          })
+        m(CellCard, {
+          title: "OOPS! It's Java",
+          subtitle: 'Are you a jaw-dropping Java Developer?',
+          id: 'oops-its-java',
+          style: "background-image: url('res/oops-its-java.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Paper Presentation',
-            subtitle: 'Give your idea the recognition it deserves!',
-            id: 'paper-presentation',
-            style: "background-image: url('res/paper-presentation.jpg');"
-          })
+        m(CellCard, {
+          title: 'Paper Presentation',
+          subtitle: 'Give your idea the recognition it deserves!',
+          id: 'paper-presentation',
+          style: "background-image: url('res/paper-presentation.jpg');"
         }),
       ]
       var nonTechEvents = [
-        m(Cell, {
-          child: m(Card, {
-            title: 'Kaleidoscope',
-            subtitle: 'The Mega Event',
-            id: 'kaleidoscope',
-            style: "background-image: url('res/kaleidoscope.webp');"
-          })
+        m(CellCard, {
+          title: 'Kaleidoscope',
+          subtitle: 'The Mega Event',
+          id: 'kaleidoscope',
+          style: "background-image: url('res/kaleidoscope.webp');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Connexions',
-            subtitle: 'Crack it quicker and collar up as connectors.',
-            id: 'connexions',
-            style: "background-image: url('res/connexions.png');"
-          })
+        m(CellCard, {
+          title: 'IPL Auction',
+          subtitle: 'Bid, Win, Have a Grin',
+          id: 'ipl-auction',
+          style: "background-image: url('res/ipl-auction.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Bplan',
-            subtitle: "It's always wise to look ahead",
-            id: 'bplan',
-            style: "background-image: url('res/bplan.jpg');"
-          })
+        m(CellCard, {
+          title: 'Bplan',
+          subtitle: "It's always wise to look ahead",
+          id: 'bplan',
+          style: "background-image: url('res/bplan.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'IPL Auction',
-            subtitle: 'Bid, Win, Have a Grin',
-            id: 'ipl-auction',
-            style: "background-image: url('res/ipl-auction.jpg');"
-          })
+        m(CellCard, {
+          title: 'Treasure Hunt',
+          subtitle: 'Clear Vision holds the Key',
+          id: 'treasure-hunt',
+          style: "background-image: url('res/treasure-hunt.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Math O Mania',
-            subtitle: 'Do you speak the language of the Gods?',
-            id: 'math-o-mania',
-            style: "background-image: url('res/math-o-mania.jpg');"
-          })
+        m(CellCard, {
+          title: 'Math O Mania',
+          subtitle: 'Do you speak the language of the Gods?',
+          id: 'math-o-mania',
+          style: "background-image: url('res/math-o-mania.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Treasure Hunt',
-            subtitle: 'Clear Vision holds the Key',
-            id: 'treasure-hunt',
-            style: "background-image: url('res/treasure-hunt.jpg');"
-          })
+        m(CellCard, {
+          title: 'Gaming',
+          subtitle: 'Life is short, Game More',
+          id: 'gaming',
+          style: "background-image: url('res/gaming.png');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Gaming',
-            subtitle: 'Life is short, Game More',
-            id: 'gaming',
-            style: "background-image: url('res/gaming.png');"
-          })
+        m(CellCard, {
+          title: 'Connexions',
+          subtitle: 'Crack it quicker and collar up as connectors.',
+          id: 'connexions',
+          style: "background-image: url('res/connexions.png');"
         }),
       ]
       var onlineEvents = [
-        m(Cell, {
-          child: m(Card, {
-            title: 'Freeze It!',
-            subtitle: 'Let your Lens Speak',
-            id: 'freeze-it',
-            style: "background-image: url('res/freeze-it.jpg');"
-          })
+        m(CellCard, {
+          title: 'Freeze It!',
+          subtitle: 'Let your Lens Speak',
+          id: 'freeze-it',
+          style: "background-image: url('res/freeze-it.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Connexions Online',
-            subtitle: 'Pause coding and start connecting!',
-            id: 'connexions-online',
-            style: "background-image: url('res/connexions-online.png');"
-          })
+        m(CellCard, {
+          title: 'OLPC',
+          subtitle: 'Think twice, Code once',
+          id: 'olpc',
+          style: "background-image: url('res/olpc.jpg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'OLPC',
-            subtitle: 'Think twice, Code once',
-            id: 'olpc',
-            style: "background-image: url('res/olpc.jpg');"
-          })
+        m(CellCard, {
+          title: 'Daily Quiz',
+          subtitle: 'Unlocking knowledge at the speed of thought!',
+          id: 'daily-quiz',
+          style: "background-image: url('res/quiz.jpeg');"
         }),
-        m(Cell, {
-          child: m(Card, {
-            title: 'Daily Quiz',
-            subtitle: 'Unlocking knowledge at the speed of thought!',
-            id: 'daily-quiz',
-            style: "background-image: url('res/quiz.jpeg');"
-          })
+        m(CellCard, {
+          title: 'Connexions Online',
+          subtitle: 'Pause coding and start connecting!',
+          id: 'connexions-online',
+          style: "background-image: url('res/connexions-online.png');"
         }),
       ]
       var currentPanel = 'techEvents';

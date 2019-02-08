@@ -64,12 +64,12 @@ a {
   padding: 0 12px;
 }
 
-.mdc-card__primary, .mdc-card__secondary {
+.mdc-card__primary {
   padding: .75rem;
 }
 
 .mdc-card__secondary {
-  padding: 0 1rem 8px;
+  padding: 0 .75rem 8px;
 }
 
 .mdc-card__title{
