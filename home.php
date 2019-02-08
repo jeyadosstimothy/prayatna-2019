@@ -443,7 +443,9 @@
           <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/praveen_siva.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Praveen Siva<br>Chairman<br><a href="tel:+919597180925">+91 9597180925</a><br><a href="mailto:praveen17siva@gmail.com">praveen17siva@gmail.com</a>
+              Praveen Siva<br>Chairman<br>
+              <a href="tel:+919597180925"><span class="desktop">+91 9597180925</span><button class="mobile mdc-icon-button material-icons">phone</button></a><br class="desktop"/>
+              <a href="mailto:praveen17siva@gmail.com"><span class="desktop">praveen17siva@gmail.com</span><button class="mobile mdc-icon-button material-icons">email</button></a>
             </span>
           </div>
         </li>
@@ -451,7 +453,9 @@
           <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/amarnath.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Amarnath D<br>Secretary<br><a href="tel:+919080082180">+91 9080082180</a><br><a href="mailto:amarnathdevraj@gmail.com">amarnathdevraj@gmail.com</a>
+              Amarnath D<br>Secretary<br>
+              <a href="tel:+919080082180"><span class="desktop">+91 9080082180</span><button class="mobile mdc-icon-button material-icons">phone</button></a><br class="desktop"/>
+              <a href="mailto:amarnathdevraj@gmail.com"><span class="desktop">amarnathdevraj@gmail.com</span><button class="mobile mdc-icon-button material-icons">email</button></a>
             </span>
           </div>
         </li>
@@ -459,7 +463,9 @@
           <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/harshitha.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Harshitha P R<br>Women's Secretary<br><a href="tel:+918883183838">+91 8883183838</a><br><a href="mailto:harshithapr1997@gmail.com">harshithapr1997@gmail.com</a>
+              Harshitha P R<br>Women's Secretary<br>
+              <a href="tel:+918883183838"><span class="desktop">+91 8883183838</span><button class="mobile mdc-icon-button material-icons">phone</button></a><br class="desktop"/>
+              <a href="mailto:harshithapr1997@gmail.com"><span class="desktop">harshithapr1997@gmail.com</span><button class="mobile mdc-icon-button material-icons">email</button></a>
             </span>
           </div>
         </li>
@@ -467,7 +473,9 @@
           <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/prashanth.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Prashanth T R<br>Workshop Coordinator<br><a href="tel:+919003165816">+91 9003165816</a><br><a href="mailto:prachoo2198@gmail.com">prachoo2198@gmail.com</a>
+              Prashanth T R<br>Workshop Coordinator<br>
+              <a href="tel:+919003165816"><span class="desktop">+91 9003165816</span><button class="mobile mdc-icon-button material-icons">phone</button></a><br class="desktop"/>
+              <a href="mailto:prachoo2198@gmail.com"><span class="desktop">prachoo2198@gmail.com</span><button class="mobile mdc-icon-button material-icons">email</button></a>
             </span>
           </div>
         </li>
@@ -475,7 +483,9 @@
           <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/akshay.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Akshay V<br>Event Coordinator (Tech)<br><a href="tel:+918056027690">+91 8056027690</a><br><a href="mailto:akshayred@gmail.com">akshayred@gmail.com</a>
+              Akshay V<br>Event Coordinator (Tech)<br>
+              <a href="tel:+918056027690"><span class="desktop">+91 8056027690</span><button class="mobile mdc-icon-button material-icons">phone</button></a><br class="desktop"/>
+              <a href="mailto:akshayred@gmail.com"><span class="desktop">akshayred@gmail.com</span><button class="mobile mdc-icon-button material-icons">email</button></a>
             </span>
           </div>
         </li>
@@ -483,7 +493,9 @@
           <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/swetha.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Swetha B<br>Paper Presentation Coordinator<br><a href="tel:+917373124348">+91 7373124348</a><br><a href="mailto:swethadhanam494@gmail.com">swethadhanam494@gmail.com</a>
+              Swetha B<br>Paper Presentation Coordinator<br>
+              <a href="tel:+917373124348"><span class="desktop">+91 7373124348</span><button class="mobile mdc-icon-button material-icons">phone</button></a><br class="desktop"/>
+              <a href="mailto:swethadhanam494@gmail.com"><span class="desktop">swethadhanam494@gmail.com</span><button class="mobile mdc-icon-button material-icons">email</button></a>
             </span>
           </div>
         </li>
@@ -491,7 +503,9 @@
           <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/manikandan.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Manikandan M<br>Accommodation - Boys<br><a href="tel:+917639118010">+91 7639118010</a><br><a href="mailto:vairavanmani2@gmail.com">vairavanmani2@gmail.com</a>
+              Manikandan M<br>Accommodation - Boys<br>
+              <a href="tel:+917639118010"><span class="desktop">+91 7639118010</span><button class="mobile mdc-icon-button material-icons">phone</button></a><br class="desktop"/>
+              <a href="mailto:vairavanmani2@gmail.com"><span class="desktop">vairavanmani2@gmail.com</span><button class="mobile mdc-icon-button material-icons">email</button></a>
             </span>
           </div>
         </li>
@@ -499,7 +513,9 @@
           <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/chandrika.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
-              Chandrika V<br>Accommodation - Girls<br><a href="tel:+919787171852">+91 9787171852</a><br><a href="vchandrika228@gmail.com">vchandrika228@gmail.com</a>
+              Chandrika V<br>Accommodation - Girls<br>
+              <a href="tel:+919787171852"><span class="desktop">+91 9787171852</span><button class="mobile mdc-icon-button material-icons">phone</button></a><br class="desktop"/>
+              <a href="mailto:vchandrika228@gmail.com"><span class="desktop">vchandrika228@gmail.com</span><button class="mobile mdc-icon-button material-icons">email</button></a>
             </span>
           </div>
         </li>
@@ -549,8 +565,14 @@
         mdTfs.push(new mdc.textField.MDCTextField(tfs[i]));
       }
       var buttons = document.querySelectorAll('.mdc-button');
-      for (var i = tfs.length - 1; i >= 0; i--) {
+      for (var i = buttons.length - 1; i >= 0; i--) {
         ripples.push(new mdc.ripple.MDCRipple(buttons[i]));
+      }
+      var iconButtons = document.querySelectorAll('.mdc-icon-button');
+      for (var i = iconButtons.length - 1; i >= 0; i--) {
+        var iconButtonRipple = new mdc.ripple.MDCRipple(iconButtons[i]);
+        ripples.push(iconButtonRipple);
+        iconButtonRipple.unbounded = true;
       }
       var appBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
 

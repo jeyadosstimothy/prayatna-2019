@@ -404,7 +404,7 @@ footer .container {
   line-height: 18px;
 }
 
-.app-fab--mobile {
+.app-fab--mobile, .contacts-list .mobile {
   display: none;
 }
 
@@ -480,11 +480,11 @@ footer .container {
     margin-left: 0;
   }
 
-  .app-fab--pc {
+  .app-fab--pc, .contacts-list .desktop {
     display: none;
   }
 
-  .app-fab--mobile {
+  .app-fab--mobile, .contacts-list .mobile {
     display: inline-flex;
   }
 
