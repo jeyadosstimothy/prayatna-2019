@@ -19,7 +19,6 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>
-  <script type="text/javascript" src="lazyload.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
@@ -81,7 +80,7 @@
         <img class="logo" src="res/prayatna.png">
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--align-middle">
-        <h1 class="mdc-typography--headline3 title-text" align="center">Let your neurons fire</h1>
+        <h1 class="mdc-typography--headline3 title-text" align="center">Let the mindgames begin!</h1>
         <div class="slider">
           <h1 class="mdc-typography--headline4" align="center">March 8 & 9</h1>
           <h1 class="mdc-typography--headline4" align="center"><span id="days"></span> days to go!</h1>
@@ -129,40 +128,40 @@
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin sponsors-list">
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.gigamon.com/"><img class="mdc-image-list__image lazyload" data-src="res/gigamon.png"></a>
+          <a href="https://www.gigamon.com/"><img class="mdc-image-list__image" src="res/gigamon.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.skcript.com/"><img class="mdc-image-list__image lazyload" data-src="res/skcript.svg"></a>
+          <a href="https://www.skcript.com/"><img class="mdc-image-list__image" src="res/skcript.svg"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.cns-inc.com/"><img class="mdc-image-list__image lazyload" data-src="res/cnsi.png"></a>
+          <a href="https://www.cns-inc.com/"><img class="mdc-image-list__image" src="res/cnsi.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="http://accolite.com/"><img class="mdc-image-list__image lazyload" data-src="res/accolite.png"></a>
+          <a href="http://accolite.com/"><img class="mdc-image-list__image" src="res/accolite.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.freshworks.com/"><img class="mdc-image-list__image lazyload" data-src="res/freshworks.png"></a>
+          <a href="https://www.freshworks.com/"><img class="mdc-image-list__image" src="res/freshworks.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="http://www.f22labs.com/"><img class="mdc-image-list__image lazyload" data-src="res/f22labs.png"></a>
+          <a href="http://www.f22labs.com/"><img class="mdc-image-list__image" src="res/f22labs.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://motorq.co/"><img class="mdc-image-list__image lazyload" data-src="res/motorq.png"></a>
+          <a href="https://motorq.co/"><img class="mdc-image-list__image" src="res/motorq.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://linkstreet.in/"><img class="mdc-image-list__image lazyload" data-src="res/linkstreet.png"></a>
+          <a href="https://linkstreet.in/"><img class="mdc-image-list__image" src="res/linkstreet.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="http://botcode.com/"><img class="mdc-image-list__image lazyload" data-src="res/botcode.png"></a>
+          <a href="http://botcode.com/"><img class="mdc-image-list__image" src="res/botcode.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.madstreetden.com/"><img class="mdc-image-list__image lazyload" data-src="res/mad-street-den.jpeg"></a>
+          <a href="https://www.madstreetden.com/"><img class="mdc-image-list__image" src="res/mad-street-den.jpeg"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.guvi.in/"><img class="mdc-image-list__image lazyload" data-src="res/guvi.png"></a>
+          <a href="https://www.guvi.in/"><img class="mdc-image-list__image" src="res/guvi.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.zoho.com/"><img class="mdc-image-list__image lazyload" data-src="res/zoho.png"></a>
+          <a href="https://www.zoho.com/"><img class="mdc-image-list__image" src="res/zoho.png"></a>
         </li>
       </ul>
     </div>
@@ -446,7 +445,7 @@
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin contacts-list" >
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/praveen_siva.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/praveen_siva.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Praveen Siva<br>Chairman<br>
@@ -456,7 +455,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item" >
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/amarnath.jpeg">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/amarnath.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Amarnath D<br>Secretary<br>
@@ -466,7 +465,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/harshitha.jpeg">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/harshitha.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Harshitha P R<br>Women's Secretary<br>
@@ -476,7 +475,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/prashanth.jpeg">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/prashanth.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Prashanth T R<br>Workshop Coordinator<br>
@@ -486,7 +485,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/akshay.jpeg">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/akshay.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Akshay V<br>Event Coordinator (Tech)<br>
@@ -496,7 +495,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/swetha.jpg">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/swetha.jpg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Swetha B<br>Paper Presentation Coordinator<br>
@@ -506,7 +505,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/manikandan.jpeg">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/manikandan.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Manikandan M<br>Accommodation - Boys<br>
@@ -516,7 +515,7 @@
           </div>
         </li>
         <li class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-image-list__item">
-          <img class="mdc-image-list__image mdc-elevation--z4 lazyload" data-src="res/chandrika.jpeg">
+          <img class="mdc-image-list__image mdc-elevation--z4" src="res/chandrika.jpeg">
           <div class="mdc-image-list__supporting">
             <span class="mdc-image-list__label mdc-typography--body2">
               Chandrika V<br>Accommodation - Girls<br>
@@ -616,9 +615,6 @@
       });
     </script>
   </section>
-  <script>
-    lazyload();
-  </script>
   <?php include('snackbar.php') ?>
   <?php include('footer.php') ?>
 </body>

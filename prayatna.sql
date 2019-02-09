@@ -16,32 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `register_details`
---
-
-DROP TABLE IF EXISTS `register_details`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `register_details` (
-  `workshop_id` varchar(30) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  KEY `workshop_id` (`workshop_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `register_details_ibfk_1` FOREIGN KEY (`workshop_id`) REFERENCES `workshop_details` (`workshop_id`),
-  CONSTRAINT `register_details_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_details` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `register_details`
---
-
-LOCK TABLES `register_details` WRITE;
-/*!40000 ALTER TABLE `register_details` DISABLE KEYS */;
-/*!40000 ALTER TABLE `register_details` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `user_details`
 --
 
@@ -99,6 +73,33 @@ LOCK TABLES `workshop_details` WRITE;
 INSERT INTO `workshop_details` VALUES ('Artificial Intelligence','artificial-intelligence','March 8th, 2019',699),('Cracking the Coding Interview','cracking-the-coding-interview','March 8th, 2019',499),('Cyber Security','cyber-security','March 9th, 2019',699),('Flutter','flutter','March 8th, 2019',799),('ReactJS','react-js','March 9th, 2019',649),('System Design','system-design','March 9th, 2019',699);
 /*!40000 ALTER TABLE `workshop_details` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `register_details`
+--
+
+DROP TABLE IF EXISTS `register_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `register_details` (
+  `workshop_id` varchar(30) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  KEY `workshop_id` (`workshop_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `register_details_ibfk_1` FOREIGN KEY (`workshop_id`) REFERENCES `workshop_details` (`workshop_id`),
+  CONSTRAINT `register_details_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_details` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `register_details`
+--
+
+LOCK TABLES `register_details` WRITE;
+/*!40000 ALTER TABLE `register_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `register_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
