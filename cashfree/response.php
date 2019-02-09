@@ -5,7 +5,7 @@
         header('Location: '.$domain.'/ajax_responses/invalid_request.php');
     }
 
-    $secretkey = "ba0ae39f639b6d99197e1ab8b7e4b47ec75568e6"; // get from cashfree
+    $secretkey = "d6f31c94c68af1688741fbdaede78fdd68fadb7c"; // get from cashfree
     $orderId = $_POST["orderId"];
     $orderAmount = $_POST["orderAmount"];
     $referenceId = $_POST["referenceId"];
@@ -64,7 +64,7 @@
                     }
                     $index = $index + 1;
                 }
-                $sql = 'INSERT INTO register_details (workshop_id, user_id) VALUES ';
+                $sql = 'INSERT IGNORE INTO register_details (workshop_id, user_id) VALUES ';
                 $placeholder = array_fill(0, count($sql_values) / 2, '(?, ?)');
                 $placeholder = implode(', ', $placeholder);
                 $stmt = $conn->prepare($sql . $placeholder);

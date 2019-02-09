@@ -255,6 +255,14 @@
                 </div>
               </div>
               <div class="mdc-layout-grid__cell mdc-elevation--z4 mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet dashboard-card">
+                <script type="text/javascript">
+                  var datefield=document.createElement("input")
+                  datefield.setAttribute("type", "date")
+                  if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+                    document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+                    document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+                  }
+                </script>
                 <div class="dashboard-card-content">
                   <h1 class="mdc-typography--headline5 dashboard-card-title">Need Accomodation?</h1>
                   <h1 class="mdc-typography--subtitle1" style="text-align: center">Let us know!</h1>
@@ -274,7 +282,7 @@
                     <div class="mdc-text-field mdc-text-field--with-leading-icon">
                       <div>
                         <i class="material-icons mdc-text-field__icon">event</i>
-                        <input class="mdc-text-field__input" placeholder="Check in" type='date' name='check_in' required <?=($reserved?'disabled':'')?> value="<?=$row['check_in'];?>"/>
+                        <input class="mdc-text-field__input" placeholder="Check in" type='date' name='check_in' required <?=($reserved?'disabled':'')?> value="<?=$row['check_in'];?>" id="check_in"/>
                         <label class="mdc-floating-label mdc-floating-label--float-above">
                           Check-in
                         </label>
@@ -284,7 +292,7 @@
                     <div class="mdc-text-field mdc-text-field--with-leading-icon">
                       <div>
                         <i class="material-icons mdc-text-field__icon">event</i>
-                        <input class="mdc-text-field__input" placeholder="Check out" type='date' name='check_out' required <?=($reserved?'disabled':'')?> value="<?=$row['check_out'];?>"/>
+                        <input class="mdc-text-field__input" placeholder="Check out" type='date' name='check_out' required <?=($reserved?'disabled':'')?> value="<?=$row['check_out'];?>" id="check_out"/>
                         <label class="mdc-floating-label mdc-floating-label--float-above">
                           Check-out
                         </label>
@@ -303,6 +311,14 @@
                         </button>
                       </div>
                     </div>
+                    <script>
+                      if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+                          jQuery(function($){ //on document.ready
+                              $('#check_in').datepicker();
+                              $('#check_out').datepicker();
+                          })
+                      }
+                    </script>
                   </form>
 
 

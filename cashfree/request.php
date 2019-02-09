@@ -115,9 +115,9 @@ if(!isValidPost($workshops)) {
 
 $mode = "TEST"; //<------------ Change to TEST for test server, PROD for production
 
-$secretKey = "ba0ae39f639b6d99197e1ab8b7e4b47ec75568e6"; // get from cashfree
+$secretKey = "d6f31c94c68af1688741fbdaede78fdd68fadb7c"; // get from cashfree
 
-$appId = '343179cbdd7c8f81b332fc9f1343'; // get from cashfree
+$appId = '34996f73ac58c053e093fb309943'; // get from cashfree
 $orderId = getOrderID($workshops);
 $orderAmount = getOrderAmount($workshops);
 $orderCurrency = 'INR';
@@ -125,6 +125,7 @@ $customerName = $_COOKIE['name'];
 $customerPhone = $_COOKIE['phone'];
 $customerEmail = $_COOKIE['email'];
 $returnUrl = $domain.'/cashfree/response.php';
+$notifyUrl = $domain.'/cashfree/response.php';
 
 $postData = array(
   "appId" => $appId,
@@ -135,6 +136,7 @@ $postData = array(
   "customerPhone" => $customerPhone,
   "customerEmail" => $customerEmail,
   "returnUrl" => $returnUrl,
+  "notifyUrl" => $notifyUrl,
 );
 ksort($postData);
 $signatureData = "";
@@ -161,6 +163,7 @@ if ($mode == "PROD") {
       <input type="hidden" name="customerPhone" value='<?php echo $customerPhone; ?>'/>
       <input type="hidden" name="orderAmount" value='<?php echo $orderAmount; ?>'/>
       <input type ="hidden" name="returnUrl" value='<?php echo $returnUrl; ?>'/>
+      <input type ="hidden" name="notifyUrl" value='<?php echo $notifyUrl; ?>'/>
       <input type="hidden" name="appId" value='<?php echo $appId; ?>'/>
       <input type="hidden" name="orderId" value='<?php echo $orderId; ?>'/>
   </form>
