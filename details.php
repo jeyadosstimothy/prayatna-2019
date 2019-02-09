@@ -398,9 +398,23 @@
             'hackathon': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'Motorq Hackathon'),
                 m('p', {class: 'mdc-typography--body1'},
-                    `The flagship event of Prayatna 2019, Motorq Hackathon, sponsored by Motorq, would serve as a platform for creative problem solving and to foster innovation through collaboration.`),
-                m('p', {class:'mdc-typography--body1'},
-                    `This is a single round event in which you will be asked to implement your own ideas for the given domain. A team of at-most three members can attend this contest. The problem statements and domains would be released before hand, and you’d have to implement your proposal during the 12 Hour Hackathon event at our campus. Each team would be judged on several parameters such as uniqueness of their idea, complexity, innovation, usefulness and relevance to the theme. The top performing teams will stand a chance to interview with some of the biggest tech giants for full-time and internship opportunities!`),
+                    'We are proud to partner with ', m('a', {href: "https://motorq.co", style: 'color: black; font-weight: bold;'}, 'Motorq  - Accelerating Connected Cars'), ' for this event.'
+                ),
+                m('p', {class: 'mdc-typography--body1'},
+                    'The flagship event of Prayatna 2019, Motorq Hackathon, would serve as a platform for creative problem solving and to foster innovation through collaboration.'
+                ),
+                m('p', {class: 'mdc-typography--body1'},
+                    'This is a single round event in which you will be asked to implement your own ideas for the given problem statements. A team of at-most three members can attend this contest.'
+                ),
+                m('p', {class: 'mdc-typography--body1'},
+                    "The problem statements would be released soon, and proposals should reach us latest by Feb 28, 2019. You'd have 24 hours during the Hackathon event to implement your proposal at our campus. Watch this space for more announcements regarding the hackathon."
+                ),
+                m('p', {class: 'mdc-typography--body1'},
+                    "The judging would be done by industry veterans and experts. Each team would be judged on several parameters such as uniqueness of their idea, complexity, innovation, usefulness and relevance to the theme."
+                ),
+                m('p', {class: 'mdc-typography--body1'},
+                    "With prizes worth 30,000 INR for the top teams and interview opportunities for full-time and internships at the company, you wouldn't want to miss one of the biggest hackathons in the city! Come, code and get your name sculpted on the title!"
+                ),
             ]),
             'mini-placement': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'Mini Placement'),
