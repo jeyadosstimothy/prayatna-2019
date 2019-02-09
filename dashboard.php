@@ -26,7 +26,6 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
   <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-  <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -74,7 +73,7 @@
                 <div class="dashboard-card-content">
                   <h1 class="mdc-typography--headline5 dashboard-card-title">Skip the Queue!</h1>
                   <h1 class="mdc-typography--subtitle1">Why wait in line when you can register online?</h1>
-                  <h1 class="mdc-typography--subtitle1">Buy entry tickets now!</h1>
+                  <h1 class="mdc-typography--subtitle1">Buy your Entry Ticket now for just Rs. 249!</h1>
                   <h1 class="mdc-typography--subtitle1">Note: Workshop participants need not buy entry tickets</h1>
                   <div class="dashboard-card-button-container">
                     <form method="post" action='cashfree/request.php'>

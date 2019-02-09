@@ -523,4 +523,8 @@ footer .container {
   .footer--fixed-adjust {
     padding-bottom: 20rem;
   }
+
+  #accomodation-form .mdc-text-field__input {
+    border-bottom: none;
+  }
 }

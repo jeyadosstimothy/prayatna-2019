@@ -16,8 +16,6 @@
   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
   <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <style type="text/css">
     .root {

@@ -13,7 +13,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
 
   <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-  <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
 
   <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -166,6 +165,7 @@
       </ul>
     </div>
   </section>
+  <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
   <section class="section-dark">
     <div class="workshops-events-section"></div>
     <script type="text/javascript">
@@ -341,7 +341,7 @@
           title: 'Kaleidoscope',
           subtitle: 'The Mega Event',
           id: 'kaleidoscope',
-          style: "background-image: url('res/kaleidoscope.webp');"
+          style: "background-image: url('res/kaleidoscope.jpg');"
         }),
         m(CellCard, {
           title: 'IPL Auction',
