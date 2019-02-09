@@ -38,32 +38,38 @@
           if(calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {
             header('Location: '.$domain.'/ajax_responses/logout.php');
           }
-	        echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-                  <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick="openMenu()">
-                    <i class="material-icons">more_vert</i>
-                  </button>
-                  <div class="mdc-menu-surface--anchor">
-                    <div class="mdc-menu mdc-menu-surface anim-appear-pulse" style="width: 150px;" tabindex="-1">
-                      <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                        <li class="mdc-list-item" role="menuitem" onclick="window.location.href=\'dashboard.php\'">
-                          <span class="mdc-list-item__text">Dashboard</span>
-                        </li>
-                        <li class="mdc-list-item" role="menuitem" onclick="window.location.href=\'ajax_responses/logout.php\'">
-                          <span class="mdc-list-item__text">Log out</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-              </section>';
+          echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick="openMenu()">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <div class="mdc-menu-surface--anchor">
+              <div class="mdc-menu mdc-menu-surface anim-appear-pulse" style="width: 150px;" tabindex="-1">
+                <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+                  <a href="dashboard.php">
+                    <li class="mdc-list-item" role="menuitem">
+                      <span class="mdc-list-item__text">Dashboard</span>
+                    </li>
+                  </a>
+                  <a href="ajax_responses/logout.php">
+                    <li class="mdc-list-item" role="menuitem">
+                      <span class="mdc-list-item__text">Log out</span>
+                    </li>
+                  </a>
+                </ul>
+              </div>
+            </div>
+          </section>';
         }
         // else show register button
         else {
           echo '<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-                  <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;" onclick = "window.location.href=\'register.php\'">
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>
-                    <span class="mdc-button__label" style="letter-spacing: .1rem">Register</span>
-                  </button>
-                </section>';
+            <a href="register.php">
+              <button class="mdc-button app-bar-button" style="--mdc-theme-primary: #ffffff;">
+                <i class="material-icons mdc-button__icon" aria-hidden="true">person_add</i>
+                <span class="mdc-button__label" style="letter-spacing: .1rem">Register</span>
+              </button>
+            </a>
+          </section>';
         }
       ?>
 
@@ -203,7 +209,7 @@
       var ripples = []
       var CellCard = {
         view: function(vnode) {
-          return m('div', {class: 'mdc-layout-grid__cell mdc-card mdc-card__primary-action mdc-elevation--z4 mdc-layout-grid__cell--span-' + (vnode.attrs.span?vnode.attrs.span:'3-desktop mdc-layout-grid__cell--span-2-phone'), tabindex:"0", onclick: function() {window.location.href = "details.php?id="+vnode.attrs.id;}},
+          return m('a', {href: 'details.php?id='+vnode.attrs.id, class: 'mdc-card mdc-elevation--z4 mdc-card__primary-action mdc-layout-grid__cell mdc-layout-grid__cell--span-' + (vnode.attrs.span?vnode.attrs.span:'3-desktop mdc-layout-grid__cell--span-2-phone'), tabindex:"0"},
             m('div', {class: 'mdc-card__media mdc-card__media--16-9', style: vnode.attrs.style}),
             m('div', {class: 'mdc-card__primary'},
               m('h2', {class: 'mdc-card__title mdc-typography--headline6'}, vnode.attrs.title),
@@ -575,7 +581,13 @@
         iconButtonRipple.unbounded = true;
       }
       var appBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
-
+      var lists = document.querySelectorAll('.mdc-list');
+      var mdcLists = [];
+      for (var i = lists.length - 1; i >= 0; i--) {
+        mdcList = new mdc.list.MDCList(lists[i]);
+        ripples.push.apply(mdcList.listElements.map((listItemEl) => new mdc.ripple.MDCRipple(listItemEl)));
+        mdcLists.push(mdcList);
+      }
       var menu = document.querySelector('.mdc-menu');
       var mdcMenu;
       if(menu) {

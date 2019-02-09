@@ -36,7 +36,9 @@
     <header class="mdc-top-app-bar mdc-elevation--z4" style="box-shadow: 0 2px 4px rgba(0,0,0,.5)">
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="padding-left: 20px">
-          <img src="res/prayatna-small.png" style="width: 35px;height: 35px;" />
+          <a href="home.php">
+            <img src="res/prayatna-small.png" style="width: 35px;height: 35px;" />
+          </a>
           <span class="mdc-top-app-bar__title" style="letter-spacing: .5rem">PRAYATNA</span>
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
@@ -46,12 +48,16 @@
           <div class="mdc-menu-surface--anchor">
             <div class="mdc-menu mdc-menu-surface anim-appear-pulse" style="width: 150px;" tabindex="-1">
               <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                <li class="mdc-list-item" role="menuitem" onclick="window.location.href='home.php'">
-                  <span class="mdc-list-item__text">Home</span>
-                </li>
-                <li class="mdc-list-item" role="menuitem" onclick="window.location.href='ajax_responses/logout.php'">
-                  <span class="mdc-list-item__text">Log out</span>
-                </li>
+                <a href="home.php">
+                  <li class="mdc-list-item" role="menuitem">
+                    <span class="mdc-list-item__text">Home</span>
+                  </li>
+                </a>
+                <a href="ajax_responses/logout.php">
+                  <li class="mdc-list-item" role="menuitem">
+                    <span class="mdc-list-item__text">Log out</span>
+                  </li>
+                </a>
               </ul>
             </div>
           </div>
@@ -176,7 +182,9 @@
                                 <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
                                 <span class="mdc-list-item__secondary-text">'.($filled?'Registrations closed':$row['date'].', Rs. '.$row['price']).'</span>
                                 </span>
-                                <span class="mdc-list-item__meta material-icons" aria-hidden="true" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">info</span>
+                                <a href="details.php?id='.$row['workshop_id'].'" class="mdc-list-item__meta material-icons" aria-hidden="true">
+                                  info
+                                </a>
                               </li>';
                               if($count != $result->num_rows) {
                                 echo'<li role="separator" class="mdc-list-divider"></li>';
@@ -220,13 +228,15 @@
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
                           echo '
-                            <li class="mdc-list-item" onclick="window.location.href=\'details.php?id='.$row['workshop_id'].'\'">
-                              <span class="mdc-list-item__text">
-                                <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
-                                <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
-                              </span>
-                              <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
-                            </li>';
+                            <a href="details.php?id='.$row['workshop_id'].'">
+                              <li class="mdc-list-item">
+                                <span class="mdc-list-item__text">
+                                  <span class="mdc-list-item__primary-text">' . $row['workshop_name'] . '</span>
+                                  <span class="mdc-list-item__secondary-text">' . $row['date'] . '</span>
+                                </span>
+                                <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</button>
+                              </li>
+                            </a>';
                           ?>
                           <script type="text/javascript">
                             registeredWorkshopDates.push('<?=$row['date'];?>');

@@ -1,7 +1,9 @@
 <footer>
   <section style="position: relative;">
       <div class="container">
-        <img class="logo" src="res/prayatna-small.png" />
+        <a href="home.php">
+          <img class="logo" src="res/prayatna-small.png" />
+        </a>
       </div>
       <div class="container anim-appear-slideright-fadein">
         <p class="mdc-typography--body2 content">Prayatna 2019<br>

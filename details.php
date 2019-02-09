@@ -71,13 +71,20 @@
                             m('div', {class: 'mdc-menu-surface--anchor'},
                                 m('div', {class: 'mdc-menu mdc-menu-surface anim-appear-pulse', style: 'width: 150px;', tabindex: '-1'},
                                     m('ul', {class: 'mdc-list', role: 'menu', "aria-hidden":"true", "aria-orientation":"vertical"},
-                                        m('li', {class: 'mdc-list-item', role: 'menuitem', onclick: function(){
-                                            window.location.href='dashboard.php'}},
-                                            m('span', {class: 'mdc-list-item__text'}, 'Dashboard')
+                                        m('a', {href: 'home.php'},
+                                            m('li', {class: 'mdc-list-item', role: 'menuitem'},
+                                                m('span', {class: 'mdc-list-item__text'}, 'Home')
+                                            )
                                         ),
-                                        m('li', {class: 'mdc-list-item', role: 'menuitem', onclick: function(){
-                                            window.location.href='ajax_responses/logout.php'}},
-                                            m('span', {class: 'mdc-list-item__text'}, 'Log out')
+                                        m('a', {href: 'dashboard.php'},
+                                            m('li', {class: 'mdc-list-item', role: 'menuitem'},
+                                                m('span', {class: 'mdc-list-item__text'}, 'Dashboard')
+                                            )
+                                        ),
+                                        m('a', {href: 'ajax_responses/logout.php'},
+                                            m('li', {class: 'mdc-list-item', role: 'menuitem'},
+                                                m('span', {class: 'mdc-list-item__text'}, 'Log out')
+                                            )
                                         )
                                     )
                                 )
@@ -94,6 +101,8 @@
                 topAppBar.listen('MDCTopAppBar:nav', () => {
                   drawer.open = true;
                 });
+                var mdcList = new mdc.list.MDCList(vnode.dom.querySelector('.mdc-list'));
+                ripples.push.apply(mdcList.listElements.map((listItemEl) => new mdc.ripple.MDCRipple(listItemEl)));
             }
         }
 
@@ -236,10 +245,12 @@
         var appDrawer = {
             view: function() {
                 return m('aside', {class: 'mdc-drawer mdc-drawer--modal'}, [
-                        m('div', {class: 'mdc-drawer__header', style: 'position:relative'}, [
-                            m('img', {src: 'res/prayatna-small.png', style: 'width: 50px; height: 50px;'}),
-                            m('h3', {class: 'mdc-drawer__title', style: 'display: inline-block;position: absolute;margin-left: 1rem'}, "Prayatna '19")
-                        ]),
+                        m('a', {href: 'home.php'},
+                            m('div', {class: 'mdc-drawer__header', style: 'position:relative'}, [
+                                m('img', {src: 'res/prayatna-small.png', style: 'width: 50px; height: 50px;'}),
+                                m('h3', {class: 'mdc-drawer__title', style: 'display: inline-block;position: absolute;margin-left: 1rem'}, "Prayatna '19")
+                            ])
+                        ),
                         m('div', {class: 'mdc-drawer__content'},
                             nav
                         )
@@ -269,7 +280,10 @@
                 m('ul', {class: 'mdc-typography--body1'},
                     m('li', 'Participants have to bring their own laptop'),
                     m('li', 'Registration is provided on first come first serve basis'),
-                    m('li', 'For any queries contact Timothy: 9677207736, Gowtham: 9487685854')
+                    m('li', 'For any queries contact Timothy: ',
+                        m('a', {href: 'tel:+919677207736'}, '9677207736'), ' Gowtham: ',
+                            m('a', {href: 'tel:+919487685854'}, '9487685854')
+                    ),
                 ),
             ]),
             'system-design': m('div.anim-appear-fadein', [
@@ -291,7 +305,10 @@
                 m('ul', {class: 'mdc-typography--body1'},
                     m('li', 'Participants have to bring their own laptop'),
                     m('li', 'Registration is provided on first come first serve basis'),
-                    m('li', 'For any queries, contact Chaitanya: 7893366966, Varshini: 8124319730')
+                    m('li', 'For any queries contact Chaitanya: ',
+                        m('a', {href: 'tel:+917893366966'}, '7893366966'), ' Varshini: ',
+                            m('a', {href: 'tel:+918124319730'}, '8124319730')
+                    ),
                 ),
             ]),
             'artificial-intelligence': m('div.anim-appear-fadein', [
@@ -304,7 +321,10 @@
                 m('ul', {class: 'mdc-typography--body1'},
                     m('li', 'Participants have to bring their own laptop'),
                     m('li', 'Registration is provided on first come first serve basis'),
-                    m('li', 'For any queries, contact Rohini: 9443666720, Janani: 9791150172')
+                    m('li', 'For any queries contact Rohini: ',
+                        m('a', {href: 'tel:+919443666720'}, '9443666720'), ' Janani: ',
+                            m('a', {href: 'tel:+919791150172'}, '9791150172')
+                    ),
                 ),
             ]),
             'react-js': m('div.anim-appear-fadein', [
@@ -317,7 +337,10 @@
                 m('ul', {class: 'mdc-typography--body1'},
                     m('li', 'Participants have to bring their own laptop'),
                     m('li', 'Registration is provided on first come first serve basis'),
-                    m('li', 'For any queries, contact Aravind: 9976771656, Sri Sainee: 7358297483')
+                    m('li', 'For any queries contact Aravind: ',
+                        m('a', {href: 'tel:+919976771656'}, '9976771656'), ' Sri Sainee: ',
+                            m('a', {href: 'tel:+917358297483'}, '7358297483')
+                    ),
                 ),
             ]),
             'cracking-the-coding-interview': m('div.anim-appear-fadein', [
@@ -330,7 +353,9 @@
                 m('ul', {class: 'mdc-typography--body1'},
                     m('li', 'Participants have to bring their own laptop'),
                     m('li', 'Registration is provided on first come first serve basis'),
-                    m('li', 'For any queries, contact Praveennath: 7094281691')
+                    m('li', 'For any queries contact Praveennath: ',
+                        m('a', {href: 'tel:+917094281691'}, '7094281691'),
+                    ),
                 ),
             ]),
             'cyber-security': m('div.anim-appear-fadein', [
@@ -343,7 +368,10 @@
                 m('ul', {class: 'mdc-typography--body1'},
                     m('li', 'Participants have to bring their own laptop'),
                     m('li', 'Registration is provided on first come first serve basis'),
-                    m('li', 'For any queries, contact Pradeepa: 7358547119, Preethi: 9884398352')
+                    m('li', 'For any queries contact Pradeepa: ',
+                        m('a', {href: 'tel:+917358547119'}, '7358547119'), ' Preethi: ',
+                            m('a', {href: 'tel:+919884398352'}, '9884398352')
+                    ),
                 ),
             ]),
             'ospc': m('div.anim-appear-fadein', [

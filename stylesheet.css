@@ -142,7 +142,11 @@ body.details-container {
 }
 
 a, a:hover, a:active, a:visited {
-  color: black;
+  color: #212121;
+}
+
+.main-content-details a, .main-content-details a:hover, .main-content-details a:active, .main-content-details a:visited {
+  color: #686C70;
 }
 
 footer a {
