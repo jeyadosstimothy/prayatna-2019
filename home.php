@@ -151,16 +151,16 @@
           <a href="https://linkstreet.in/"><img class="mdc-image-list__image" src="res/linkstreet.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="http://botcode.com/"><img class="mdc-image-list__image" src="res/botcode.png"></a>
+          <a href="https://www.madstreetden.com/"><img class="mdc-image-list__image" src="res/mad-street-den.jpeg"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.madstreetden.com/"><img class="mdc-image-list__image" src="res/mad-street-den.jpeg"></a>
+          <a href="https://www.zoho.com/"><img class="mdc-image-list__image" src="res/zoho.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
           <a href="https://www.guvi.in/"><img class="mdc-image-list__image" src="res/guvi.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.zoho.com/"><img class="mdc-image-list__image" src="res/zoho.png"></a>
+          <a href="http://botcode.com/"><img class="mdc-image-list__image" src="res/botcode.png"></a>
         </li>
       </ul>
     </div>
