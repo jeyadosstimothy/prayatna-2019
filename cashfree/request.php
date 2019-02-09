@@ -95,7 +95,7 @@ function getOrderID($workshops) {
 
 function getOrderAmount($workshops) {
   if($_POST['type'] == 'entry')
-    return 249;
+    return 224;
   elseif ($_POST['type'] == 'workshop') {
     $total = 0;
     foreach ($_POST['selectedWorkshop'] as $workshop_id) {

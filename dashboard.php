@@ -73,7 +73,8 @@
                 <div class="dashboard-card-content">
                   <h1 class="mdc-typography--headline5 dashboard-card-title">Skip the Queue!</h1>
                   <h1 class="mdc-typography--subtitle1">Why wait in line when you can register online?</h1>
-                  <h1 class="mdc-typography--subtitle1">Buy your Entry Ticket now for just Rs. 249!</h1>
+                  <h1 class="mdc-typography--subtitle1">Buy your Entry Ticket now to get 10% off!</h1>
+                  <h1 class="mdc-typography--subtitle1">Price: <s>Rs. 249</s> Rs. 224!</h1>
                   <h1 class="mdc-typography--subtitle1">Note: Workshop participants need not buy entry tickets</h1>
                   <div class="dashboard-card-button-container">
                     <form method="post" action='cashfree/request.php'>
@@ -160,7 +161,7 @@
                           $count = 1;
                           while($row = $result->fetch_assoc()) {
                             array_push($new_workshop_ids, $row['workshop_id']);
-                            $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= 1);
+                            $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= $seats);
                             echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
                                 <span class="mdc-list-item__graphic">
                                 <div class="mdc-checkbox">

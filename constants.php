@@ -5,6 +5,8 @@
     $db_password = "student";
     $db_name = 'prayatna';
 
+    $seats = 60;
+
     function calculate_hash($user_id, $name, $email, $phone_number) {
         $secret_key = "";
         $signatureData = $user_id.$name.$email.$phone_number;
