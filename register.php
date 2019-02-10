@@ -9,7 +9,29 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Prayatna</title>
+  <!-- COMMON TAGS -->
+  <meta charset="utf-8">
+  <title>Prayatna '19</title>
+  <!-- Search Engine -->
+  <meta name="description" content="Witness the celebration of technology! Come, be a part of one of the city's biggest CSE symposiums on March 8 & 9 at MIT, Chennai">
+  <meta name="image" content="https://prayatna.org.in/res/prayatna-small.png">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Prayatna '19">
+  <meta itemprop="description" content="Witness the celebration of technology! Come, be a part of one of the city's biggest CSE symposiums on March 8 & 9 at MIT, Chennai">
+  <meta itemprop="image" content="https://prayatna.org.in/res/prayatna-small.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Prayatna '19">
+  <meta name="twitter:description" content="Witness the celebration of technology on March 8 & 9">
+  <meta name="twitter:image:src" content="https://prayatna.org.in/res/prayatna-small.png">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Prayatna '19">
+  <meta name="og:description" content="Witness the celebration of technology on March 8 & 9">
+  <meta name="og:image:secure_url" content="https://prayatna.org.in/res/prayatna-small.png">
+  <meta name="og:url" content="https://prayatna.org.in/">
+  <meta name="og:site_name" content="Prayatna '19">
+  <meta name="fb:admins" content="217178335072713">
+  <meta name="og:type" content="website">
   <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">

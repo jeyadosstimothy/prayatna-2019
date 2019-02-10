@@ -15,8 +15,6 @@ We, the Association of Computer Technologists, have received the following query
 
 One of our team members will contact you soon. Stay Tuned!
 
-Ignite. Inspire. Innovate.
-
 Regards,
 Team ACT,
 Prayatna 2k19

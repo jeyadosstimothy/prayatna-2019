@@ -4,7 +4,29 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Prayatna</title>
+  <!-- COMMON TAGS -->
+  <meta charset="utf-8">
+  <title>Prayatna '19</title>
+  <!-- Search Engine -->
+  <meta name="description" content="Witness the celebration of technology! Come, be a part of one of the city's biggest CSE symposiums on March 8 & 9 at MIT, Chennai">
+  <meta name="image" content="https://prayatna.org.in/res/prayatna-small.png">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Prayatna '19">
+  <meta itemprop="description" content="Witness the celebration of technology! Come, be a part of one of the city's biggest CSE symposiums on March 8 & 9 at MIT, Chennai">
+  <meta itemprop="image" content="https://prayatna.org.in/res/prayatna-small.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Prayatna '19">
+  <meta name="twitter:description" content="Witness the celebration of technology on March 8 & 9">
+  <meta name="twitter:image:src" content="https://prayatna.org.in/res/prayatna-small.png">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Prayatna '19">
+  <meta name="og:description" content="Witness the celebration of technology on March 8 & 9">
+  <meta name="og:image:secure_url" content="https://prayatna.org.in/res/prayatna-small.png">
+  <meta name="og:url" content="https://prayatna.org.in/">
+  <meta name="og:site_name" content="Prayatna '19">
+  <meta name="fb:admins" content="217178335072713">
+  <meta name="og:type" content="website">
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -120,12 +142,15 @@
         <h1 class="mdc-typography--headline3 section-header">About Us</h1>
       </div>
       <div class="mdc-layout-grid__cell">
-        <p class="mdc-typography--body1 content-about">The Association of Computer Technologists takes great pride in conducting PRAYATNA, our annual national level inter-college technical festival. PRAYATNA, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. In a nutshell, PRAYATNA is a platform that churns out technical and creative ideas from upcoming engineers by assessing their aptitude in coding, design, entrepreneurial skills and other multi-faceted concepts with special workshops with the help of experts from the industry enhance the participant's knowledge and creative potentials.</p>
+        <p class="mdc-typography--body1 content-about">The Association of Computer Technologists takes great pride in conducting PRAYATNA, our annual national level inter-college technical festival. PRAYATNA, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. In a nutshell, PRAYATNA is a platform that churns out technical and creative ideas from upcoming engineers by assessing their aptitude in coding, design, entrepreneurial skills and other multi-faceted concepts. With special workshops conducted by experts from the industry, PRAYATNA enhances the participants' knowledge and creative potential.</p>
       </div>
       <div class="mdc-layout-grid__cell ">
         <h1 class="mdc-typography--headline3 section-header">Interns & Sponsors</h1>
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin sponsors-list">
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.amazon.in/"><img class="mdc-image-list__image" src="res/amazon.png"></a>
+        </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
           <a href="https://www.gigamon.com/"><img class="mdc-image-list__image" src="res/gigamon.png"></a>
         </li>
@@ -155,9 +180,6 @@
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
           <a href="https://www.zoho.com/"><img class="mdc-image-list__image" src="res/zoho.png"></a>
-        </li>
-        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
-          <a href="https://www.guvi.in/"><img class="mdc-image-list__image" src="res/guvi.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
           <a href="http://botcode.com/"><img class="mdc-image-list__image" src="res/botcode.png"></a>
@@ -252,18 +274,18 @@
           style: "background-image: url('res/system-design.jpeg');"
         }),
         m(CellCard, {
+          title: 'ReactJS',
+          subtitle: 'Google Developers Group',
+          secondary: 'Designing Websites with Perfection',
+          id: 'react-js',
+          style: "background-image: url('res/react.png');"
+        }),
+        m(CellCard, {
           title: 'Cyber Security',
           subtitle: 'Ernst & Young',
           secondary: "Something's Phishy!",
           id: 'cyber-security',
           style: "background-image: url('res/cyber-security.jpg');"
-        }),
-        m(CellCard, {
-          title: 'ReactJS',
-          subtitle: 'Guvi',
-          secondary: 'Designing Websites with Perfection',
-          id: 'react-js',
-          style: "background-image: url('res/react.png');"
         }),
         m(CellCard, {
           title: 'Artificial Intelligence',
@@ -286,6 +308,12 @@
           subtitle: 'The Flagship Event',
           id: 'hackathon',
           style: "background-image: url('res/hackathon.png');"
+        }),
+        m(CellCard, {
+          title: 'Amazon Intern Hiring',
+          subtitle: "Win Internships at Amazon!",
+          id: 'amazon-intern-hiring',
+          style: "background-image: url('res/amazon-intern-hiring.jpg');"
         }),
         m(CellCard, {
           title: 'OSPC',
