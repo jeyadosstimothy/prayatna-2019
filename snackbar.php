@@ -9,9 +9,27 @@
   </div>
 </div>
 <script type="text/javascript">
-  var snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
-  function showSnackbar(text){
-    snackbar.labelText = text;
-    snackbar.open();
+  var snackbar = document.querySelector('.mdc-snackbar');
+  var mdcSnackbar = new mdc.snackbar.MDCSnackbar(snackbar);
+  function showSnackbar(text, actionButtonText=null, actionURL=null, time=5){
+    mdcSnackbar.labelText = text;
+    mdcSnackbar.timeoutMs = time * 1000;
+    if(actionButtonText) {
+      var actions = snackbar.querySelector('.mdc-snackbar__actions');
+      button = document.createElement('button');
+      button.setAttribute('type', 'button');
+      button.setAttribute('class', 'mdc-button mdc-snackbar__action');
+      button.setAttribute('onclick', 'window.location.href="' + actionURL + '"');
+      button.textContent = actionButtonText;
+      actions.prepend(button);
+    }
+    else {
+      var action = snackbar.querySelector('.mdc-snackbar__action');
+      if(action) {
+        var actions = snackbar.querySelector('.mdc-snackbar__actions');
+        actions.remove(action);
+      }
+    }
+    mdcSnackbar.open();
   }
 </script>

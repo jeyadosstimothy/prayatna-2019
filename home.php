@@ -260,11 +260,18 @@
       ]
       var workshops = [
         m(CellCard, {
-          title: 'Flutter',
+          title: 'App Development with Flutter',
           subtitle: 'Ruchika, Geeky Ants',
-          secondary: 'Build beautiful apps with Flutter!',
+          secondary: 'Build beautiful Android & iOS apps!',
           id: 'flutter',
           style: "background-image: url('res/flutter.jpg');"
+        }),
+        m(CellCard, {
+          title: 'Cracking the Coding Interview',
+          subtitle: 'Hemanth, PayPal',
+          secondary: 'Placements just got easier!',
+          id: 'cracking-the-coding-interview',
+          style: "background-image: url('res/placements.jpeg');"
         }),
         m(CellCard, {
           title: 'System Design',
@@ -274,13 +281,6 @@
           style: "background-image: url('res/system-design.jpeg');"
         }),
         m(CellCard, {
-          title: 'ReactJS',
-          subtitle: 'Google Developers Group',
-          secondary: 'Designing Websites with Perfection',
-          id: 'react-js',
-          style: "background-image: url('res/react.png');"
-        }),
-        m(CellCard, {
           title: 'Cyber Security',
           subtitle: 'Ernst & Young',
           secondary: "Something's Phishy!",
@@ -288,18 +288,18 @@
           style: "background-image: url('res/cyber-security.jpg');"
         }),
         m(CellCard, {
+          title: 'ReactJS',
+          subtitle: 'Google Developers Group',
+          secondary: 'Designing Websites with Perfection',
+          id: 'react-js',
+          style: "background-image: url('res/react.png');"
+        }),
+        m(CellCard, {
           title: 'Artificial Intelligence',
           subtitle: 'Ramkumar, InMobi',
           secondary: 'The Future of Technology, Demystified',
           id: 'artificial-intelligence',
           style: "background-image: url('res/artificial-intelligence.jpg');"
-        }),
-        m(CellCard, {
-          title: 'Cracking the Coding Interview',
-          subtitle: 'Hemanth, PayPal',
-          secondary: 'Placements just got easier!',
-          id: 'cracking-the-coding-interview',
-          style: "background-image: url('res/placements.jpeg');"
         }),
       ]
       var techEvents = [
@@ -445,7 +445,11 @@
         view: function() {
           return m('div', {class: 'mdc-layout-grid anim-appear-fadein'},
             m(Cell, {
-              child: m('h1', {class: 'mdc-typography--headline3 section-header'}, 'Workshops'),
+              child: m('h1', {class: 'mdc-typography--headline3 section-header', style: 'margin-bottom: 2rem'}, 'Workshops'),
+              span: 4,
+            }),
+            m(Cell, {
+              child: m('h1', {class: 'mdc-typography--headline5 section-header'}, 'Sign up & Pay now to secure your seats!'),
               span: 4,
             }),
             m(Panel, {child: workshops}),
@@ -645,5 +649,8 @@
   </section>
   <?php include('snackbar.php') ?>
   <?php include('footer.php') ?>
+  <script type="text/javascript">
+    showSnackbar('Sign up & buy entry tickets online at 10% off!', 'Claim', '<?=isset($_COOKIE["user_id"])?"dashboard.php":"register.php"?>', 7);
+  </script>
 </body>
 </html>

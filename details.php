@@ -130,9 +130,18 @@
         }
 
         var currentPage = getPageToShow();
+        var fabText;
+        if(currentPage == 'flutter' || currentPage == 'system-design' || currentPage == 'cyber-security' || currentPage == 'artificial-intelligence' || currentPage == 'react-js' || currentPage == 'cracking-the-coding-interview')
+            fabText = "Pay Now";
+        else
+            fabText = "Register";
         var switchPage = function(page) {
             window.history.replaceState("", "", '<?=$domain?>/details.php?id='+page);
             currentPage = page;
+            if(page == 'flutter' || page == 'system-design' || page == 'cyber-security' || page == 'artificial-intelligence' || page == 'react-js' || page == 'cracking-the-coding-interview')
+                fabText = "Pay Now";
+            else
+                fabText = "Register";
             drawer.open = false;
         }
         var ripples = []
@@ -158,7 +167,7 @@
                     m('h3', {class: 'mdc-list-group__subheader', style: 'color: #212121'}, 'Workshops'),
                     m(NavItem, {
                         id: 'flutter',
-                        child: m('span', {class: 'mdc-list-item__text'}, 'Flutter')
+                        child: m('span', {class: 'mdc-list-item__text'}, 'Flutter App Development')
                     }),
                     m(NavItem, {
                         id: 'system-design',
@@ -290,10 +299,10 @@
         }
         var contents = {
             'flutter': m('div.anim-appear-fadein', [
-                m('h1', {class: 'mdc-typography--headline3'}, 'Flutter'),
-                m('p', {class: 'mdc-typography--body1'}, 'Learn to create stunning new Android apps from scratch using the new Flutter Software Development Kit (SDK) released by Google very recently.'),
+                m('h1', {class: 'mdc-typography--headline3'}, 'Flutter App Development'),
+                m('p', {class: 'mdc-typography--body1'}, 'Learn to create stunning new Android & iOS apps from scratch using the new Flutter Software Development Kit (SDK) released by Google very recently.'),
                 m('p', {class: 'mdc-typography--body1'}, 'Guiding you through this workshop would be Ruchika Gupta, a Software Engineer working at Geeky Ants, who happens to be one of the few developers in the world who were invited to attend the prestigious Flutter Live, an international conference for Flutter developers conducted by Google in December 2018. She is also well versed in mobile and web app development.'),
-                m('p', {class: 'mdc-typography--body1'}, 'For this workshop, there is no prerequisite knowledge required, as it will be suitable for even beginners who have never created an Android application yet. At the end of the workshop, you will realize how easy it is to develop material design apps for Android in a streamlined and clutter-free manner.'),
+                m('p', {class: 'mdc-typography--body1'}, 'For this workshop, there is no prerequisite knowledge required, as it will be suitable for even beginners who have never created a mobile application yet. At the end of the workshop, you will realize how easy it is to develop material design apps for Android & iOS in a streamlined and clutter-free manner.'),
                 m('h1', {class: 'mdc-typography--headline6'}, 'Time and Date: 9am - 5pm on March 8'),
                 m('h1', {class: 'mdc-typography--headline6'}, 'Registration Amount: Rs. 799'),
                 m('h1', {class: 'mdc-typography--headline4'}, 'Objectives'),
@@ -480,6 +489,17 @@
                         m('a', {href: 'tel:+919442248023'}, '9442248023'),
                     ),
                 ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
+                ),
             ]),
             'ospc': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'OnSite Programming Contest'),
@@ -517,6 +537,17 @@
                         ', Timothy: ',
                          m('a', {href: 'tel:+919677207736'}, '9677207736')
                     ),
+                ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
                 ),
             ]),
             'oops-its-java': m('div.anim-appear-fadein', [
@@ -556,6 +587,17 @@
                         m('a', {href: 'tel:+919445841217'}, '9445841217')
                     ),
                 ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
+                ),
             ]),
             'parseltongue': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'Parseltongue'),
@@ -594,6 +636,17 @@
                         m('a', {href: 'tel:+918072843284'}, '8072843284')
                     ),
                 ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
+                ),
             ]),
             'hackathon': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'Motorq Hackathon'),
@@ -607,22 +660,84 @@
                     'This is a single round event in which you will be asked to implement your own ideas for the given problem statements. A team of at-most three members can attend this contest.'
                 ),
                 m('p', {class: 'mdc-typography--body1'},
-                    "The problem statements would be released soon, and proposals should reach us latest by Feb 28, 2019. You'd have 24 hours during the Hackathon event to implement your proposal at our campus. Watch this space for more announcements regarding the hackathon."
-                ),
-                m('p', {class: 'mdc-typography--body1'},
                     "The judging would be done by industry veterans and experts. Each team would be judged on several parameters such as uniqueness of their idea, complexity, innovation, usefulness and relevance to the theme."
                 ),
                 m('p', {class: 'mdc-typography--body1'},
-                    "With prizes worth 30,000 INR for the top teams and interview opportunities for full-time and internships at the company, you wouldn't want to miss one of the biggest hackathons in the city! Come, code and get your name sculpted on the title!"
+                    "With prizes worth 30,000 INR for the top teams and interview opportunities for full-time and internships at Motorq, you wouldn't want to miss one of the biggest hackathons in the city! Come, code and get your name sculpted on the title!"
                 ),
-                m('h1', {class: 'mdc-typography--headline4'}, 'Note'),
+                m('h1', {class: 'mdc-typography--headline5'}, 'Schedule'),
                 m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'Hackathon: March 2, 10AM to March 3, 10AM (24 hours)'),
+                    m('li', 'Followed by demo (approx. 2-3 hours)'),
+                ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'Domains'),
+                m('h1', {class: 'mdc-typography--headline6'}, 'Social Welfare'),
+                m('p', {class: 'mdc-typography--body1'},
+                    "This domain involves creation of applications which could impact the welfare of the society in distinct way. Generic example for representative purposes: Apps Ensuring Women safety."
+                ),
+                m('h1', {class: 'mdc-typography--headline6'}, 'Health Care'),
+                m('p', {class: 'mdc-typography--body1'},
+                    "This domain involves creation of applications that handle the health and medical related issues associated with the user, providing guidance for better health etc."
+                ),
+                m('h1', {class: 'mdc-typography--headline6'}, 'Natural Diaster Management'),
+                m('p', {class: 'mdc-typography--body1'},
+                    "This domain concerns creations of applications that can help prevent/predict natural calamities and/or handling the aftermath of the natural phenomenon. Brownie points for crowdsourcing aspects incorporated into the application."
+                ),
+                m('h1', {class: 'mdc-typography--headline6'}, 'Social Networking'),
+                m('p', {class: 'mdc-typography--body1'},
+                    "Do you have groundbreaking ideas that could redefine social networking? Bring it to life by picking this domain. Create the next Tinder for dogs, network between zombies and what not!"
+                ),
+                m('h1', {class: 'mdc-typography--headline6'}, 'User assistance'),
+                m('p', {class: 'mdc-typography--body1'},
+                    "This domain demands the creation of applications that provides recommendations to better the user's lifestyle. A simple generic example could be travel-and-planning recommendation through online source based on a budget provided by the user."
+                ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'Judging Criteria'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'Relevance'),
+                    m('li', 'Utility'),
+                    m('li', 'Uniqueness of idea'),
+                    m('li', 'Complexity'),
+                    m('li', 'Innovation'),
+                ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'Rules'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'Each team can consist of a maximum of 3 members'),
+                    m('li', 'The team members can belong to different colleges/educational institutions'),
+                    m('li',
+                        'Each team should send a detailed proposal of their work to ',
+                        m('a', {href: 'mailto:hackathon.p19@gmail.com', style: 'color: black; font-weight: bold;'}, 'hackathon.p19@gmail.com'),
+                        ' before ',
+                        m('b', '26th of February, 2019')
+                    ),
+                    m('li', 'The proposal must contain the problem statement, the intended solution, an architecture diagram for the modules, the technologies used in the tech-stack etc.'),
+                    m('li', 'The proposal should also contain details regarding their team members, the institutes of each team member, and their personal contact details such as email and mobile numbers'),
+                    m('li', 'We will be hosting a maximum of 25-30 teams for the hackathon, and teams will be shortlisted based on the quality of their proposal. Teams will also be shortlisted on a first-come-first-serve basis, hence kindly submit your proposals well before the deadline'),
+                    m('li', 'Participants can build mobile applications, web applications, desktop applications, browswer extensions or end-to-end applications for the purpose of the hackathon'),
+                    m('li', 'Each shortlisted team member must pay a registration fee of Rs. 300 to enroll in this event. This fee is inclusive of their food expenses during the hackathon'),
+                    m('li', 'The participants will be intimated about their selection for the hackathon well in advance, and only those teams that pay the fees before March 1 will be permitted for the hackathon. If a selected team fails to pay the registration amount before the deadline, they will be substituted by other teams'),
+                    m('li', 'Each shortlisted participant must carry a valid college ID card with them'),
+                    m('li', 'As per university rules, girls who wish to take part in the hackathon are requested to carry a letter from their parents, permitting them to attend the event'),
+                    m('li', 'The hackathon will be a 24-hour event conducted in our campus CSE department labaratory. If participants require accomodation before or after the duration of the hackathon, it can be arranged externally. Kindly inform us regarding such requirements before hand'),
+                    m('li', 'The timings of the hackathon are tentative and subject to change'),
+                    m('li', 'If participants are indulging in any sort of malpractice, Prayatna reserves the rights to disqualify such teams'),
+                    m('li', 'The domains specified are subject to change. Participants are requested to regularly check the site to keep themselves updated regarding new domains that are added'),
                     m('li',
                         'For any queries contact Akshay: ',
                         m('a', {href: 'tel:+918056027690'}, '8056027690'),
                         ', Amarnath: ',
                         m('a', {href: 'tel:+919003284939'}, '9003284939')
                     ),
+                ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
                 ),
             ]),
             'mini-placement': m('div.anim-appear-fadein', [
@@ -670,7 +785,17 @@
                         m('a', {href: 'tel:+919445234191'}, '9445234191')
                     ),
                 ),
-
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
+                ),
             ]),
             'web-hub': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'Web Hub'),
@@ -707,6 +832,17 @@
                         ', Sandhya: ',
                         m('a', {href: 'tel:+919159155566'}, '9159155566')
                     ),
+                ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
                 ),
             ]),
             'paper-presentation': m('div.anim-appear-fadein', [
@@ -761,6 +897,17 @@
                         m('a', {href: 'tel:+918526865414'}, '8526865414')
                     ),
                 ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
+                ),
             ]),
             'code-n-chaos': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, "Code 'N Chaos"),
@@ -798,6 +945,17 @@
                         m('a', {href: 'tel:+917200090217'}, '7200090217')
                     ),
                 ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
+                ),
             ]),
             'db-dwellers': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'DB Dwellers'),
@@ -834,6 +992,17 @@
                         ', Seshadri: ',
                         m('a', {href: 'tel:+917358197776'}, '7358197776')
                     ),
+                ),
+                m('h1', {class: 'mdc-typography--headline5'}, 'General Guidelines'),
+                m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'It is mandatory to have a valid Prayatna entry ticket to participate in this event'),
+                    m('li', 'The schedule published is only tentative and may be subjected to change. Participants are requested to regularly check the website for updates'),
+                    m('li', "The internship winners for all events are promptly forwarded to the  respective companies. The decision to hire the interns directly (or) conduct additional interviews is at the discretion of the company and Prayatna shall not be held responsible for the company's decisions"),
+                    m('li', "The internship companies' allotment for various events is tentative. There might be changes or modifications to the same. Participants are requested to regularly check the website for updates"),
+                    m('li', 'If multiple companies are offering internships for the same event, the preference of companies is left to the participants. Highest placed team will get priority to reserve their preference first'),
+                    m('li', 'Decisions made by the administrators will be final'),
+                    m('li', 'Participants found to indulge in any malpractice will be disqualified immediately'),
+                    m('li', 'The participants will not be permitted to refer to any additional material or mobile phones, unless explicitly specified in the event description'),
                 ),
             ]),
             'kaleidoscope': m('div.anim-appear-fadein', [
@@ -992,29 +1161,14 @@
         }
         var registrationFabExtended = {
             view: function() {
-                return m('button', {class: 'mdc-fab mdc-fab--extended app-fab--absolute app-fab--pc anim-appear-pulse', onclick: function(){
+                return m('button', {class: 'mdc-fab mdc-fab--extended app-fab--absolute anim-appear-pulse', onclick: function(){
                         if(cookieExists)
                             window.location.href = "dashboard.php";
                         else
                             window.location.href = "register.php";
                     }},
                     m('span', {class: 'mdc-fab__icon material-icons'}, 'person_add'),
-                    m('span', {class: 'mdc-fab__label'}, 'Register')
-                );
-            },
-            oncreate: function(vnode) {
-                ripples.push(new mdc.ripple.MDCRipple(vnode.dom))
-            }
-        }
-        var registrationFab = {
-            view: function() {
-                return m('button', {class: 'mdc-fab app-fab--absolute app-fab--mobile anim-appear-pulse', onclick: function(){
-                        if(cookieExists)
-                            window.location.href = "dashboard.php";
-                        else
-                            window.location.href = "register.php";
-                    }},
-                    m('span', {class: 'mdc-fab__icon material-icons'}, 'person_add')
+                    m('span', {class: 'mdc-fab__label'}, fabText)
                 );
             },
             oncreate: function(vnode) {
@@ -1030,7 +1184,6 @@
                         m(appBar),
                         m('div', {class: 'mdc-top-app-bar--fixed-adjust'}),
                         m('main', {class: 'center60 main-content-details'}, contents[currentPage]),
-                        m(registrationFab),
                         m(registrationFabExtended)
                     )
                 ]);
