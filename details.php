@@ -36,9 +36,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
-    <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
+    <link rel="stylesheet" type="text/css" href="dist/material-components-web.min.css" />
+    <script type="text/javascript" src="dist/material-components-web.min.js"></script>
+    <script type="text/javascript" src="dist/mithril.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body class="details-container">

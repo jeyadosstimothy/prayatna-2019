@@ -31,14 +31,14 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link rel="stylesheet" href="dist/material-components-web.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
 
-  <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script type="text/javascript" src="dist/material-components-web.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="dist/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="dist/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
@@ -187,7 +187,7 @@
       </ul>
     </div>
   </section>
-  <script type="text/javascript" src="https://unpkg.com/mithril/mithril.js"></script>
+  <script type="text/javascript" src="dist/mithril.js"></script>
   <section class="section-dark">
     <div class="workshops-events-section"></div>
     <script type="text/javascript">

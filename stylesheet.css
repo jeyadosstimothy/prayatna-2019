@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Playfair+Display|Raleway');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('dist/fonts.css');
+@import url('dist/icons.css');
 
 .title-section .mdc-typography--headline3 {
   font-family: 'Permanent Marker', cursive;

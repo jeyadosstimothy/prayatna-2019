@@ -47,10 +47,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-  <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <link rel="stylesheet" href="dist/material-components-web.min.css">
+  <script type="text/javascript" src="dist/material-components-web.min.js"></script>
+  <script type="text/javascript" src="dist/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="dist/jquery-migrate-1.2.1.min.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body class="mdc-typography section-dark">
@@ -283,8 +283,8 @@
                   var datefield=document.createElement("input")
                   datefield.setAttribute("type", "date")
                   if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
-                    document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
-                    document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+                    document.write('<link href="dist/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+                    document.write('<script src="dist/jquery-ui.min.js"><\/script>\n')
                   }
                 </script>
                 <div class="dashboard-card-content">
