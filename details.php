@@ -138,10 +138,14 @@
         var switchPage = function(page) {
             window.history.replaceState("", "", '<?=$domain?>/details.php?id='+page);
             currentPage = page;
-            if(page == 'flutter' || page == 'system-design' || page == 'cyber-security' || page == 'artificial-intelligence' || page == 'react-js' || page == 'cracking-the-coding-interview')
+            if(currentPage == 'flutter' || currentPage == 'system-design' || currentPage == 'cyber-security' || currentPage == 'artificial-intelligence' || currentPage == 'react-js' || currentPage == 'cracking-the-coding-interview')
                 fabText = "Pay Now";
             else
                 fabText = "Register";
+            if(currentPage == 'hackathon')
+                showSnackbar('Last Date for Hackathon Idea submission: Feb 26', 10);
+            else if (currentPage == 'paper-presentation')
+                showSnackbar('Last date for submission of papers: Mar 3', 10);
             drawer.open = false;
         }
         var ripples = []
@@ -300,6 +304,9 @@
         var contents = {
             'flutter': m('div.anim-appear-fadein', [
                 m('h1', {class: 'mdc-typography--headline3'}, 'Flutter App Development'),
+                m('div', {class: 'center90 video-container'},
+                    m('iframe', {width: '853', height: '480', src: 'https://www.youtube.com/embed/fq4N0hgOWzU', frameborder: '0', allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture', allowfullscreen: 'true'})
+                ),
                 m('p', {class: 'mdc-typography--body1'}, 'Learn to create stunning new Android & iOS apps from scratch using the new Flutter Software Development Kit (SDK) released by Google very recently.'),
                 m('p', {class: 'mdc-typography--body1'}, 'Guiding you through this workshop would be Ruchika Gupta, a Software Engineer working at Geeky Ants, who happens to be one of the few developers in the world who were invited to attend the prestigious Flutter Live, an international conference for Flutter developers conducted by Google in December 2018. She is also well versed in mobile and web app development.'),
                 m('p', {class: 'mdc-typography--body1'}, 'For this workshop, there is no prerequisite knowledge required, as it will be suitable for even beginners who have never created a mobile application yet. At the end of the workshop, you will realize how easy it is to develop material design apps for Android & iOS in a streamlined and clutter-free manner.'),
@@ -667,6 +674,7 @@
                 ),
                 m('h1', {class: 'mdc-typography--headline5'}, 'Schedule'),
                 m('ul', {class: 'mdc-typography--body1'},
+                    m('li', 'Last Date for sending proposals: February 26'),
                     m('li', 'Hackathon: March 2, 10AM to March 3, 10AM (24 hours)'),
                     m('li', 'Followed by demo (approx. 2-3 hours)'),
                 ),
@@ -1191,6 +1199,13 @@
 
         m.mount(root, Home);
 
+    </script>
+    <?php include('snackbar.php') ?>
+    <script type="text/javascript">
+        if(currentPage == 'hackathon')
+            showSnackbar('Last Date for Hackathon Idea submission: Feb 26', 10);
+        else if (currentPage == 'paper-presentation')
+            showSnackbar('Last date for submission of papers: Mar 3', 10);
     </script>
 </body>
 </html>

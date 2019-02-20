@@ -11,7 +11,7 @@
 <script type="text/javascript">
   var snackbar = document.querySelector('.mdc-snackbar');
   var mdcSnackbar = new mdc.snackbar.MDCSnackbar(snackbar);
-  function showSnackbar(text, actionButtonText=null, actionURL=null, time=5){
+  function showSnackbar(text, time=5, actionButtonText=null, actionURL=null){
     mdcSnackbar.labelText = text;
     mdcSnackbar.timeoutMs = time * 1000;
     if(actionButtonText) {

@@ -276,9 +276,16 @@
         m(CellCard, {
           title: 'System Design',
           subtitle: 'Gaurav Sen, Youtuber',
-          secondary: 'Build your own Whatsapp!',
+          secondary: 'Learn how software for a billion users is designed!',
           id: 'system-design',
           style: "background-image: url('res/system-design.jpeg');"
+        }),
+        m(CellCard, {
+          title: 'Artificial Intelligence',
+          subtitle: 'Ramkumar, InMobi',
+          secondary: 'The Future of Technology, Demystified',
+          id: 'artificial-intelligence',
+          style: "background-image: url('res/artificial-intelligence.jpg');"
         }),
         m(CellCard, {
           title: 'Cyber Security',
@@ -293,13 +300,6 @@
           secondary: 'Designing Websites with Perfection',
           id: 'react-js',
           style: "background-image: url('res/react.png');"
-        }),
-        m(CellCard, {
-          title: 'Artificial Intelligence',
-          subtitle: 'Ramkumar, InMobi',
-          secondary: 'The Future of Technology, Demystified',
-          id: 'artificial-intelligence',
-          style: "background-image: url('res/artificial-intelligence.jpg');"
         }),
       ]
       var techEvents = [
@@ -650,7 +650,7 @@
   <?php include('snackbar.php') ?>
   <?php include('footer.php') ?>
   <script type="text/javascript">
-    showSnackbar('Sign up & buy entry tickets online at 10% off!', 'Claim', '<?=isset($_COOKIE["user_id"])?"dashboard.php":"register.php"?>', 7);
+    showSnackbar('Sign up & buy entry tickets online at 10% off!', 10, 'Claim', '<?=isset($_COOKIE["user_id"])?"dashboard.php":"register.php"?>');
   </script>
 </body>
 </html>
