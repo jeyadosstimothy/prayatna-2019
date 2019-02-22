@@ -187,7 +187,7 @@
                     }),
                     m(NavItem, {
                         id: 'react-js',
-                        child: m('span', {class: 'mdc-list-item__text'}, 'ReactJS')
+                        child: m('span', {class: 'mdc-list-item__text'}, 'Web Development with ReactJS')
                     }),
                     m(NavItem, {
                         id: 'cracking-the-coding-interview',
@@ -395,7 +395,7 @@
             'react-js': {
                 view: function(){
                     return m('div.anim-appear-fadein', [
-                        m('h1', {class: 'mdc-typography--headline3'}, 'ReactJS'),
+                        m('h1', {class: 'mdc-typography--headline3'}, 'Web Development with ReactJS'),
                         m('p', {class: 'mdc-typography--body1'}, 'React is a JavaScript library designed to be a straightforward and painless way to develop interactive user interfaces. Developed by Facebook, this is one of the most powerful libraries present for designing modern applications in real-time with impressive aesthetics and simplified back-ends. You will learn to use this library for designing such applications from scratch, and get yourself acquainted with some impressive techniques that you can use for developing your own, using this library.'),
                         m('p', {class: 'mdc-typography--body1'}, "The workshop is conducted by the official chapter of Google Developers Group (GDG) in Chennai, who host a vareity of technical activites like Tech Talks, Meetups, Code Sprints and Hackathons."),
                         m('h1', {class: 'mdc-typography--headline6'}, 'Time and Date: 9am - 5pm on March 9'),

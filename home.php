@@ -281,13 +281,6 @@
           style: "background-image: url('res/system-design.jpeg');"
         }),
         m(CellCard, {
-          title: 'Artificial Intelligence',
-          subtitle: 'Ramkumar, InMobi',
-          secondary: 'The Future of Technology, Demystified',
-          id: 'artificial-intelligence',
-          style: "background-image: url('res/artificial-intelligence.jpg');"
-        }),
-        m(CellCard, {
           title: 'Cyber Security',
           subtitle: 'Ernst & Young',
           secondary: "Something's Phishy!",
@@ -295,11 +288,18 @@
           style: "background-image: url('res/cyber-security.jpg');"
         }),
         m(CellCard, {
-          title: 'ReactJS',
+          title: 'Web Development with ReactJS',
           subtitle: 'Google Developers Group',
-          secondary: 'Designing Websites with Perfection',
+          secondary: 'Design Websites with Perfection',
           id: 'react-js',
-          style: "background-image: url('res/react.png');"
+          style: "background-image: url('res/react.jpeg');"
+        }),
+        m(CellCard, {
+          title: 'Artificial Intelligence',
+          subtitle: 'Ramkumar, InMobi',
+          secondary: 'The Future of Technology, Demystified',
+          id: 'artificial-intelligence',
+          style: "background-image: url('res/artificial-intelligence.jpg');"
         }),
       ]
       var techEvents = [
