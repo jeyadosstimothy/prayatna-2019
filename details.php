@@ -735,16 +735,47 @@
                         m('p', {class: 'mdc-typography--body1'},
                             "The judging would be done by industry veterans and experts. Each team would be judged on several parameters such as uniqueness of their idea, complexity, innovation, usefulness and relevance to the theme."
                         ),
-                        m('p', {class: 'mdc-typography--body1'},
-                            "With prizes worth 30,000 INR for the top teams and interview opportunities for full-time and internships at Motorq, you wouldn't want to miss one of the biggest hackathons in the city! Come, code and get your name sculpted on the title!"
-                        ),
                         m('h1', {class: 'mdc-typography--headline5'}, 'Schedule'),
                         m('ul', {class: 'mdc-typography--body1'},
                             m('li', 'Last Date for sending proposals: February 26'),
                             m('li', 'Hackathon: March 2, 10AM to March 3, 10AM (24 hours)'),
                             m('li', 'Followed by demo (approx. 2-3 hours)'),
                         ),
+                        m('h1', {class: 'mdc-typography--headline5'}, 'Prizes'),
+                        m('ul', {class: 'mdc-typography--body1'},
+                            m('li', 'Cash prizes worth ',
+                                m('b', 'Rs. 30,000'),
+                                ' for the top teams'
+                            ),
+                            m('li', 'Teams working on ',
+                                m('b', 'starred domains'),
+                                ' also stand a chance at getting interview opportunities for ',
+                                m('b', 'internships with stipends of 1L per month'),
+                                ' at Motorq!'
+                            ),
+                        ),
                         m('h1', {class: 'mdc-typography--headline5'}, 'Domains'),
+                        m('h1', {class: 'mdc-typography--headline6'},
+                            m('span', {class: 'material-icons star-animation', style: 'line-height: 32px; width: 24px; padding-right: 6px'}, 'star_rate'),
+                            m('span', {style: 'font-weight: 400'}, 'Connected Cars')
+                        ),
+                        m('p', {class: 'mdc-typography--body1'},
+                            "The connected car technology enables vechicles equipped with intelligent systems to leverage services connected to the Internet. The advent of connected car technology brings with it a host of interesting use cases such as predictive car maintenance, fleet monitoring, smart in-car infotainment, adapative driving and driver safety, insurance, smart parking, dealership etc."
+                        ),
+                        m('h1', {class: 'mdc-typography--headline6'},
+                            m('span', {class: 'material-icons star-animation', style: 'line-height: 32px; width: 24px; padding-right: 6px'}, 'star_rate'),
+                            'Natural Language Processing'
+                        ),
+                        m('p', {class: 'mdc-typography--body1'},
+                            "Natural Language Processing is a sub-field of AI focussed on bringing computers closer to human-level understanding of language. One of the problem statements we are interested in - Leverage NLP to query a relational database in natural language for a generic schema."
+                        ),
+                        m('h1', {class: 'mdc-typography--headline6'},
+                            m('span', {class: 'material-icons star-animation', style: 'line-height: 32px; width: 24px; padding-right: 6px'}, 'star_rate'),
+                            'AR - VR - MR (Augmented Reality, Virtual Reality, Mixed Reality)'
+                        ),
+                        m('p', {class: 'mdc-typography--body1'},
+                            "AR adds digital elements to a live-view using the camera on a smartphone. VR implies a complete immersive experience, shutting out the user from the physical world. MR combines AR and VR, with real-world and digital-world objects interacting with one another. Transport us to another world with your applications based on any of these three subdomains!"
+                        ),
                         m('h1', {class: 'mdc-typography--headline6'}, 'Social Welfare'),
                         m('p', {class: 'mdc-typography--body1'},
                             "This domain involves creation of applications which could impact the welfare of the society in distinct way. Generic example for representative purposes: Apps Ensuring Women safety."
@@ -787,7 +818,7 @@
                             m('li', 'The proposal should also contain details regarding their team members, the institutes of each team member, and their personal contact details such as email and mobile numbers'),
                             m('li', 'We will be hosting a maximum of 25-30 teams for the hackathon, and teams will be shortlisted based on the quality of their proposal. Teams will also be shortlisted on a first-come-first-serve basis, hence kindly submit your proposals well before the deadline'),
                             m('li', 'Participants can build mobile applications, web applications, desktop applications, browser extensions or end-to-end applications for the purpose of the hackathon'),
-                            m('li', 'Each shortlisted team member must pay a registration fee of Rs. 300 to enroll in this event. This fee is inclusive of their food expenses during the hackathon. Prayatna entry tickets are not required for Hackathon participation'),
+                            m('li', 'Each shortlisted team member must pay a registration fee of Rs. 200 to enroll in this event. This fee is inclusive of their food expenses during the hackathon. Prayatna entry tickets are not required for Hackathon participation'),
                             m('li', 'The participants will be intimated about their selection for the hackathon well in advance, and only those teams that pay the fees before March 1 will be permitted for the hackathon. If a selected team fails to pay the registration amount before the deadline, they will be substituted by other teams'),
                             m('li', 'Each shortlisted participant must carry a valid college ID card with them'),
                             m('li', 'As per university rules, girls who wish to take part in the hackathon are requested to carry a letter from their parents, permitting them to attend the event'),
