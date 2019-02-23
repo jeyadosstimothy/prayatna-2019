@@ -148,7 +148,27 @@
                       <li class="mdc-list-item">
                         <span class="mdc-list-item__text">
                           <span class="mdc-list-item__primary-text">Connexions Online</span>
-                          <span class="mdc-list-item__secondary-text">Feb 26, 2019</span>
+                          <span class="mdc-list-item__secondary-text">Feb 26</span>
+                        </span>
+                        <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                      </li>
+                    </a>
+                    <li role="separator" class="mdc-list-divider"></li>
+                    <a href="details.php?id=hackathon">
+                      <li class="mdc-list-item">
+                        <span class="mdc-list-item__text">
+                          <span class="mdc-list-item__primary-text">Motorq Hackathon</span>
+                          <span class="mdc-list-item__secondary-text">Mar 2 & 3 (Feb 28 - Idea Submission)</span>
+                        </span>
+                        <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
+                      </li>
+                    </a>
+                    <li role="separator" class="mdc-list-divider"></li>
+                    <a href="details.php?id=olpc">
+                      <li class="mdc-list-item">
+                        <span class="mdc-list-item__text">
+                          <span class="mdc-list-item__primary-text">OLPC</span>
+                          <span class="mdc-list-item__secondary-text">Mar 4</span>
                         </span>
                         <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
                       </li>

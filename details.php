@@ -148,11 +148,14 @@
             registrationFab.dom.style.display = 'flex';
             if(currentPage == 'hackathon'){
                 registrationFab.dom.style.display = 'none';
-                showSnackbar('Last Date for Hackathon Idea submission: Feb 26', 10);
+                showSnackbar('Last Date for Hackathon Idea submission: Feb 28', 10);
             }
             else if (currentPage == 'paper-presentation') {
                 registrationFab.dom.style.display = 'none';
                 showSnackbar('Last date for submission of papers: Mar 3', 10);
+            }
+            else if (currentPage == 'olpc' || currentPage == 'connexions-online') {
+                registrationFab.dom.style.display = 'none';
             }
             drawer.open = false;
         }
@@ -745,7 +748,10 @@
                         ),
                         m('h1', {class: 'mdc-typography--headline5'}, 'Schedule'),
                         m('ul', {class: 'mdc-typography--body1'},
-                            m('li', 'Last Date for sending proposals: February 26'),
+                            m('li',
+                                'Last Date for sending proposals: ',
+                                m('b', 'February 28'),
+                            ),
                             m('li', 'Hackathon: March 2, 10AM to March 3, 10AM (24 hours)'),
                             m('li', 'Followed by demo (approx. 2-3 hours)'),
                         ),
@@ -818,15 +824,19 @@
                             m('li', 'The team members can belong to different colleges/educational institutions'),
                             m('li',
                                 'Each team should send a detailed proposal of their work to ',
-                                m('a', {href: 'mailto:hackathon.p19@gmail.com', style: 'color: black; font-weight: bold;'}, 'hackathon.p19@gmail.com'),
+                                m('a', {href: 'mailto:p19.hackathon@gmail.com', style: 'color: black; font-weight: bold;'}, 'p19.hackathon@gmail.com'),
                                 ' before ',
-                                m('b', '26th of February, 2019')
+                                m('b', '28th of February, 2019')
                             ),
                             m('li', 'The proposal must contain the problem statement, the intended solution, an architecture diagram for the modules, the technologies used in the tech-stack etc.'),
                             m('li', 'The proposal should also contain details regarding their team members, the institutes of each team member, and their personal contact details such as email and mobile numbers'),
                             m('li', 'We will be hosting a maximum of 25-30 teams for the hackathon, and teams will be shortlisted based on the quality of their proposal. Teams will also be shortlisted on a first-come-first-serve basis, hence kindly submit your proposals well before the deadline'),
                             m('li', 'Participants can build mobile applications, web applications, desktop applications, browser extensions or end-to-end applications for the purpose of the hackathon'),
-                            m('li', 'Each shortlisted team member must pay a registration fee of Rs. 200 to enroll in this event. This fee is inclusive of their food expenses during the hackathon. Prayatna entry tickets are not required for Hackathon participation'),
+                            m('li',
+                                'Each shortlisted team member must pay a registration fee of ',
+                                m('b', 'Rs. 200'),
+                                ' to enroll in this event. This fee is inclusive of their food expenses during the hackathon. Prayatna entry tickets are not required for Hackathon participation'
+                            ),
                             m('li', 'The participants will be intimated about their selection for the hackathon well in advance, and only those teams that pay the fees before March 1 will be permitted for the hackathon. If a selected team fails to pay the registration amount before the deadline, they will be substituted by other teams'),
                             m('li', 'Each shortlisted participant must carry a valid college ID card with them'),
                             m('li', 'As per university rules, girls who wish to take part in the hackathon are requested to carry a letter from their parents, permitting them to attend the event'),
@@ -1377,11 +1387,14 @@
     <script type="text/javascript">
         if(currentPage == 'hackathon') {
             registrationFab.dom.style.display = 'none';
-            showSnackbar('Last Date for Hackathon Idea submission: Feb 26', 10);
+            showSnackbar('Last Date for Hackathon Idea submission: Feb 28', 10);
         }
         else if (currentPage == 'paper-presentation') {
             registrationFab.dom.style.display = 'none';
             showSnackbar('Last date for submission of papers: Mar 3', 10);
+        }
+        else if (currentPage == 'olpc' || currentPage == 'connexions-online') {
+            registrationFab.dom.style.display = 'none';
         }
     </script>
 </body>
