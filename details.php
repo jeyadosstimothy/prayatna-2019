@@ -124,8 +124,11 @@
                 topAppBar.listen('MDCTopAppBar:nav', () => {
                     drawer.open = true;
                 });
-                var mdcList = new mdc.list.MDCList(vnode.dom.querySelector('.mdc-list'));
-                ripples.push.apply(mdcList.listElements.map((listItemEl) => new mdc.ripple.MDCRipple(listItemEl)));
+                var mdcList;
+                if(cookieExists) {
+                    mdcList = new mdc.list.MDCList(vnode.dom.querySelector('.mdc-list'));
+                    ripples.push.apply(mdcList.listElements.map((listItemEl) => new mdc.ripple.MDCRipple(listItemEl)));
+                }
             }
         }
 
@@ -142,10 +145,15 @@
                 fabText = "Pay Now";
             else
                 fabText = "Register";
-            if(currentPage == 'hackathon')
+            registrationFab.dom.style.display = 'flex';
+            if(currentPage == 'hackathon'){
+                registrationFab.dom.style.display = 'none';
                 showSnackbar('Last Date for Hackathon Idea submission: Feb 26', 10);
-            else if (currentPage == 'paper-presentation')
+            }
+            else if (currentPage == 'paper-presentation') {
+                registrationFab.dom.style.display = 'none';
                 showSnackbar('Last date for submission of papers: Mar 3', 10);
+            }
             drawer.open = false;
         }
         var ripples = []
@@ -1329,6 +1337,7 @@
                 }
             }
         }
+        var registrationFab;
         var registrationFabExtended = {
             view: function() {
                 return m('button', {class: 'mdc-fab mdc-fab--extended app-fab--absolute anim-appear-pulse', onclick: function(){
@@ -1342,6 +1351,7 @@
                 );
             },
             oncreate: function(vnode) {
+                registrationFab = vnode;
                 ripples.push(new mdc.ripple.MDCRipple(vnode.dom))
             }
         }
@@ -1365,10 +1375,14 @@
     </script>
     <?php include('snackbar.php') ?>
     <script type="text/javascript">
-        if(currentPage == 'hackathon')
+        if(currentPage == 'hackathon') {
+            registrationFab.dom.style.display = 'none';
             showSnackbar('Last Date for Hackathon Idea submission: Feb 26', 10);
-        else if (currentPage == 'paper-presentation')
+        }
+        else if (currentPage == 'paper-presentation') {
+            registrationFab.dom.style.display = 'none';
             showSnackbar('Last date for submission of papers: Mar 3', 10);
+        }
     </script>
 </body>
 </html>
