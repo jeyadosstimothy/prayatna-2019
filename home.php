@@ -250,7 +250,7 @@
       }
       var Panel = {
         view: function(vnode) {
-          return m('div', {class: 'mdc-layout-grid__inner margin', role: 'tabpanel'}, vnode.attrs.child);
+          return m('div.anim-appear-fadein', {class: 'mdc-layout-grid__inner margin', role: 'tabpanel'}, vnode.attrs.child);
         }
       }
       var eventTabs = [
@@ -437,9 +437,21 @@
       var currentPanel = 'techEvents';
 
       var panelContent = {
-        'techEvents': techEvents,
-        'nonTechEvents': nonTechEvents,
-        'onlineEvents': onlineEvents
+        'techEvents': {
+          view: function() {
+            return m(Panel, {child: techEvents});
+          }
+        },
+        'nonTechEvents': {
+          view: function() {
+            return m(Panel, {child: nonTechEvents});
+          }
+        },
+        'onlineEvents': {
+          view: function() {
+            return m(Panel, {child: onlineEvents});
+          }
+        },
       }
       var workshopEventPanel = {
         view: function() {
@@ -461,11 +473,11 @@
               child: m(TabBar, {tabs: eventTabs, id: 'eventTabBar'}),
               span: 4,
             }),
-            m(Panel, {child: panelContent[currentPanel]})
+            m(panelContent[currentPanel])
           );
         }
       }
-      m.mount(document.querySelector('.workshops-events-section'), workshopEventPanel, {child: panelContent[currentPanel]});
+      m.mount(document.querySelector('.workshops-events-section'), workshopEventPanel);
 
 
     </script>

@@ -133,7 +133,7 @@
         var formToShow;
         var loginForm = {
             view: function() {
-                return m('form', {id: 'loginform', class: "form-container margin", action:"ajax_responses/login.php", method: "post"},
+                return m('form', {id: 'loginform', class: "form-container margin anim-appear-panel-slideright-fadein", action:"ajax_responses/login.php", method: "post"},
                     [
                         m("h1", {class: "mdc-typography--headline6", style:"text-align: center;"}, "Welcome"),
                         m(TextField, {name: 'email', placeholder: 'Email ID', fullwidth: true, type: "email", required: true, maxlength: '254'}),
@@ -151,7 +151,7 @@
         }
         var signupForm = {
             view: function(){
-                return m('form', {id: 'signupform', class: "form-container margin", action:"ajax_responses/signup.php", method: "post", onsubmit: function(event) {
+                return m('form', {id: 'signupform', class: "form-container margin anim-appear-panel-slideleft-fadein", action:"ajax_responses/signup.php", method: "post", onsubmit: function(event) {
                             event.preventDefault();
 
                             var json_val = {

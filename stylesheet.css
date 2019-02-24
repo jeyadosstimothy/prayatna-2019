@@ -348,6 +348,16 @@ footer .container {
   animation-delay: .1s;
 }
 
+.anim-appear-panel-slideright-fadein {
+  opacity: 0;
+  animation: panel-slideright 235ms cubic-bezier(.4,0,.2,1) forwards, fadein .1s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+.anim-appear-panel-slideleft-fadein {
+  opacity: 0;
+  animation: panel-slideleft 235ms cubic-bezier(.4,0,.2,1) forwards, fadein .1s cubic-bezier(.4,0,.2,1) forwards;
+}
+
 .anim-appear-fadein {
   animation: fadein .5s cubic-bezier(.4,0,.2,1) forwards;
 }
