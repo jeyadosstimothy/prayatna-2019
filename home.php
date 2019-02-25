@@ -661,8 +661,5 @@
   </section>
   <?php include('snackbar.php') ?>
   <?php include('footer.php') ?>
-  <script type="text/javascript">
-    showSnackbar('Sign up & buy entry tickets online at 10% off!', 10, 'Claim', '<?=isset($_COOKIE["user_id"])?"dashboard.php":"register.php"?>');
-  </script>
 </body>
 </html>

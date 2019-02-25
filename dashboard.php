@@ -96,8 +96,8 @@
                 <div class="dashboard-card-content">
                   <h1 class="mdc-typography--headline5 dashboard-card-title">Skip the Queue!</h1>
                   <h1 class="mdc-typography--subtitle1">Why wait in line when you can register online?</h1>
-                  <h1 class="mdc-typography--subtitle1">Buy your Entry Ticket now to get 10% off!</h1>
-                  <h1 class="mdc-typography--subtitle1">Price: <s>Rs. 249</s> Rs. 224!</h1>
+                  <h1 class="mdc-typography--subtitle1">Buy your Entry Ticket now!</h1>
+                  <h1 class="mdc-typography--subtitle1">Price: Rs. 249!</h1>
                   <h1 class="mdc-typography--subtitle1">Note: This entry ticket is required to take part in all technical (except Hackathon) and non-technical events. Shortlisted participants taking part only in the Hackathon need to pay hackathon registration fee only (offline).</h1>
                   <div class="dashboard-card-button-container">
                     <form method="post" action='cashfree/request.php'>
