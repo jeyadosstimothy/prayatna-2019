@@ -148,7 +148,7 @@
                       <li class="mdc-list-item">
                         <span class="mdc-list-item__text">
                           <span class="mdc-list-item__primary-text">Connexions Online</span>
-                          <span class="mdc-list-item__secondary-text">Feb 26</span>
+                          <span class="mdc-list-item__secondary-text">Feb 27</span>
                         </span>
                         <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
                       </li>

@@ -154,7 +154,7 @@
                 registrationFab.dom.style.display = 'none';
                 showSnackbar('Last date for submission of papers: Mar 3', 10);
             }
-            else if (currentPage == 'olpc' || currentPage == 'connexions-online') {
+            else if (currentPage == 'olpc') {
                 registrationFab.dom.style.display = 'none';
             }
             drawer.open = false;
@@ -1297,7 +1297,7 @@
                         m('p', {class: 'mdc-typography--body1'},
                             `Alert for the connectors in you! It's time for your fingers to be busy. Stay connected from every corner and let's be online on-time. Crack our clues and top the leaderboard.`),
                         m('p', {class: 'mdc-typography--body1'}, `Stay alert! Every detail counts!`),
-                        m('h1', {class: 'mdc-typography--headline6'}, 'Date: February 26th, 2019'),
+                        m('h1', {class: 'mdc-typography--headline6'}, 'Date: February 27th, 2019'),
                         m('h1', {class: 'mdc-typography--headline4'}, 'Note'),
                         m('ul', {class: 'mdc-typography--body1'},
                             m('li', 'Participation is free for all'),
@@ -1393,7 +1393,7 @@
             registrationFab.dom.style.display = 'none';
             showSnackbar('Last date for submission of papers: Mar 3', 10);
         }
-        else if (currentPage == 'olpc' || currentPage == 'connexions-online') {
+        else if (currentPage == 'olpc') {
             registrationFab.dom.style.display = 'none';
         }
     </script>
