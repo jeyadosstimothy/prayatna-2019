@@ -3,7 +3,11 @@
 
     if(isset($_COOKIE['user_id']) && calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {
         header('Location: '.$domain.'/ajax_responses/logout.php');
+        exit;
     }
+
+    $currentTime = time();
+    $connexionsLive = ($currentTime >= $connexionsStartTime && $currentTime <= $connexionsEndTime);
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +48,7 @@
 <body class="details-container">
     <div id='root' class='mdc-typography footer--fixed-adjust'></div>
     <?php include('footer.php') ?>
+    <?php include('snackbar.php') ?>
     <script type="text/javascript">
         function parseURLParams(url) {
             var queryStart = url.indexOf("?") + 1,
@@ -148,11 +153,9 @@
             registrationFab.dom.style.display = 'flex';
             if(currentPage == 'hackathon'){
                 registrationFab.dom.style.display = 'none';
-                showSnackbar('Last Date for Hackathon Idea submission: Feb 28', 10);
             }
             else if (currentPage == 'paper-presentation') {
                 registrationFab.dom.style.display = 'none';
-                showSnackbar('Last date for submission of papers: Mar 3', 10);
             }
             else if (currentPage == 'olpc') {
                 registrationFab.dom.style.display = 'none';
@@ -160,6 +163,17 @@
             drawer.open = false;
         }
         var ripples = []
+        var Button = {
+            view: function(vnode) {
+                var buttonValues = {class: 'mdc-button mdc-ripple-upgraded '+(vnode.attrs.class?vnode.attrs.class:'mdc-button--raised'), style: vnode.attrs.style?vnode.attrs.style:""};
+                return m('button', buttonValues,
+                    m('span', {class: 'mdc-button__label'}, vnode.attrs.label)
+                );
+            },
+            oncreate: function(vnode) {
+                ripples.push(new mdc.ripple.MDCRipple(vnode.dom));
+            }
+        }
         var NavItem = {
             view: function(vnode) {
                 return m('a', {
@@ -732,6 +746,7 @@
             },
             'hackathon': {
                 view: function(){
+                    showSnackbar('Last Date for Hackathon Idea submission: Feb 28', 10);
                     return m('div.anim-appear-fadein', [
                         m('h1', {class: 'mdc-typography--headline3'}, 'Motorq Hackathon'),
                         m('p', {class: 'mdc-typography--body1'},
@@ -979,6 +994,7 @@
             },
             'paper-presentation': {
                 view: function(){
+                    showSnackbar('Last date for submission of papers: Mar 3', 10);
                     return m('div.anim-appear-fadein', [
                         m('h1', {class: 'mdc-typography--headline3'}, 'Paper Presentation'),
                         m('p', {class: 'mdc-typography--body1'},
@@ -1292,12 +1308,39 @@
             },
             'connexions-online': {
                 view: function(){
+                    <?php
+                        if($connexionsLive) {
+                    ?>
+                    showSnackbar('Online Connexions is now live!', 10, 'Play Now', 'connexions.php');
+                    <?php
+                        }
+                    ?>
                     return m('div.anim-appear-fadein', [
                         m('h1', {class: 'mdc-typography--headline3'}, 'Connexions Online'),
                         m('p', {class: 'mdc-typography--body1'},
                             `Alert for the connectors in you! It's time for your fingers to be busy. Stay connected from every corner and let's be online on-time. Crack our clues and top the leaderboard.`),
                         m('p', {class: 'mdc-typography--body1'}, `Stay alert! Every detail counts!`),
                         m('h1', {class: 'mdc-typography--headline6'}, 'Date: February 27th, 2019'),
+                        <?php
+                            if($currentTime >= $connexionsStartTime) {
+                        ?>
+                        m('div', [
+                            m('a', {href: 'connexions_leaderboard.php'},
+                                m(Button, {class: 'mdc-button--outlined', style:"--mdc-theme-primary: #252525;color:#121212;", label: 'View Leaderboard'}),
+                            ),
+                            <?php
+                                if($connexionsLive) {
+                            ?>
+                            m('a', {href: 'connexions.php'},
+                                m(Button, {label: 'Play Now', style: 'margin-left: 13px;'}),
+                            ),
+                            <?php
+                                }
+                            ?>
+                        ]),
+                        <?php
+                            }
+                        ?>
                         m('h1', {class: 'mdc-typography--headline4'}, 'Note'),
                         m('ul', {class: 'mdc-typography--body1'},
                             m('li', 'Participation is free for all'),
@@ -1383,19 +1426,24 @@
         m.mount(root, Home);
 
     </script>
-    <?php include('snackbar.php') ?>
     <script type="text/javascript">
         if(currentPage == 'hackathon') {
             registrationFab.dom.style.display = 'none';
-            showSnackbar('Last Date for Hackathon Idea submission: Feb 28', 10);
         }
         else if (currentPage == 'paper-presentation') {
             registrationFab.dom.style.display = 'none';
-            showSnackbar('Last date for submission of papers: Mar 3', 10);
         }
         else if (currentPage == 'olpc') {
             registrationFab.dom.style.display = 'none';
         }
+        <?php
+            if ($connexionsLive) {
+        ?>
+        if(currentPage != 'connexions-online')
+            showSnackbar('Online Connexions is now live!', 10, 'Play Now', 'connexions.php');
+        <?php
+            }
+        ?>
     </script>
 </body>
 </html>

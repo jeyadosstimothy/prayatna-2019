@@ -16,6 +16,9 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
+
+  $currentTime = time();
+  $connexionsLive = ($currentTime >= $connexionsStartTime && $currentTime <= $connexionsEndTime);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -143,16 +146,22 @@
                         <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
                       </li>
                     </a>
+                    <?php
+                      if($currentTime <= $connexionsEndTime) {
+                    ?>
                     <li role="separator" class="mdc-list-divider"></li>
                     <a href="details.php?id=connexions-online">
                       <li class="mdc-list-item">
                         <span class="mdc-list-item__text">
                           <span class="mdc-list-item__primary-text">Connexions Online</span>
-                          <span class="mdc-list-item__secondary-text">Feb 27</span>
+                          <span class="mdc-list-item__secondary-text"><?=($connexionsLive?'Currently Live':'Feb 27')?></span>
                         </span>
                         <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
                       </li>
                     </a>
+                    <?php
+                      }
+                    ?>
                     <li role="separator" class="mdc-list-divider"></li>
                     <a href="details.php?id=hackathon">
                       <li class="mdc-list-item">
@@ -431,5 +440,14 @@
   <?php
     $conn->close();
   ?>
+  <script type="text/javascript">
+    <?php
+        if ($connexionsLive) {
+    ?>
+    showSnackbar('Online Connexions is now live!', 10, 'Play Now', 'connexions.php');
+    <?php
+        }
+    ?>
+  </script>
 </body>
 </html>

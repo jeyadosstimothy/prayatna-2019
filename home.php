@@ -661,5 +661,15 @@
   </section>
   <?php include('snackbar.php') ?>
   <?php include('footer.php') ?>
+  <script type="text/javascript">
+    <?php
+      $currentTime = time();
+      if ($currentTime >= $connexionsStartTime && $currentTime <= $connexionsEndTime) {
+    ?>
+    showSnackbar('Online Connexions is now live!', 10, 'Play Now', 'connexions.php');
+    <?php
+      }
+    ?>
+  </script>
 </body>
 </html>
