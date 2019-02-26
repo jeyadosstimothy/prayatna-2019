@@ -12,8 +12,9 @@
 
 require '../constants.php';
 
-if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
+if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0 || time() > $onlinePaymentEndTime){
   header('Location: '.$domain.'/dashboard.php');
+  exit;
 }
 
 // Create connection

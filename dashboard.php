@@ -119,6 +119,13 @@
                       </button>
                       <?php
                           }
+                          elseif ($currentTime > $onlinePaymentEndTime) {
+                      ?>
+                      <button class="mdc-button mdc-button--raised dashboard-card-button" disabled>
+                        Payment Closed
+                      </button>
+                      <?php
+                          }
                           else {
                       ?>
                       <button class="mdc-button mdc-button--raised dashboard-card-button">
@@ -251,9 +258,22 @@
                     </ul>
                     <p id="total-amount" style="text-align: center;"></p>
                     <div class="dashboard-card-button-container">
+                      <?php
+                        if($currentTime > $onlinePaymentEndTime) {
+                      ?>
+                      <button class="mdc-button mdc-button--raised dashboard-card-button" disabled>
+                        Payment Closed
+                      </button>
+                      <?php
+                        }
+                        else {
+                      ?>
                       <button class="mdc-button mdc-button--raised dashboard-card-button">
                         Pay Now
                       </button>
+                      <?php
+                        }
+                      ?>
                     </div>
                     <input type="hidden" name="type" value="workshop" />
                   </form>
