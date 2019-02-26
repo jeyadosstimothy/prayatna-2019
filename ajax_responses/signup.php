@@ -5,6 +5,11 @@
         header('Location: '.$domain.'/ajax_responses/invalid_request.php');
     }
 
+    $redirect = NULL;
+    if($_POST['location'] != '') {
+        $redirect = $_POST['location'];
+    }
+
     // Create connection
     $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 
@@ -44,10 +49,14 @@
 
         $conn->close();
 
-        header('Location: '.$domain.'/dashboard.php');}
+        if($redirect)
+            header('Location: ' . $redirect);
+        else
+            header('Location: ' . $domain . '/dashboard.php');
+        exit;
+    }
     else {
         $conn->close();
-
         echo 'failure';
     }
 ?>

@@ -12,7 +12,7 @@
   }
 
   if(!isset($_COOKIE['user_id'])) {
-    header('Location: '.$domain.'/register.php');
+    header('Location: '.$domain.'/register.php?location=' . urlencode($_SERVER['REQUEST_URI']));
     exit;
   } else {
     if(calculate_hash($_COOKIE['user_id'], $_COOKIE['name'], $_COOKIE['email'], $_COOKIE['phone']) != $_COOKIE['signature']) {

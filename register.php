@@ -1,7 +1,6 @@
 <!--PHP for user-->
 <?php
     require 'constants.php';
-
     if (isset($_COOKIE["user_id"])) {
         header('Location: '.$domain.'/home.php');
     }
@@ -144,7 +143,14 @@
                                 }
                             }),
                             m(Button, {label: 'Sign In', style:" margin-left: 15px;"})
-                        )
+                        ),
+                        <?php
+                            if(isset($_GET['location'])) {
+                        ?>
+                        m('input', {type: 'hidden', name: 'location', value: '<?=htmlspecialchars($_GET['location'])?>'})
+                        <?php
+                            }
+                        ?>
                     ]
                 );
             }
@@ -196,7 +202,14 @@
                                 }
                             }),
                             m(Button, {label: 'Sign Up', style:" margin-left: 15px;"})
-                        )
+                        ),
+                        <?php
+                            if(isset($_GET['location'])) {
+                        ?>
+                        m('input', {type: 'hidden', name: 'location', value: '<?=htmlspecialchars($_GET['location'])?>'})
+                        <?php
+                            }
+                        ?>
                     ]
                 );
             }

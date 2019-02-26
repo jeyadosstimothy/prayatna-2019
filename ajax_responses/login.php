@@ -2,7 +2,12 @@
     require '../constants.php';
 
     if(!isset($_POST['submit'])) {
-        header('Location: '.$domain.'/ajax_responses/register.php');
+        header('Location: '.$domain.'/ajax_responses/invalid_request.php');
+    }
+
+    $redirect = NULL;
+    if($_POST['location'] != '') {
+        $redirect = $_POST['location'];
     }
 
     // Create connection
@@ -32,7 +37,11 @@
         setcookie('signature', calculate_hash($row['user_id'], $row['name'], $row['email_id'], $row['phone_number']), time() + (86400 * 30), "/");
 
         $conn->close();
-        header('Location: '.$domain.'/dashboard.php');
+        if($redirect)
+            header('Location: ' . $redirect);
+        else
+            header('Location: '.$domain.'/dashboard.php');
+        exit;
     }
     else {
         echo 'failure';
