@@ -256,7 +256,7 @@
         <input class="mdc-text-field__input input input-text-color"type="text" name="answer" placeholder="Enter your answer here" />
         <div class="mdc-line-ripple"></div>
       </div>
-      <div style="float: right;">
+      <div style="float: right;margin-bottom: 2rem">
         <button class="mdc-button mdc-button--raised mdc-ripple-upgraded">
           <span class="mdc-button__label">
             Submit
