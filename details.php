@@ -1320,7 +1320,7 @@
                         m('p', {class: 'mdc-typography--body1'},
                             `Alert for the connectors in you! It's time for your fingers to be busy. Stay connected from every corner and let's be online on-time. Crack our clues and top the leaderboard.`),
                         m('p', {class: 'mdc-typography--body1'}, `Stay alert! Every detail counts!`),
-                        m('h1', {class: 'mdc-typography--headline6'}, 'Date: February 27th, 2019'),
+                        m('h1', {class: 'mdc-typography--headline6'}, 'Time & Date: 8.30pm on February 27th, 2019'),
                         <?php
                             if($currentTime >= $connexionsStartTime) {
                         ?>
