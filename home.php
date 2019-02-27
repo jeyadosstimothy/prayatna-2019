@@ -289,7 +289,7 @@
         }),
         m(CellCard, {
           title: 'Web Development with ReactJS',
-          subtitle: 'Google Developers Group',
+          subtitle: 'Google Developers',
           secondary: 'Design Websites with Perfection',
           id: 'react-js',
           style: "background-image: url('res/react.jpeg');"

@@ -440,7 +440,7 @@
                     return m('div.anim-appear-fadein', [
                         m('h1', {class: 'mdc-typography--headline3'}, 'Web Development with ReactJS'),
                         m('p', {class: 'mdc-typography--body1'}, 'React is a JavaScript library designed to be a straightforward and painless way to develop interactive user interfaces. Developed by Facebook, this is one of the most powerful libraries present for designing modern applications in real-time with impressive aesthetics and simplified back-ends. You will learn to use this library for designing such applications from scratch, and get yourself acquainted with some impressive techniques that you can use for developing your own, using this library.'),
-                        m('p', {class: 'mdc-typography--body1'}, "The workshop is conducted by the official chapter of Google Developers Group (GDG) in Chennai, who host a vareity of technical activites like Tech Talks, Meetups, Code Sprints and Hackathons."),
+                        m('p', {class: 'mdc-typography--body1'}, "The workshop is conducted by an expert from the industry, who is also a speaker of Google Developers who have done a variety of tech talks, meetups, code sprints and hackathons."),
                         m('h1', {class: 'mdc-typography--headline6'}, 'Time and Date: 9am - 5pm on March 9'),
                         m('h1', {class: 'mdc-typography--headline6'}, 'Registration Amount: Rs. 649'),
                         m('h1', {class: 'mdc-typography--headline4'}, 'Objectives'),
@@ -1341,10 +1341,18 @@
                         <?php
                             }
                         ?>
-                        m('h1', {class: 'mdc-typography--headline4'}, 'Note'),
+                        m('h1', {class: 'mdc-typography--headline5'}, 'Rules'),
                         m('ul', {class: 'mdc-typography--body1'},
-                            m('li', 'Participation is free for all'),
-                            m('li', 'Further details will be updated later'),
+                            m('li', 'Register yourself individually to participate. Participation is free for all'),
+                            m('li', 'Submit the correct answer to proceed to the next levels'),
+                            m('li', 'The game consists of 20 Questions'),
+                            m('li', 'Any number of attempts can be made for each level'),
+                            m('li',
+                                'Timely clues will be updated on our ',
+                                m('a', {href: "https://www.facebook.com/prayatnact/", style: 'color: black; font-weight: bold;'}, 'FB page')
+                            ),
+                            m('li', 'Prefer Wikipedia spelling for the answers (if exists)'),
+                            m('li', 'Ignore special characters like (, . @ * ) while answering'),
                             m('li', 'For any queries, contact Preethi: 9884398352')
                         ),
                     ]);
