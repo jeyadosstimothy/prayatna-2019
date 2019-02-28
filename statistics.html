@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function retrieve_content(argument) {
+		var json_val = {"value": document.getElementById('sample').value};
+		param = JSON.stringify(json_val);
+		
+		var url = 'statistics.php';
+		var xhttp = new XMLHttpRequest();
+
+		xhttp.onreadystatechange = function () {
+		    if (this.readyState == 4 && this.status == 200) {
+		        data = this.responseText;
+		        document.getElementById('demo').innerHTML = data;
+		    }
+		};
+		xhttp.open("POST", url, true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("x=" + param);
+	}
+	function download(tableID,filename = '') {
+		var downloadLink;
+		var dataType = 'application/vnd.ms-excel';
+		var tableSelect = document.getElementById(tableID);
+		var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+		// Specify file name
+		filename = filename?filename+'.xls':'excel_data.xls';
+
+		// Create download link element
+		downloadLink = document.createElement("a");
+
+		document.body.appendChild(downloadLink);
+
+		if(navigator.msSaveOrOpenBlob){
+		    var blob = new Blob(['\ufeff', tableHTML], {
+		        type: dataType
+		    });
+		    navigator.msSaveOrOpenBlob( blob, filename);
+		}else{
+		    // Create a link to the file
+		    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+		    // Setting the file name
+		    downloadLink.download = filename;
+		    
+		    //triggering the function
+		    downloadLink.click();
+		}
+	}
+	</script>
+</head>
+<body>
+	<select id = "sample" name="prayatna">
+		<option value="1">Registration Count</option>
+		<option value="2">College count</option>
+		<option value="3">workshop participants</option>
+		<option value="4">Entry ticket participants</option>		
+		<option value="5">Accomadation</option>
+	</select>
+	<button type="button" onclick="retrieve_content()">get_details</button>
+	<p id="demo"> No content</p>
+</body>
+</html>
