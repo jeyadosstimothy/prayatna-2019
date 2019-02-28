@@ -23,13 +23,14 @@
     $phone_number = $_POST['phone'];
     $email_id = $_POST['email'];
     $college = $_POST['college'];
+    $dept = $_POST['department'];
     $year_of_study = $_POST['year'];
     $city = $_POST['city'];
 
     // preventing injection attack using prepared statement
-    $sql = 'INSERT INTO user_details (name, email_id, phone_number, password, college, year_of_study, city) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    $sql = 'INSERT INTO user_details (name, email_id, phone_number, password, college, dept, year_of_study, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssss", $name, $email_id, $phone_number, $password, $college, $year_of_study, $city);
+    $stmt->bind_param("ssssssss", $name, $email_id, $phone_number, $password, $college, $dept, $year_of_study, $city);
     $result = $stmt->execute();
 
     // make the user login
