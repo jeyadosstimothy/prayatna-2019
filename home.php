@@ -149,6 +149,9 @@
       </div>
       <ul class="mdc-layout-grid__inner mdc-image-list margin sponsors-list">
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.licindia.in/"><img class="mdc-image-list__image" src="res/LIC.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
           <a href="https://www.amazon.in/"><img class="mdc-image-list__image" src="res/amazon.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
@@ -167,6 +170,9 @@
           <a href="https://www.freshworks.com/"><img class="mdc-image-list__image" src="res/freshworks.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.stucred.com/"><img class="mdc-image-list__image" src="res/stucred.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
           <a href="http://www.f22labs.com/"><img class="mdc-image-list__image" src="res/f22labs.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
@@ -179,10 +185,22 @@
           <a href="https://www.madstreetden.com/"><img class="mdc-image-list__image" src="res/mad-street-den.jpeg"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.trimble.com/"><img class="mdc-image-list__image" src="res/trimble.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
           <a href="https://www.zoho.com/"><img class="mdc-image-list__image" src="res/zoho.png"></a>
         </li>
         <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
           <a href="http://botcode.com/"><img class="mdc-image-list__image" src="res/botcode.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.youtube.com/channel/UCaDUZJ1ZPct5MNumi8K2l-w"><img class="mdc-image-list__image" src="res/nyk.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.poorvikamobile.com/"><img class="mdc-image-list__image" src="res/poorvika.png"></a>
+        </li>
+        <li class="mdc-image-list__item mdc-layout-grid__cell--span-2">
+          <a href="https://www.uniqtechnologies.co.in/"><img class="mdc-image-list__image" src="res/uniq.jpg"></a>
         </li>
       </ul>
     </div>
@@ -289,7 +307,7 @@
         }),
         m(CellCard, {
           title: 'Web Development with ReactJS',
-          subtitle: 'Google Developers',
+          subtitle: 'Qube Cinema Technologies',
           secondary: 'Design Websites with Perfection',
           id: 'react-js',
           style: "background-image: url('res/react.jpeg');"
