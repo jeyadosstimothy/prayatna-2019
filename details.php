@@ -301,10 +301,6 @@
                         id: 'olpc',
                         child: m('span', {class: 'mdc-list-item__text'}, 'Online Programming Contest')
                     }),
-                    m(NavItem, {
-                        id: 'daily-quiz',
-                        child: m('span', {class: 'mdc-list-item__text'}, 'Daily Quiz')
-                    }),
                 ]);
 
         var drawer;
@@ -1418,15 +1414,6 @@
                     ]);
                 }
             },
-            'daily-quiz': {
-                view: function(){
-                    return m('div.anim-appear-fadein', [
-                        m('h1', {class: 'mdc-typography--headline3'}, 'Daily Quiz'),
-                        m('p', {class: 'mdc-typography--body1'},
-                            `Want to test your knowledge on various subjects? Want to experience the feeling of getting the question right everyday? You are at the right place. Participate in our Daily Quiz event where you answer quizzes daily and earn chances to feature in our LeaderBoard every week. Get ready to spark your grey cells and walk away with exciting prizes!`),
-                    ]);
-                }
-            }
         }
         var registrationFab;
         var registrationFabExtended = {

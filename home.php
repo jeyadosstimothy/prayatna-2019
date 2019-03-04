@@ -440,12 +440,6 @@
           style: "background-image: url('res/olpc.jpg');"
         }),
         m(CellCard, {
-          title: 'Daily Quiz',
-          subtitle: 'Unlocking knowledge at the speed of thought!',
-          id: 'daily-quiz',
-          style: "background-image: url('res/quiz.jpeg');"
-        }),
-        m(CellCard, {
           title: 'Connexions Online',
           subtitle: 'Pause coding and start connecting!',
           id: 'connexions-online',
