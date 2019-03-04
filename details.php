@@ -197,7 +197,7 @@
                     m('h3', {class: 'mdc-list-group__subheader', style: 'color: #212121'}, 'Workshops'),
                     m(NavItem, {
                         id: 'flutter',
-                        child: m('span', {class: 'mdc-list-item__text'}, 'App Development with Flutter')
+                        child: m('span', {class: 'mdc-list-item__text'}, 'App Development')
                     }),
                     m(NavItem, {
                         id: 'system-design',
@@ -327,7 +327,7 @@
             'flutter': {
                 view: function(){
                     return m('div.anim-appear-fadein', [
-                        m('h1', {class: 'mdc-typography--headline3'}, 'App Development with Flutter'),
+                        m('h1', {class: 'mdc-typography--headline3'}, 'App Development'),
                         m('div', {class: 'center90 video-container'},
                             m('iframe', {width: '853', height: '480', src: 'https://www.youtube.com/embed/fq4N0hgOWzU', frameborder: '0', allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture', allowfullscreen: 'true'})
                         ),

@@ -278,7 +278,7 @@
       ]
       var workshops = [
         m(CellCard, {
-          title: 'App Development with Flutter',
+          title: 'App Development',
           subtitle: 'Ruchika, Geeky Ants',
           secondary: 'Build beautiful Android & iOS apps!',
           id: 'flutter',
