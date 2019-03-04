@@ -682,6 +682,13 @@
     <?php
       }
     ?>
+    <?php
+      if ($currentTime >= $olpcStartTime && $currentTime <= $olpcEndTime) {
+    ?>
+    showSnackbar('Prayatna OLPC is now live!', 10, 'Compete', 'https://www.codechef.com/POLP2019');
+    <?php
+      }
+    ?>
   </script>
 </body>
 </html>

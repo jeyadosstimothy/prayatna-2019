@@ -8,6 +8,7 @@
 
     $currentTime = time();
     $connexionsLive = ($currentTime >= $connexionsStartTime && $currentTime <= $connexionsEndTime);
+    $olpcLive = ($currentTime >= $olpcStartTime && $currentTime <= $olpcEndTime);
 ?>
 
 <!DOCTYPE html>
@@ -1316,11 +1317,32 @@
             },
             'olpc': {
                 view: function(){
+                    <?php
+                        if($olpcLive) {
+                    ?>
+                    showSnackbar('Prayatna OLPC is now live!', 10, 'Compete', 'https://www.codechef.com/POLP2019');
+                    <?php
+                        }
+                    ?>
                     return m('div.anim-appear-fadein', [
                         m('h1', {class: 'mdc-typography--headline3'}, 'Online Programming Contest'),
                         m('p', {class: 'mdc-typography--body1'},
                             `Programming is logic-based creativity. It is a skill best acquired by practice. OLPC is an online programming contest which tests the contestants programming skills and how fast they can come up with creative, easy and efficient solutions for problems. OLPC will be conducted on an online IDE such as Hackerrank or Codechef where you can build your code, debug and test them to solve the given problems efficiently.`),
-                        m('h1', {class: 'mdc-typography--headline6'}, 'Time & Date: 8pm on March 4th, 2019'),
+                        <?php
+                            if($currentTime >= $olpcStartTime) {
+                        ?>
+                        m('div', [
+                            m('a', {href: 'https://www.codechef.com/rankings/POLP2019'},
+                                m(Button, {class: 'mdc-button--outlined', style:"--mdc-theme-primary: #252525;color:#121212;", label: 'View Leaderboard'}),
+                            ),
+                            m('a', {href: 'https://www.codechef.com/POLP2019'},
+                                m(Button, {label: 'Compete', style: 'margin-left: 13px;'}),
+                            ),
+                        ]),
+                        <?php
+                            }
+                        ?>
+                        m('h1', {class: 'mdc-typography--headline6'}, 'Time & Date: 8pm on March 5th, 2019'),
                         m('h1', {class: 'mdc-typography--headline6'}, 'Prizes: Top two participants get cash prizes worth Rs. 1500'),
                         m('h1', {class: 'mdc-typography--headline5'}, 'Note'),
                         m('ul', {class: 'mdc-typography--body1'},
@@ -1466,6 +1488,14 @@
         ?>
         if(currentPage != 'connexions-online')
             showSnackbar('Online Connexions is now live!', 10, 'Play Now', 'connexions.php');
+        <?php
+            }
+        ?>
+        <?php
+            if ($olpcLive) {
+        ?>
+        if(currentPage != 'olpc')
+            showSnackbar('Prayatna OLPC is now live!', 10, 'Compete', 'https://www.codechef.com/POLP2019');
         <?php
             }
         ?>

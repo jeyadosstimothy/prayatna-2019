@@ -19,6 +19,7 @@
 
   $currentTime = time();
   $connexionsLive = ($currentTime >= $connexionsStartTime && $currentTime <= $connexionsEndTime);
+  $olpcLive = ($currentTime >= $olpcStartTime && $currentTime <= $olpcEndTime);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -169,26 +170,22 @@
                     <?php
                       }
                     ?>
-                    <li role="separator" class="mdc-list-divider"></li>
-                    <a href="details.php?id=hackathon">
-                      <li class="mdc-list-item">
-                        <span class="mdc-list-item__text">
-                          <span class="mdc-list-item__primary-text">Motorq Hackathon</span>
-                          <span class="mdc-list-item__secondary-text">Mar 2 & 3 (Feb 28 - Idea Submission)</span>
-                        </span>
-                        <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
-                      </li>
-                    </a>
+                    <?php
+                      if($currentTime <= $olpcEndTime) {
+                    ?>
                     <li role="separator" class="mdc-list-divider"></li>
                     <a href="details.php?id=olpc">
                       <li class="mdc-list-item">
                         <span class="mdc-list-item__text">
                           <span class="mdc-list-item__primary-text">OLPC</span>
-                          <span class="mdc-list-item__secondary-text">Mar 4</span>
+                          <span class="mdc-list-item__secondary-text"><?=($olpcLive?'Currently Live':'Mar 5')?></span>
                         </span>
                         <span class="mdc-list-item__meta material-icons" aria-hidden="true">info</span>
                       </li>
                     </a>
+                    <?php
+                      }
+                    ?>
                   </ul>
                 </div>
               </div>
@@ -465,6 +462,13 @@
         if ($connexionsLive) {
     ?>
     showSnackbar('Online Connexions is now live!', 10, 'Play Now', 'connexions.php');
+    <?php
+        }
+    ?>
+    <?php
+        if ($olpcLive) {
+    ?>
+    showSnackbar('Prayatna OLPC is now live!', 10, 'Compete', 'https://www.codechef.com/POLP2019');
     <?php
         }
     ?>
