@@ -1,12 +1,12 @@
 <?php
     require '../constants.php';
 
-    if(!isset($_POST['submit'])) {
-        header('Location: '.$domain.'/ajax_responses/invalid_request.php');
+    if(!isset($_POST['name'])) {
+        header('Location: '.$domain.'/register.php');
     }
 
     $redirect = NULL;
-    if($_POST['location'] != '') {
+    if(isset($_POST['location']) && $_POST['location'] != '') {
         $redirect = $_POST['location'];
     }
 
@@ -58,6 +58,6 @@
     }
     else {
         $conn->close();
-        echo 'failure';
+        header('Location: ' . $domain . '/register.php');
     }
 ?>

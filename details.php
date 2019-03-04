@@ -448,7 +448,7 @@
                     return m('div.anim-appear-fadein', [
                         m('h1', {class: 'mdc-typography--headline3'}, 'Web Development with ReactJS'),
                         m('p', {class: 'mdc-typography--body1'}, 'React is a JavaScript library designed to be a straightforward and painless way to develop interactive user interfaces. Developed by Facebook, this is one of the most powerful libraries present for designing modern applications in real-time with impressive aesthetics and simplified back-ends. You will learn to use this library for designing such applications from scratch, and get yourself acquainted with some impressive techniques that you can use for developing your own, using this library.'),
-                        m('p', {class: 'mdc-typography--body1'}, 'Handling this workshop would be Somasundaram Mahesh, a software developer currently working with Qube Cinema. He has been in the professional development circuit for over six years now, deploying his immaculate skills for several leading corporates. Mentoring a Smart India Hackathon winning team in 2018, being a part of the Google Developers group, a nanodegree in Android development, hosting workshops, tech talks, developer meetups and code sprints every other week are some of his colossal achievements.'),
+                        m('p', {class: 'mdc-typography--body1'}, 'Handling this workshop would be an expert on React, who has been in the professional development circuit for over six years now, deploying his immaculate skills for several leading corporates. Mentoring a Smart India Hackathon winning team in 2018, a nanodegree in Android development, hosting workshops, tech talks, developer meetups and code sprints every other week are some of his colossal achievements.'),
                         m('p', {class: 'mdc-typography--body1'},
                             'To know more about the speaker, check out their',
                             m('a', {href: "https://www.linkedin.com/in/msomu/", style: 'color: black; font-weight: bold;'}, ' LinkedIn,'),
@@ -1009,7 +1009,7 @@
             },
             'paper-presentation': {
                 view: function(){
-                    showSnackbar('Last date for submission of papers: Mar 3', 10);
+                    showSnackbar('Last date for submission of papers: Mar 6', 10);
                     return m('div.anim-appear-fadein', [
                         m('h1', {class: 'mdc-typography--headline3'}, 'Paper Presentation'),
                         m('p', {class: 'mdc-typography--body1'},
@@ -1020,7 +1020,7 @@
                         ),
                         m('h1', {class: 'mdc-typography--headline5'}, 'Schedule'),
                         m('ul', {class: 'mdc-typography--body1'},
-                            m('li', 'March 3 - Last date for submission of papers by email'),
+                            m('li', 'March 6 - Last date for submission of papers by email'),
                             m('li', 'March 8 - Presentation of shortlisted papers (Finals)'),
                         ),
                         m('h1', {class: 'mdc-typography--headline5'}, 'Paper Format'),

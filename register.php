@@ -120,6 +120,9 @@
             if(vnode.attrs.disabled) {
                 buttonValues['disabled'] = true;
             }
+            if(vnode.attrs.name) {
+                buttonValues['name'] = vnode.attrs.name;
+            }
             return m('button', buttonValues,
                 m('span', {class: 'mdc-button__label'}, vnode.attrs.label)
             );
@@ -142,7 +145,7 @@
                                     formToShow = signupForm;
                                 }
                             }),
-                            m(Button, {label: 'Sign In', style:" margin-left: 15px;"})
+                            m(Button, {label: 'Sign In', style:" margin-left: 15px;", name: 'submit'})
                         ),
                         <?php
                             if(isset($_GET['location'])) {
@@ -165,7 +168,6 @@
                                 "name": event.srcElement.name.value,
                                 "contact": event.srcElement.phone.value};
                             param = JSON.stringify(json_val);
-                            console.log(param);
                             // ajax request for unique mail, phone number, name
                             var url = 'ajax_responses/check_user.php';
                             var xhttp = new XMLHttpRequest();

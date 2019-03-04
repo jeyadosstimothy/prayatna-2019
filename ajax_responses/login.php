@@ -2,7 +2,7 @@
     require '../constants.php';
 
     if(!isset($_POST['submit'])) {
-        header('Location: '.$domain.'/ajax_responses/invalid_request.php');
+        header('Location: '.$domain.'/register.php');
     }
 
     $redirect = NULL;
@@ -44,7 +44,7 @@
         exit;
     }
     else {
-        echo 'failure';
         $conn->close();
+        header('Location: '.$domain.'/register.php');
     }
 ?>
