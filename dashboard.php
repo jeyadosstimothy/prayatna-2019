@@ -102,7 +102,7 @@
                   <h1 class="mdc-typography--subtitle1">Why wait in line when you can register online?</h1>
                   <h1 class="mdc-typography--subtitle1">Buy your Entry Ticket now!</h1>
                   <h1 class="mdc-typography--subtitle1">Price: Rs. 249!</h1>
-                  <h1 class="mdc-typography--subtitle1">Note: This entry ticket is required to take part in all technical (except Hackathon) and non-technical events. Shortlisted participants taking part only in the Hackathon need to pay hackathon registration fee only (offline).</h1>
+                  <h1 class="mdc-typography--subtitle1">Note: This entry ticket is required to take part in all technical and non-technical events. Workshop Participants need not buy entry tickets. No Refunds will be provided.</h1>
                   <div class="dashboard-card-button-container">
                     <form method="post" action='cashfree/request.php'>
                       <?php
@@ -253,6 +253,7 @@
                         }
                       ?>
                     </ul>
+                    <p style="text-align: center;">Note: No Refunds will be provided</p>
                     <p id="total-amount" style="text-align: center;"></p>
                     <div class="dashboard-card-button-container">
                       <?php
