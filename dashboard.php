@@ -217,7 +217,7 @@
                           $count = 1;
                           while($row = $result->fetch_assoc()) {
                             array_push($new_workshop_ids, $row['workshop_id']);
-                            $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= $seats);
+                            $filled = (array_key_exists($row['workshop_id'], $count_id_pair) && $count_id_pair[$row['workshop_id']] >= $seats[$row['workshop_id']]);
                             echo '<li class="mdc-list-item '.($filled?'mdc-list-item--disabled':'').'" role="checkbox" aria-checked="false">
                                 <span class="mdc-list-item__graphic">
                                 <div class="mdc-checkbox">

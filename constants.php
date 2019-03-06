@@ -5,7 +5,14 @@
     $db_password = "student";
     $db_name = 'prayatna';
 
-    $seats = 60;
+    $seats = array(
+        'artificial-intelligence' => 60,
+        'cracking-the-coding-interview' => 100,
+        'cyber-security' => 100,
+        'flutter' => 60,
+        'react-js' => 60,
+        'system-design' => 60,
+    );
 
     function calculate_hash($user_id, $name, $email, $phone_number) {
         $secret_key = "";
