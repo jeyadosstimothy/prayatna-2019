@@ -1,8 +1,13 @@
 @import url('dist/fonts.css');
 @import url('dist/icons.css');
 
-.title-section .mdc-typography--headline3 {
+.title-section .title-text {
   font-family: 'Permanent Marker', cursive;
+  font-size: 3rem;
+}
+
+.title-section .subtitle-text {
+  font-size: 2.125rem;
 }
 
 .section-header {
@@ -539,6 +544,19 @@ footer .container {
 }
 
 @media(max-width: 1024px) {
+  .title-section .title-text {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.125rem;
+    margin-top: .7rem;
+    margin-bottom: .7rem;
+  }
+
+  .title-section .subtitle-text {
+    font-size: 1.5rem;
+    margin-top: .7rem;
+    margin-bottom: .7rem;
+  }
+
   .app-fab--absolute {
     position: fixed;
     bottom: 1rem;

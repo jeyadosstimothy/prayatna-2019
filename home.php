@@ -102,10 +102,12 @@
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--align-middle">
         <h1 class="mdc-typography--headline3 title-text" align="center">Let the mindgames begin!</h1>
-        <div class="slider">
-          <h1 class="mdc-typography--headline4" align="center">March 8 & 9</h1>
-          <h1 class="mdc-typography--headline4" align="center"><span id="days"></span> days to go!</h1>
-        </div>
+        <h1 class="mdc-typography--headline5 subtitle-text" align="center">March 8 & 9</h1>
+        <a href="res/prayatna.apk" download>
+          <button class="mdc-button mdc-button--raised" style="background-color: white; color: black;">
+            <span class="mdc-button__label" style="letter-spacing: .1rem">Download our app now!</span>
+          </button>
+        </a>
       </div>
     </div>
 
