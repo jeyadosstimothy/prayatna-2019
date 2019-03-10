@@ -16,6 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `connexions`
+--
+
+DROP TABLE IF EXISTS `connexions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `connexions` (
+  `user_id` int(11) NOT NULL,
+  `level` int(11) DEFAULT NULL,
+  `lastTime` datetime DEFAULT NULL,
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `connexions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_details` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `connexions`
+--
+
+LOCK TABLES `connexions` WRITE;
+/*!40000 ALTER TABLE `connexions` DISABLE KEYS */;
+INSERT INTO `connexions` VALUES (28,5,'2019-02-25 21:11:55'),(27,5,'2019-02-26 00:32:00'),(26,5,'2019-02-26 08:51:17'),(30,1,'2019-02-26 11:15:14'),(29,0,NULL);
+/*!40000 ALTER TABLE `connexions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `register_details`
 --
 
@@ -39,7 +65,7 @@ CREATE TABLE `register_details` (
 
 LOCK TABLES `register_details` WRITE;
 /*!40000 ALTER TABLE `register_details` DISABLE KEYS */;
-INSERT INTO `register_details` VALUES ('flutter',28);
+INSERT INTO `register_details` VALUES ('flutter',28),('system-design',28);
 /*!40000 ALTER TABLE `register_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,8 +88,9 @@ CREATE TABLE `user_details` (
   `check_in` date DEFAULT NULL,
   `check_out` date DEFAULT NULL,
   `city` varchar(64) NOT NULL,
+  `dept` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +99,7 @@ CREATE TABLE `user_details` (
 
 LOCK TABLES `user_details` WRITE;
 /*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
-INSERT INTO `user_details` VALUES ('k7','kesavanpalanipk@gmail.com','9090909090','12345',1,NULL,NULL,0,NULL,NULL,''),('k7','akshayred@gmail.com','9090909090','aksgay',2,NULL,NULL,0,NULL,NULL,''),('sample','sample@gmail.com','9090909091','12345',15,'MIT','1',0,NULL,NULL,''),('check','check@gmail.com','9912341234','12345',17,'ASG','1',0,NULL,NULL,''),('vikkikdi','vikramansathi@gmail.com','9119911999','gay123',18,'CMU','3',0,NULL,NULL,''),('dk','deepakoii@gmail.com','9090101010','oii123',19,'MIT','4',0,NULL,NULL,''),('dk1','dk@gmail.com','9090121244','12345',20,'MIT','3',0,NULL,NULL,''),('karthik','karthik@gmail.com','9090121290','12345',21,'MIT','3',0,NULL,NULL,''),('gowtham','gowtham@gmail.com','9898121280','12345',22,'MIT','3',0,NULL,NULL,''),('deepak','abcde@gmail.com','9856748234','abcde',23,'MIT','1',0,NULL,NULL,''),('tim','jeyadosstimothy2@gmail.com','6547891234','12345',24,'MIT','2',0,NULL,NULL,'Chennai'),('Timothy Jones Thomas J','jeyadosstimothy3@gmail.com','9677207736','12345',26,'mit','4',0,NULL,NULL,'chennai'),('Timothy','jeyadosstimothy1@gmail.com','9677207737','12345',27,'mit','2',0,NULL,NULL,'chennai'),('Timothy J','jeyadosstimothy@gmail.com','9677207739','12345',28,'MIT','4',1,'2019-03-07','2019-02-09','Chennai');
+INSERT INTO `user_details` VALUES ('k7','kesavanpalanipk@gmail.com','9090909090','12345',1,NULL,NULL,0,NULL,NULL,'',NULL),('k7','akshayred@gmail.com','9090909090','aksgay',2,NULL,NULL,0,NULL,NULL,'',NULL),('sample','sample@gmail.com','9090909091','12345',15,'MIT','1',0,NULL,NULL,'',NULL),('check','check@gmail.com','9912341234','12345',17,'ASG','1',0,NULL,NULL,'',NULL),('vikkikdi','vikramansathi@gmail.com','9119911999','gay123',18,'CMU','3',0,NULL,NULL,'',NULL),('dk','deepakoii@gmail.com','9090101010','oii123',19,'MIT','4',0,NULL,NULL,'',NULL),('dk1','dk@gmail.com','9090121244','12345',20,'MIT','3',0,NULL,NULL,'',NULL),('karthik','karthik@gmail.com','9090121290','12345',21,'MIT','3',0,NULL,NULL,'',NULL),('gowtham','gowtham@gmail.com','9898121280','12345',22,'MIT','3',0,NULL,NULL,'',NULL),('deepak','abcde@gmail.com','9856748234','abcde',23,'MIT','1',0,NULL,NULL,'',NULL),('tim','jeyadosstimothy2@gmail.com','6547891234','12345',24,'MIT','2',0,NULL,NULL,'Chennai',NULL),('Timothy Jones Thomas J','jeyadosstimothy3@gmail.com','9677207736','12345',26,'mit','4',0,NULL,NULL,'chennai',NULL),('Timothy','jeyadosstimothy1@gmail.com','9677207737','12345',27,'mit','2',0,NULL,NULL,'chennai',NULL),('Timothy J','jeyadosstimothy@gmail.com','9677207739','12345',28,'MIT','4',1,'2019-03-07','2019-02-09','Chennai',NULL),('timothy','jeyadosstimothy4@gmail.com','9876543210','12345',29,'MIT','',0,NULL,NULL,'chennai',NULL),('timothy','jeyadosstimothy5@gmail.com','9677207738','12345',30,'mit','2',0,NULL,NULL,'chennai',NULL);
 /*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-09 16:13:24
+-- Dump completed on 2019-03-10 21:09:45

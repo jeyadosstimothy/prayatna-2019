@@ -1,4 +1,0 @@
-user_details(user_id int, name varchar(64), email_id varchar(254), phone_number varchar(10), password varchar(60), college varchar(300), dept varchar(300), year_of_study varchar(4), city varchar(64), check_in date, check_out date, bought_entry tinyint(1));
-register_details(workshop_id varchar(30), user_id int(11));
-workshop_details(workshop_id varchar(30), workshop_name varchar(30), price int(11), date varchar(30));
-connexions(user_id int, level int, lastSubmission datetime);
