@@ -23,9 +23,9 @@
     }
 
     $connexionsStartTime = strtotime('2019-02-25 20:40');
-    $connexionsEndTime = strtotime('2019-02-26 21:50');
+    $connexionsEndTime = strtotime('2119-02-26 21:50');
 
-    $onlinePaymentEndTime = strtotime('2019-02-26 21:20');
+    $onlinePaymentEndTime = strtotime('2119-02-26 21:20');
 
     $olpcStartTime = strtotime('2019-03-04 08:00');
     $olpcEndTime = strtotime('2019-03-04 11:00');
